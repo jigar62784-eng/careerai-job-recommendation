@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI PBL Algorithm Lab — CareerAI</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .node-circle {
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .node-circle:hover {
+      filter: brightness(1.2);
+    }
+    .edge-line {
+      stroke: #cbd5e1;
+      stroke-width: 1.5;
+      transition: all 0.25s ease;
+    }
+    .edge-path {
+      stroke: #2563eb;
+      stroke-width: 3.5;
+      stroke-dasharray: 6 3;
+      animation: dashMove 1s linear infinite;
+    }
+    @keyframes dashMove {
+      from { stroke-dashoffset: 18; }
+      to { stroke-dashoffset: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="demo-mode-banner"></div>
+  <header id="main-navbar"></header>
+
+  <main class="main-content">
+    <div class="container">
+      
+      <!-- Page Title -->
+      <div style="margin-bottom: 2rem;">
+        <div style="display: inline-flex; align-items: center; gap: 0.5rem; background-color: var(--blue-50); border: 1px solid var(--blue-100); color: var(--blue-600); padding: 0.25rem 0.75rem; border-radius: var(--radius-full); font-size: 0.8rem; font-weight: 600; margin-bottom: 0.75rem;">
+          ⚡ Demonstrable AI PBL Modules
+        </div>
+        <h1 style="font-size: 2.25rem; margin-bottom: 0.35rem;">AI Algorithm Lab & Graph Explorer</h1>
+        <p style="font-size: 0.95rem; color: var(--slate-600); max-width: 800px;">
+          Interactive sandbox demonstrating Breadth-First Search (BFS), Depth-First Search (DFS), A* Heuristic Search, and Constraint Satisfaction Filtering across real career transition graphs.
+        </p>
+      </div>
+
+      <!-- Algorithm Selector & Parameters Card -->
+      <div class="card" style="margin-bottom: 2rem; border-color: var(--blue-200); box-shadow: var(--shadow-md);">
+        <div class="card-header" style="background-color: var(--blue-50); border-bottom-color: var(--blue-100);">
+          <h3>Experiment Configuration & Controls</h3>
+        </div>
+        <div class="card-body">
+          <div style="display: grid; grid-template-columns: 1.5fr 1fr 1fr auto; gap: 1rem; align-items: flex-end;">
+            
+            <!-- Algorithm Choice -->
+            <div class="form-group" style="margin-bottom: 0;">
+              <label class="form-label">Select AI Algorithm:</label>
+              <select id="algo-select" class="form-control" onchange="onAlgorithmChange()">
+                <option value="astar">1. A* Search (Heuristic Shortest Cost Path)</option>
+                <option value="bfs">2. Breadth-First Search (BFS - Fewest Prerequisite Hops)</option>
+                <option value="dfs">3. Depth-First Search (DFS - Deep Branch Exploration)</option>
+                <option value="csp">4. Constraint-Based Job Filtering Solver</option>
+              </select>
+            </div>
+
+            <!-- Start Node -->
+            <div class="form-group" style="margin-bottom: 0;" id="group-start-node">
+              <label class="form-label">Starting Skill Node:</label>
+              <select id="node-start" class="form-control" onchange="resetExperiment()">
+                <!-- Populated dynamically -->
+              </select>
+            </div>
+
+            <!-- Goal Node -->
+            <div class="form-group" style="margin-bottom: 0;" id="group-goal-node">
+              <label class="form-label">Target Role / Goal Node:</label>
+              <select id="node-goal" class="form-control" onchange="resetExperiment()">
+                <!-- Populated dynamically -->
+              </select>
+            </div>
+
+            <!-- Action Buttons -->
+            <div style="display: flex; gap: 0.5rem;">
+              <button class="btn btn-primary" id="btn-run-all" onclick="runFullExperiment()">
+                ▶ Run All
+              </button>
+              <button class="btn btn-secondary" id="btn-step" onclick="stepExperiment()">
+                ⏭ Step
+              </button>
+              <button class="btn btn-outline" onclick="resetExperiment()">
+                🔄 Reset
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Execution Metrics Bar -->
+      <div class="metrics-grid" style="margin-bottom: 1.5rem;" id="metrics-bar">
+        <div class="metric-card">
+          <div class="metric-icon-box metric-icon-blue">👣</div>
+          <div class="metric-data">
+            <div class="metric-label">Execution Step</div>
+            <div class="metric-value" id="stat-step-num">0 / 0</div>
+            <div class="metric-sub" id="stat-step-status">Ready to start</div>
+          </div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-icon-box metric-icon-cyan">📍</div>
+          <div class="metric-data">
+            <div class="metric-label">Current Node</div>
+            <div class="metric-value" style="font-size: 1.15rem;" id="stat-curr-node">None</div>
+            <div class="metric-sub" id="stat-node-cost">--</div>
+          </div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-icon-box metric-icon-amber">📚</div>
+          <div class="metric-data">
+            <div class="metric-label" id="label-queue-stack">Open Set / Queue Size</div>
+            <div class="metric-value" id="stat-queue-size">0</div>
+            <div class="metric-sub" id="stat-visited-size">Explored: 0 nodes</div>
+          </div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-icon-box metric-icon-emerald">🏁</div>
+          <div class="metric-data">
+            <div class="metric-label">Goal Path Status</div>
+            <div class="metric-value" style="font-size: 1.15rem;" id="stat-path-status">Pending</div>
+            <div class="metric-sub" id="stat-total-cost">Total Effort: --</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Graph Canvas Visualizer Container -->
+      <div class="graph-canvas-container" id="graph-visualizer-container" style="margin-bottom: 2rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+          <h3 style="font-size: 1.1rem; color: var(--navy-900);">Skill Dependency & Career Transition Graph</h3>
+          <div style="display: flex; gap: 0.75rem; font-size: 0.75rem; flex-wrap: wrap;">
+            <span style="display: inline-flex; align-items: center; gap: 0.3rem;"><span style="width: 10px; height: 10px; border-radius: 50%; background: #64748b;"></span> Foundation</span>
+            <span style="display: inline-flex; align-items: center; gap: 0.3rem;"><span style="width: 10px; height: 10px; border-radius: 50%; background: #3b82f6;"></span> Web Dev</span>
+            <span style="display: inline-flex; align-items: center; gap: 0.3rem;"><span style="width: 10px; height: 10px; border-radius: 50%; background: #8b5cf6;"></span> Machine Learning</span>
+            <span style="display: inline-flex; align-items: center; gap: 0.3rem;"><span style="width: 10px; height: 10px; border-radius: 50%; background: #06b6d4;"></span> Cloud & DevOps</span>
+            <span style="display: inline-flex; align-items: center; gap: 0.3rem;"><span style="width: 10px; height: 10px; border-radius: 50%; background: #10b981;"></span> Target Role</span>
+          </div>
+        </div>
+
+        <svg id="career-graph-svg" class="graph-svg" viewBox="0 0 880 500">
+          <!-- Edges and Nodes drawn dynamically via JS -->
+        </svg>
+      </div>
+
+      <!-- Constraint Satisfaction Panel (Visible when CSP selected) -->
+      <div class="card" id="csp-panel" style="display: none; margin-bottom: 2rem;">
+        <div class="card-header">
+          <h3>Constraint Satisfaction Filtering (CSP Forward Checking)</h3>
+        </div>
+        <div class="card-body">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+            <div>
+              <label class="form-label">Minimum Degree Requirement:</label>
+              <select id="csp-degree" class="form-control" onchange="runCSPExperiment()">
+                <option value="B.Tech">B.Tech / B.E</option>
+                <option value="M.Tech">M.Tech / M.S</option>
+                <option value="B.Sc">B.Sc / BCA</option>
+              </select>
+            </div>
+            <div>
+              <label class="form-label">Candidate Experience:</label>
+              <select id="csp-exp" class="form-control" onchange="runCSPExperiment()">
+                <option value="0">0 Years (Fresher)</option>
+                <option value="0.5">0.5 Years (Intern)</option>
+                <option value="1">1 Year</option>
+                <option value="2">2 Years</option>
+              </select>
+            </div>
+            <div>
+              <label class="form-label">Allowed Work Modes:</label>
+              <select id="csp-mode" class="form-control" onchange="runCSPExperiment()">
+                <option value="Any">Any Mode</option>
+                <option value="Remote">Remote Only</option>
+                <option value="Hybrid">Hybrid or Remote</option>
+                <option value="On-site">On-site Only</option>
+              </select>
+            </div>
+            <div>
+              <label class="form-label">Minimum Expected Salary:</label>
+              <select id="csp-salary" class="form-control" onchange="runCSPExperiment()">
+                <option value="0">No Minimum</option>
+                <option value="600000">₹6,00,000 / year</option>
+                <option value="750000">₹7,50,000 / year</option>
+                <option value="900000">₹9,00,000 / year</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 1rem; display: flex; gap: 1.5rem; font-size: 0.9rem;">
+            <span>Evaluated Vacancies: <strong id="csp-total-evaluated">52</strong></span>
+            <span style="color: var(--emerald-600);">Passed All Hard Constraints: <strong id="csp-passed-count">0</strong></span>
+            <span style="color: var(--rose-600);">Violated Constraints: <strong id="csp-failed-count">0</strong></span>
+          </div>
+
+          <div id="csp-results-container" style="max-height: 340px; overflow-y: auto; border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 0.5rem;">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Execution Trace Log Terminal -->
+      <div class="card" style="margin-bottom: 2rem;">
+        <div class="card-header" style="background-color: var(--navy-900); color: #ffffff;">
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span style="color: #38bdf8;">🖥️</span>
+            <h3 style="font-size: 1.05rem; color: #ffffff;">Execution Trace Log & Step Inspector</h3>
+          </div>
+          <span style="font-size: 0.78rem; color: var(--slate-400);">Monitored AI PBL state variables</span>
+        </div>
+        <div class="card-body" style="padding: 0; background-color: var(--navy-950);">
+          <div id="trace-step-log" class="trace-step-log">
+            <div style="color: var(--slate-400);">Select algorithm parameters and click "Run All" or "Step" to start execution trace.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PBL Theoretical & Mathematical Formulations -->
+      <div class="card" style="margin-bottom: 3rem;">
+        <div class="card-header">
+          <h3>PBL Academic Foundations & Algorithm Analysis</h3>
+        </div>
+        <div class="card-body" style="font-size: 0.92rem; line-height: 1.7; color: var(--navy-800);">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+            <div>
+              <h4 style="margin-bottom: 0.5rem; color: var(--navy-900);">1. Breadth-First Search (BFS)</h4>
+              <p style="font-size: 0.85rem; color: var(--slate-600); margin-bottom: 0.5rem;">
+                BFS systematically explores all neighbor nodes at current depth $d$ before moving to $d+1$ using a First-In-First-Out (FIFO) queue. When edges have uniform unit cost, BFS is guaranteed to discover the shortest path with the minimum number of prerequisite transitions.
+              </p>
+              <div style="font-size: 0.8rem; background: var(--slate-100); padding: 0.5rem; border-radius: 6px; font-family: var(--font-mono);">
+                Time Complexity: O(|V| + |E|)<br>
+                Space Complexity: O(|V|)
+              </div>
+            </div>
+
+            <div>
+              <h4 style="margin-bottom: 0.5rem; color: var(--navy-900);">2. A* Heuristic Search</h4>
+              <p style="font-size: 0.85rem; color: var(--slate-600); margin-bottom: 0.5rem;">
+                A* guides exploration toward the target career role using the evaluation function <code>f(n) = g(n) + h(n)</code>. $g(n)$ is the exact accumulated learning difficulty cost from start to $n$. $h(n)$ is the Euclidean straight-line distance in competency coordinate space. Because $h(n) \le h^*(n)$ (admissible heuristic), A* is guaranteed to return the optimal minimum-cost learning path.
+              </p>
+              <div style="font-size: 0.8rem; background: var(--slate-100); padding: 0.5rem; border-radius: 6px; font-family: var(--font-mono);">
+                Evaluation: f(n) = g(n) + h(n)<br>
+                Admissibility: h(n) &le; h*(n) [Guaranteed Optimal]
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer id="main-footer"></footer>
+
+  <!-- Firebase SDK v10.8.0 (Compat libraries for pure vanilla JS) -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
+  <script src="js/firebase-config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/recommender.js"></script>
+  <script src="js/algorithms.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    let graphData = null;
+    let allJobs = [];
+    let currentExecution = null;
+    let currentStepIndex = 0;
+
+    const CATEGORY_COLORS = {
+      'Foundation': '#64748b',
+      'Web Dev': '#3b82f6',
+      'Machine Learning': '#8b5cf6',
+      'Data Science': '#6366f1',
+      'Cloud & DevOps': '#06b6d4',
+      'Target Role': '#10b981'
+    };
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      CareerApp.initPage('algorithm-lab');
+
+      allJobs = await CareerDB.getJobs();
+
+      try {
+        const res = await fetch('data/career-graph.json');
+        if (res.ok) {
+          graphData = await res.json();
+          initGraphUI(graphData);
+          drawGraph(graphData);
+        }
+      } catch (e) {
+        console.error('Error loading career graph', e);
+      }
+    });
+
+    function initGraphUI(data) {
+      const startSelect = document.getElementById('node-start');
+      const goalSelect = document.getElementById('node-goal');
+
+      startSelect.innerHTML = '';
+      goalSelect.innerHTML = '';
+
+      data.nodes.forEach(n => {
+        const optS = document.createElement('option');
+        optS.value = n.id;
+        optS.textContent = `[${n.category}] ${n.label}`;
+        startSelect.appendChild(optS);
+
+        const optG = document.createElement('option');
+        optG.value = n.id;
+        optG.textContent = `[${n.category}] ${n.label}`;
+        goalSelect.appendChild(optG);
+      });
+
+      // Defaults
+      startSelect.value = 'PROG_BASICS';
+      goalSelect.value = 'ROLE_AI_ENGINEER';
+    }
+
+    function drawGraph(data, highlightedNode = null, activePath = [], visitedSet = new Set()) {
+      const svg = document.getElementById('career-graph-svg');
+      svg.innerHTML = '';
+
+      const nodeMap = {};
+      data.nodes.forEach(n => { nodeMap[n.id] = n; });
+
+      // Create arrow marker definition
+      const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+      defs.innerHTML = `
+        <marker id="arrow" viewBox="0 0 10 10" refX="22" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8" />
+        </marker>
+        <marker id="arrow-active" viewBox="0 0 10 10" refX="22" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb" />
+        </marker>
+      `;
+      svg.appendChild(defs);
+
+      // Draw Edges
+      data.edges.forEach(e => {
+        const source = nodeMap[e.from];
+        const target = nodeMap[e.to];
+        if (!source || !target) return;
+
+        const isPathEdge = activePath.length > 1 && activePath.some((id, idx) => idx < activePath.length - 1 && id === e.from && activePath[idx + 1] === e.to);
+
+        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        line.setAttribute('x1', source.x);
+        line.setAttribute('y1', source.y);
+        line.setAttribute('x2', target.x);
+        line.setAttribute('y2', target.y);
+        line.setAttribute('class', isPathEdge ? 'edge-path' : 'edge-line');
+        line.setAttribute('marker-end', isPathEdge ? 'url(#arrow-active)' : 'url(#arrow)');
+        svg.appendChild(line);
+
+        // Edge weight text
+        const midX = (source.x + target.x) / 2;
+        const midY = (source.y + target.y) / 2;
+        const txt = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        txt.setAttribute('x', midX);
+        txt.setAttribute('y', midY - 3);
+        txt.setAttribute('font-size', '9');
+        txt.setAttribute('fill', isPathEdge ? '#2563eb' : '#94a3b8');
+        txt.setAttribute('font-weight', isPathEdge ? '700' : '400');
+        txt.setAttribute('text-anchor', 'middle');
+        txt.textContent = e.weight;
+        svg.appendChild(txt);
+      });
+
+      // Draw Nodes
+      data.nodes.forEach(n => {
+        const isCurrent = highlightedNode === n.id;
+        const isVisited = visitedSet.has(n.id);
+        const isInPath = activePath.includes(n.id);
+        const catColor = CATEGORY_COLORS[n.category] || '#64748b';
+
+        const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+        g.setAttribute('transform', `translate(${n.x}, ${n.y})`);
+
+        // Circle
+        const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        circle.setAttribute('r', isCurrent ? '18' : (n.category === 'Target Role' ? '16' : '14'));
+        circle.setAttribute('fill', isCurrent ? '#fef08a' : (isInPath ? '#bfdbfe' : '#ffffff'));
+        circle.setAttribute('stroke', isCurrent ? '#eab308' : (isInPath ? '#2563eb' : catColor));
+        circle.setAttribute('stroke-width', isCurrent || isInPath ? '3' : '2');
+        circle.setAttribute('class', 'node-circle');
+        g.appendChild(circle);
+
+        // Text label
+        const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        text.setAttribute('y', '26');
+        text.setAttribute('font-size', '10');
+        text.setAttribute('font-weight', isCurrent || isInPath ? '700' : '500');
+        text.setAttribute('fill', isCurrent ? '#854d0e' : (isInPath ? '#1e3a8a' : '#0f172a'));
+        text.setAttribute('text-anchor', 'middle');
+        text.textContent = n.label;
+        g.appendChild(text);
+
+        svg.appendChild(g);
+      });
+    }
+
+    function onAlgorithmChange() {
+      const algo = document.getElementById('algo-select').value;
+      const graphContainer = document.getElementById('graph-visualizer-container');
+      const cspPanel = document.getElementById('csp-panel');
+      const startGroup = document.getElementById('group-start-node');
+      const goalGroup = document.getElementById('group-goal-node');
+      const metricsBar = document.getElementById('metrics-bar');
+
+      if (algo === 'csp') {
+        graphContainer.style.display = 'none';
+        metricsBar.style.display = 'none';
+        cspPanel.style.display = 'block';
+        startGroup.style.display = 'none';
+        goalGroup.style.display = 'none';
+        document.getElementById('btn-step').style.display = 'none';
+        document.getElementById('btn-run-all').textContent = '▶ Solve Constraints';
+        runCSPExperiment();
+      } else {
+        graphContainer.style.display = 'block';
+        metricsBar.style.display = 'grid';
+        cspPanel.style.display = 'none';
+        startGroup.style.display = 'block';
+        goalGroup.style.display = 'block';
+        document.getElementById('btn-step').style.display = 'inline-flex';
+        document.getElementById('btn-run-all').textContent = '▶ Run All';
+        resetExperiment();
+      }
+    }
+
+    function resetExperiment() {
+      currentExecution = null;
+      currentStepIndex = 0;
+      document.getElementById('stat-step-num').textContent = '0 / 0';
+      document.getElementById('stat-step-status').textContent = 'Ready to start';
+      document.getElementById('stat-curr-node').textContent = 'None';
+      document.getElementById('stat-node-cost').textContent = '--';
+      document.getElementById('stat-queue-size').textContent = '0';
+      document.getElementById('stat-visited-size').textContent = 'Explored: 0 nodes';
+      document.getElementById('stat-path-status').textContent = 'Pending';
+      document.getElementById('stat-total-cost').textContent = 'Total Effort: --';
+
+      document.getElementById('trace-step-log').innerHTML = '<div style="color: var(--slate-400);">Experiment reset. Click "Run All" or "Step" to commence execution.</div>';
+
+      if (graphData) {
+        drawGraph(graphData);
+      }
+    }
+
+    function initializeExecution() {
+      if (!graphData) return null;
+      const algo = document.getElementById('algo-select').value;
+      const startId = document.getElementById('node-start').value;
+      const goalId = document.getElementById('node-goal').value;
+
+      if (algo === 'bfs') {
+        currentExecution = CareerAlgorithms.runBFS(graphData.nodes, graphData.edges, startId, goalId);
+        document.getElementById('label-queue-stack').textContent = 'FIFO Queue Size';
+      } else if (algo === 'dfs') {
+        currentExecution = CareerAlgorithms.runDFS(graphData.nodes, graphData.edges, startId, goalId);
+        document.getElementById('label-queue-stack').textContent = 'LIFO Stack Depth';
+      } else {
+        currentExecution = CareerAlgorithms.runAStar(graphData.nodes, graphData.edges, startId, goalId);
+        document.getElementById('label-queue-stack').textContent = 'A* Priority Open Set';
+      }
+
+      currentStepIndex = 0;
+      return currentExecution;
+    }
+
+    function stepExperiment() {
+      if (!currentExecution) {
+        initializeExecution();
+      }
+      if (!currentExecution || !currentExecution.steps || currentStepIndex >= currentExecution.steps.length) {
+        CareerApp.showToast('Execution sequence already complete', 'info');
+        return;
+      }
+
+      const step = currentExecution.steps[currentStepIndex];
+      currentStepIndex++;
+
+      renderStep(step, currentStepIndex, currentExecution.steps.length);
+
+      if (currentStepIndex === currentExecution.steps.length) {
+        finishExecution(currentExecution);
+      }
+    }
+
+    function runFullExperiment() {
+      const algo = document.getElementById('algo-select').value;
+      if (algo === 'csp') {
+        runCSPExperiment();
+        return;
+      }
+
+      initializeExecution();
+      if (!currentExecution || !currentExecution.steps) return;
+
+      const log = document.getElementById('trace-step-log');
+      log.innerHTML = '';
+
+      currentExecution.steps.forEach((step, idx) => {
+        const item = document.createElement('div');
+        item.className = 'trace-step-item';
+        item.innerHTML = `<span style="color: #60a5fa;">[Step ${step.step}]</span> ${step.action}`;
+        log.appendChild(item);
+      });
+      log.scrollTop = log.scrollHeight;
+
+      // Draw final path and stats
+      finishExecution(currentExecution);
+    }
+
+    function renderStep(step, current, total) {
+      document.getElementById('stat-step-num').textContent = `${current} / ${total}`;
+      document.getElementById('stat-step-status').textContent = step.isGoal ? 'Goal Node Reached!' : 'Traversing...';
+      document.getElementById('stat-curr-node').textContent = step.currentNode;
+
+      if (step.fVal !== undefined) {
+        document.getElementById('stat-node-cost').textContent = `g=${step.gVal}, h=${step.hVal}, f=${step.fVal}`;
+      } else {
+        document.getElementById('stat-node-cost').textContent = `Step #${step.step}`;
+      }
+
+      const openSize = step.openSetState ? step.openSetState.length : (step.queueState ? step.queueState.length : (step.stackState ? step.stackState.length : 0));
+      document.getElementById('stat-queue-size').textContent = openSize;
+
+      const visitedSize = step.visitedState ? step.visitedState.length : (step.closedSetState ? step.closedSetState.length : 0);
+      document.getElementById('stat-visited-size').textContent = `Explored: ${visitedSize} nodes`;
+
+      const log = document.getElementById('trace-step-log');
+      const item = document.createElement('div');
+      item.className = 'trace-step-item active-step';
+      item.innerHTML = `<span style="color: #38bdf8;">[Step ${step.step}]</span> ${step.action}`;
+      log.appendChild(item);
+      log.scrollTop = log.scrollHeight;
+
+      const visitedSet = new Set(step.visitedState || step.closedSetState || []);
+      drawGraph(graphData, step.currentNode, step.isGoal ? currentExecution.path : [], visitedSet);
+    }
+
+    function finishExecution(exec) {
+      document.getElementById('stat-step-num').textContent = `${exec.steps.length} / ${exec.steps.length}`;
+      document.getElementById('stat-path-status').textContent = exec.success ? 'Success: Path Found' : 'No Path Found';
+      document.getElementById('stat-total-cost').textContent = exec.totalCost !== undefined ? `Total Cost g(n) = ${exec.totalCost}` : `Total Hops = ${exec.hops}`;
+
+      const log = document.getElementById('trace-step-log');
+      const finalMsg = document.createElement('div');
+      finalMsg.className = 'trace-step-item';
+      finalMsg.style.color = '#4ade80';
+      finalMsg.style.fontWeight = '700';
+      finalMsg.innerHTML = `>> Execution Completed. Optimal Path: ${exec.path.join(' &rarr; ')}`;
+      log.appendChild(finalMsg);
+      log.scrollTop = log.scrollHeight;
+
+      drawGraph(graphData, null, exec.path, new Set(exec.path));
+      CareerApp.showToast(`Search completed: ${exec.path.length} nodes in optimal path!`, 'success');
+    }
+
+    function runCSPExperiment() {
+      const constraints = {
+        userEducation: document.getElementById('csp-degree').value,
+        userExperienceYears: parseFloat(document.getElementById('csp-exp').value),
+        allowedWorkModes: document.getElementById('csp-mode').value === 'Any' ? [] : [document.getElementById('csp-mode').value],
+        minDesiredSalaryINR: parseFloat(document.getElementById('csp-salary').value)
+      };
+
+      const filterRes = CareerAlgorithms.filterJobsWithConstraints(allJobs, constraints);
+
+      document.getElementById('csp-total-evaluated').textContent = filterRes.stats.total;
+      document.getElementById('csp-passed-count').textContent = filterRes.stats.passed;
+      document.getElementById('csp-failed-count').textContent = filterRes.stats.failed;
+
+      const container = document.getElementById('csp-results-container');
+      let html = '';
+
+      filterRes.results.forEach(r => {
+        html += `
+          <div style="padding: 0.65rem 0.85rem; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem;">
+            <div>
+              <strong style="color: var(--navy-900);">${r.jobTitle}</strong> (${r.company})
+              <div style="font-size: 0.78rem; color: ${r.satisfiesAll ? 'var(--emerald-600)' : 'var(--rose-600)'};">
+                ${r.satisfiesAll ? '✓ Satisfies all qualification, experience, and salary constraints.' : r.violations.join('; ')}
+              </div>
+            </div>
+            <span class="job-badge-tag" style="background-color: ${r.satisfiesAll ? 'var(--emerald-50)' : 'var(--rose-50)'}; color: ${r.satisfiesAll ? 'var(--emerald-600)' : 'var(--rose-600)'};">
+              ${r.satisfiesAll ? 'Passed' : 'Violated'}
+            </span>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+    }
+  </script>
+</body>
+</html>

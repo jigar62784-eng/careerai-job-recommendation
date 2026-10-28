@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration — CareerAI</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <div id="demo-mode-banner"></div>
+  <header id="main-navbar"></header>
+
+  <main class="main-content" style="display: flex; align-items: center; justify-content: center;">
+    <div class="container" style="max-width: 580px;">
+      
+      <div class="card" style="box-shadow: var(--shadow-lg); border-color: var(--slate-300);">
+        <div class="card-header" style="text-align: center; display: block;">
+          <h2 style="font-size: 1.5rem; margin-bottom: 0.35rem;">Create Student Profile</h2>
+          <p style="font-size: 0.85rem; color: var(--slate-500);" id="reg-mode-subtitle">
+            Register your credentials in Firebase Authentication and Cloud Firestore
+          </p>
+        </div>
+
+        <div class="card-body">
+          <form id="register-form">
+            <!-- Loading Indicator -->
+            <div id="reg-loading-alert" style="display: none; background-color: var(--blue-50); border: 1px solid var(--blue-200); color: var(--blue-700); padding: 0.75rem; border-radius: var(--radius-md); font-size: 0.85rem; margin-bottom: 1.25rem; text-align: center;">
+              ⏳ Creating Firebase account & persisting profile to Cloud Firestore...
+            </div>
+
+            <!-- Error Box -->
+            <div id="reg-error-alert" style="display: none; background-color: var(--rose-50); border: 1px solid var(--rose-300); color: var(--rose-700); padding: 0.75rem; border-radius: var(--radius-md); font-size: 0.85rem; margin-bottom: 1.25rem;"></div>
+
+            <!-- Success Box -->
+            <div id="reg-success-alert" style="display: none; background-color: var(--emerald-50); border: 1px solid var(--emerald-300); color: var(--emerald-700); padding: 0.75rem; border-radius: var(--radius-md); font-size: 0.85rem; margin-bottom: 1.25rem; text-align: center;">
+              ✓ Account created and profile saved in Cloud Firestore! Redirecting to dashboard...
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div class="form-group">
+                <label class="form-label" for="reg-name">Full Name *</label>
+                <input type="text" id="reg-name" class="form-control" required placeholder="e.g. Priya Patel">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="reg-email">Email Address *</label>
+                <input type="email" id="reg-email" class="form-control" required placeholder="priya@domain.edu">
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div class="form-group">
+                <label class="form-label" for="reg-degree">Degree & Major *</label>
+                <select id="reg-degree" class="form-control" required>
+                  <option value="B.Tech in Artificial Intelligence">B.Tech in Artificial Intelligence</option>
+                  <option value="B.Tech in Computer Science">B.Tech in Computer Science</option>
+                  <option value="B.Tech in Information Technology">B.Tech in Information Technology</option>
+                  <option value="B.Tech in Data Science">B.Tech in Data Science</option>
+                  <option value="B.Tech in Electronics & Communication">B.Tech in Electronics (ECE)</option>
+                  <option value="B.Sc / BCA in Computer Science">B.Sc / BCA in CS</option>
+                  <option value="M.Tech in AI / CS">M.Tech in AI / CS</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="reg-grad-year">Graduation Year *</label>
+                <select id="reg-grad-year" class="form-control" required>
+                  <option value="2026">2026 (Final Year)</option>
+                  <option value="2027">2027 (Pre-Final Year)</option>
+                  <option value="2025">2025 (Recent Graduate)</option>
+                  <option value="2028">2028</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="reg-skills">Technical Skills (comma-separated) *</label>
+              <input type="text" id="reg-skills" class="form-control" required placeholder="e.g. Python, Machine Learning, SQL, Git, React">
+              <div class="form-hint">These skills are normalized and indexed by the recommendation engine.</div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="reg-role">Preferred Target Job Role *</label>
+              <input type="text" id="reg-role" class="form-control" required placeholder="e.g. Junior AI Engineer, Associate Data Scientist">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="reg-password">Password (min 6 characters) *</label>
+              <input type="password" id="reg-password" class="form-control" minlength="6" required placeholder="••••••••">
+            </div>
+
+            <button type="submit" id="reg-submit-btn" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">
+              Complete Registration & Persist to Firestore
+            </button>
+          </form>
+        </div>
+
+        <div class="card-footer" style="justify-content: center; font-size: 0.85rem; color: var(--slate-600);">
+          Already registered?&nbsp;<a href="login.html" style="font-weight: 600;">Sign in here</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer id="main-footer"></footer>
+
+  <!-- Firebase SDK v10.8.0 (Compat libraries for pure vanilla JS) -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
+  <script src="js/firebase-config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/recommender.js"></script>
+  <script src="js/algorithms.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      CareerApp.initPage('register');
+
+      const mode = FirebaseConfigManager.getAppMode();
+      if (mode.isDemo) {
+        document.getElementById('reg-mode-subtitle').textContent = 'Registering in Browser Demo Storage';
+      } else {
+        document.getElementById('reg-mode-subtitle').textContent = `Target: Cloud Firestore (${mode.projectId})`;
+      }
+
+      const form = document.getElementById('register-form');
+      const errBox = document.getElementById('reg-error-alert');
+      const loadBox = document.getElementById('reg-loading-alert');
+      const successBox = document.getElementById('reg-success-alert');
+      const submitBtn = document.getElementById('reg-submit-btn');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        errBox.style.display = 'none';
+        successBox.style.display = 'none';
+        loadBox.style.display = 'block';
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Processing registration...';
+
+        const name = document.getElementById('reg-name').value.trim();
+        const email = document.getElementById('reg-email').value.trim();
+        const degree = document.getElementById('reg-degree').value;
+        const gradYear = parseInt(document.getElementById('reg-grad-year').value);
+        const skillsRaw = document.getElementById('reg-skills').value;
+        const targetRole = document.getElementById('reg-role').value.trim();
+        const password = document.getElementById('reg-password').value;
+
+        const skillsList = CareerRecommender.normalizeSkillList(skillsRaw);
+
+        const res = await CareerAuth.signup(name, email, password, 'student');
+        if (res.success) {
+          try {
+            // Save customized initial profile to Firestore or demo DB
+            await CareerDB.saveUserProfile(res.user.uid, {
+              fullName: name,
+              email: email,
+              education: degree.startsWith('M.Tech') ? 'M.Tech' : 'B.Tech',
+              degree: degree,
+              graduationYear: gradYear,
+              skills: skillsList,
+              desiredRoles: [targetRole],
+              experienceYears: 0,
+              workMode: ['Hybrid', 'Remote'],
+              preferredLocation: 'Bangalore, India'
+            });
+
+            loadBox.style.display = 'none';
+            successBox.style.display = 'block';
+            CareerApp.showToast(`Account registered successfully for ${name}!`, 'success');
+            setTimeout(() => {
+              window.location.href = 'dashboard.html';
+            }, 600);
+          } catch (profileErr) {
+            loadBox.style.display = 'none';
+            errBox.textContent = `Account created, but profile save failed: ${profileErr.message}`;
+            errBox.style.display = 'block';
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Retry Saving Profile';
+          }
+        } else {
+          loadBox.style.display = 'none';
+          errBox.textContent = res.error;
+          errBox.style.display = 'block';
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Complete Registration & Persist to Firestore';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

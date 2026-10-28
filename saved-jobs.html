@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saved Jobs & Bookmarks — CareerAI</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <div id="demo-mode-banner"></div>
+  <header id="main-navbar"></header>
+
+  <main class="main-content">
+    <div class="container">
+      
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <h1 style="font-size: 2rem; margin-bottom: 0.35rem;">Bookmarked Job Opportunities</h1>
+          <p style="font-size: 0.92rem; color: var(--slate-600);">
+            Saved vacancies for quick reference, application submission, and interview tracking.
+          </p>
+        </div>
+        <a href="jobs.html" class="btn btn-primary btn-sm">
+          🔍 Browse More Jobs
+        </a>
+      </div>
+
+      <!-- Saved Jobs List Container -->
+      <div id="saved-jobs-container" style="display: flex; flex-direction: column; gap: 1.25rem; margin-bottom: 3rem;">
+        <div style="padding: 3rem; text-align: center; color: var(--slate-500);">
+          Loading bookmarked jobs...
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer id="main-footer"></footer>
+
+  <!-- Firebase SDK v10.8.0 (Compat libraries for pure vanilla JS) -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
+  <script src="js/firebase-config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/recommender.js"></script>
+  <script src="js/algorithms.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    let studentProfile = null;
+    let allJobs = [];
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      CareerApp.initPage('saved-jobs');
+
+      const user = CareerAuth.getCurrentUser();
+      if (!user) {
+        window.location.href = 'login.html?redirect=saved-jobs.html';
+        return;
+      }
+
+      studentProfile = await CareerDB.getUserProfile(user.uid);
+      allJobs = await CareerDB.getJobs();
+      renderSavedJobs();
+    });
+
+    async function renderSavedJobs() {
+      const user = CareerAuth.getCurrentUser();
+      const savedIds = await CareerDB.getSavedJobIds(user.uid);
+      const container = document.getElementById('saved-jobs-container');
+
+      if (!savedIds || savedIds.length === 0) {
+        container.innerHTML = `
+          <div style="text-align: center; padding: 4rem 1rem; background-color: #ffffff; border: 1px dashed var(--slate-300); border-radius: var(--radius-lg);">
+            <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🔖</div>
+            <h3 style="color: var(--navy-800); margin-bottom: 0.5rem;">No saved jobs yet</h3>
+            <p style="font-size: 0.9rem; color: var(--slate-500); margin-bottom: 1.25rem;">Bookmark jobs while exploring to keep track of interesting opportunities.</p>
+            <a href="jobs.html" class="btn btn-primary btn-sm">Explore Job Listings</a>
+          </div>
+        `;
+        return;
+      }
+
+      const savedJobs = allJobs.filter(j => savedIds.includes(j.id));
+      const ranked = CareerRecommender.rankJobsForProfile(studentProfile, savedJobs);
+
+      let html = '';
+      ranked.forEach(item => {
+        const j = item.job;
+        const m = item.match;
+        const scoreClass = m.overallScore >= 80 ? 'match-high' : (m.overallScore >= 60 ? 'match-mid' : 'match-low');
+
+        html += `
+          <div class="job-card" id="saved-card-${j.id}">
+            <div>
+              <div class="job-card-top">
+                <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                  <div class="job-company-avatar">${j.company.charAt(0)}</div>
+                  <div>
+                    <a href="job-details.html?id=${j.id}">
+                      <h3 style="font-size: 1.15rem; color: var(--navy-900);">${j.title}</h3>
+                    </a>
+                    <div style="font-size: 0.88rem; font-weight: 600; color: var(--slate-600);">${j.company}</div>
+                    <div class="job-meta-row">
+                      <span>📍 ${j.location}</span>
+                      <span class="job-badge-tag">${j.workMode}</span>
+                      <span class="job-badge-tag">${j.experienceLevel}</span>
+                      <span>💰 ${j.salaryRange}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div style="text-align: right; flex-shrink: 0;">
+                  <span class="match-score-badge ${scoreClass}">
+                    ${m.overallScore}% Match
+                  </span>
+                </div>
+              </div>
+
+              <div class="job-skills-container" style="margin-top: 0.75rem;">
+                ${m.breakdown.skills.matchedSkills.slice(0, 5).map(s => `
+                  <span class="skill-pill skill-pill-matched">✓ ${s}</span>
+                `).join('')}
+                ${m.breakdown.skills.missingSkills.slice(0, 2).map(s => `
+                  <span class="skill-pill skill-pill-missing">+ ${s}</span>
+                `).join('')}
+              </div>
+            </div>
+
+            <div class="job-card-footer">
+              <button class="btn btn-outline btn-sm text-danger" onclick="removeBookmark('${j.id}')">
+                🗑️ Remove Bookmark
+              </button>
+              <div style="display: flex; gap: 0.5rem;">
+                <a href="job-details.html?id=${j.id}" class="btn btn-primary btn-sm">
+                  View & Track &rarr;
+                </a>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+    }
+
+    async function removeBookmark(jobId) {
+      const user = CareerAuth.getCurrentUser();
+      if (!user) return;
+      try {
+        await CareerDB.toggleSaveJob(user.uid, jobId);
+        CareerApp.showToast('Removed from saved bookmarks in Cloud Firestore', 'info');
+        renderSavedJobs();
+      } catch (err) {
+        console.error(err);
+        CareerApp.showToast(`Error removing bookmark: ${err.message}`, 'error');
+      }
+    }
+  </script>
+</body>
+</html>

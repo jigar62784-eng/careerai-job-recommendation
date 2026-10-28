@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard — CareerAI</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <div id="demo-mode-banner"></div>
+  <header id="main-navbar"></header>
+
+  <main class="main-content">
+    <div class="container">
+      
+      <!-- Admin Console Header -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <div style="display: inline-flex; align-items: center; gap: 0.5rem; background-color: var(--rose-100); color: var(--rose-600); padding: 0.2rem 0.6rem; border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.5rem;">
+            🛡️ Protected Administrator Console
+          </div>
+          <h1 style="font-size: 2rem; margin-bottom: 0.35rem;">Platform & Vacancy Administration</h1>
+          <p style="font-size: 0.92rem; color: var(--slate-600);">
+            Manage synthetic dataset listings, monitor student skill distributions, and configure recommendation rules.
+          </p>
+        </div>
+
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <button class="btn btn-outline btn-sm" id="admin-seed-btn" onclick="seedFirestoreFromAdmin()">
+            📦 Seed 52 Jobs to Firestore
+          </button>
+          <button class="btn btn-outline btn-sm" onclick="CareerApp.openFirebaseConfigModal()">
+            ⚙️ Cloud Config
+          </button>
+          <button class="btn btn-primary btn-sm" onclick="openAddJobModal()">
+            + Add New Job Vacancy
+          </button>
+        </div>
+      </div>
+
+      <!-- Admin Metrics Grid -->
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-icon-box metric-icon-blue">💼</div>
+          <div class="metric-data">
+            <div class="metric-label">Active Vacancies</div>
+            <div class="metric-value" id="admin-job-count">0</div>
+            <div class="metric-sub">Across 9 technology domains</div>
+          </div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-icon-box metric-icon-emerald">🎓</div>
+          <div class="metric-data">
+            <div class="metric-label">Registered Candidates</div>
+            <div class="metric-value" id="admin-student-count">1</div>
+            <div class="metric-sub">Active student profiles</div>
+          </div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-icon-box metric-icon-amber">🔥</div>
+          <div class="metric-data">
+            <div class="metric-label">Top In-Demand Skill</div>
+            <div class="metric-value" style="font-size: 1.25rem;" id="admin-top-skill">Python</div>
+            <div class="metric-sub" id="admin-top-skill-count">In 34 listings</div>
+          </div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-icon-box metric-icon-cyan">📊</div>
+          <div class="metric-data">
+            <div class="metric-label">AI Recommendation Engine</div>
+            <div class="metric-value" style="font-size: 1.25rem; color: var(--emerald-600);">Active</div>
+            <div class="metric-sub">TF-IDF & Cosine Similarity</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skills Market Analytics Card -->
+      <div class="card" style="margin-bottom: 2rem;">
+        <div class="card-header">
+          <h3>Marketplace In-Demand Technical Competencies</h3>
+        </div>
+        <div class="card-body">
+          <div id="skills-frequency-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Job Vacancies Management Table -->
+      <div class="card" style="margin-bottom: 3rem;">
+        <div class="card-header">
+          <div>
+            <h3>Job Postings Repository (<span id="table-job-total">0</span>)</h3>
+            <p style="font-size: 0.82rem; color: var(--slate-500);">Add, modify, or retire demonstration records.</p>
+          </div>
+          <input type="text" id="admin-search-input" class="form-control" style="max-width: 280px;" placeholder="Filter listings..." oninput="filterAdminJobs()">
+        </div>
+
+        <div class="card-body" style="padding: 0; overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.88rem;">
+            <thead style="background-color: var(--slate-50); border-bottom: 1px solid var(--border-color); color: var(--navy-800);">
+              <tr>
+                <th style="padding: 1rem 1.25rem;">ID & Title</th>
+                <th style="padding: 1rem;">Company</th>
+                <th style="padding: 1rem;">Category</th>
+                <th style="padding: 1rem;">Location / Mode</th>
+                <th style="padding: 1rem;">Experience</th>
+                <th style="padding: 1rem 1.25rem; text-align: right;">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admin-jobs-tbody">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Add / Edit Job Modal -->
+  <div id="job-modal" class="modal-backdrop">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 id="job-modal-title">Create Demonstration Vacancy</h3>
+        <button class="modal-close-btn" onclick="CareerApp.closeModal('job-modal')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="job-editor-form">
+          <input type="hidden" id="edit-job-id">
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label class="form-label">Job Title *</label>
+              <input type="text" id="form-job-title" class="form-control" required placeholder="e.g. Associate NLP Engineer">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Company Name *</label>
+              <input type="text" id="form-job-comp" class="form-control" required placeholder="e.g. NovaScale AI">
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label class="form-label">Category *</label>
+              <select id="form-job-cat" class="form-control" required>
+                <option value="AI / Machine Learning">AI / Machine Learning</option>
+                <option value="Data Science">Data Science</option>
+                <option value="Frontend">Frontend</option>
+                <option value="Backend">Backend</option>
+                <option value="Full Stack">Full Stack</option>
+                <option value="Cloud & DevOps">Cloud & DevOps</option>
+                <option value="Mobile App Dev">Mobile App Dev</option>
+                <option value="Cybersecurity">Cybersecurity</option>
+                <option value="Quality Assurance">Quality Assurance</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Work Mode *</label>
+              <select id="form-job-mode" class="form-control" required>
+                <option value="Remote">Remote</option>
+                <option value="Hybrid">Hybrid</option>
+                <option value="On-site">On-site</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label class="form-label">Location *</label>
+              <input type="text" id="form-job-loc" class="form-control" required placeholder="Bangalore, India">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Salary Range *</label>
+              <input type="text" id="form-job-salary" class="form-control" required placeholder="₹7,00,000 - ₹10,00,000 / year">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Min Experience (Yrs) *</label>
+              <input type="number" id="form-job-exp" class="form-control" value="0" min="0" max="10" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Required Skills (comma-separated) *</label>
+            <input type="text" id="form-job-skills" class="form-control" required placeholder="e.g. Python, PyTorch, Transformers, Git">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Role Overview / Description *</label>
+            <textarea id="form-job-desc" class="form-control" rows="3" required placeholder="Summary of the team, objectives, and tech stack..."></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline btn-sm" onclick="CareerApp.closeModal('job-modal')">Cancel</button>
+        <button class="btn btn-primary btn-sm" onclick="saveJobFromModal()">Save Vacancy</button>
+      </div>
+    </div>
+  </div>
+
+  <footer id="main-footer"></footer>
+
+  <!-- Firebase SDK v10.8.0 (Compat libraries for pure vanilla JS) -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
+  <script src="js/firebase-config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/recommender.js"></script>
+  <script src="js/algorithms.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    let adminJobs = [];
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      // Guard: strictly require admin
+      const authOk = await CareerAuth.requireAuth('admin', 'login.html');
+      if (!authOk) return;
+
+      CareerApp.initPage('admin');
+
+      try {
+        adminJobs = await CareerDB.getJobs();
+        renderAdminDashboard(adminJobs);
+      } catch (err) {
+        console.error(err);
+        CareerApp.showToast(`Error loading vacancies: ${err.message}`, 'error');
+      }
+    });
+
+    async function seedFirestoreFromAdmin() {
+      const btn = document.getElementById('admin-seed-btn');
+      const mode = FirebaseConfigManager.getAppMode();
+      if (mode.isDemo) {
+        alert('Please switch to Firebase Live Mode first before seeding to Cloud Firestore.');
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = '⏳ Seeding to Firestore...';
+
+      try {
+        const count = await CareerDB.seedJobsToFirestore();
+        CareerApp.showToast(`Successfully seeded ${count} vacancies into Cloud Firestore!`, 'success');
+        btn.textContent = `✓ ${count} Jobs Seeded`;
+        adminJobs = await CareerDB.getJobs();
+        renderAdminDashboard(adminJobs);
+      } catch (err) {
+        console.error(err);
+        alert(`Firestore Seeding Authorization Error: ${err.message}`);
+        btn.disabled = false;
+        btn.textContent = '📦 Seed 52 Jobs to Firestore';
+      }
+    }
+
+    function renderAdminDashboard(jobs) {
+      document.getElementById('admin-job-count').textContent = jobs.length;
+      document.getElementById('table-job-total').textContent = jobs.length;
+
+      // Compute skill frequencies
+      const skillCounts = {};
+      jobs.forEach(j => {
+        (j.requiredSkills || []).forEach(s => {
+          const norm = CareerRecommender.normalizeSkill(s);
+          skillCounts[norm] = (skillCounts[norm] || 0) + 1;
+        });
+      });
+
+      const sortedSkills = Object.entries(skillCounts).sort((a, b) => b[1] - a[1]);
+      if (sortedSkills.length > 0) {
+        document.getElementById('admin-top-skill').textContent = sortedSkills[0][0];
+        document.getElementById('admin-top-skill-count').textContent = `In ${sortedSkills[0][1]} vacancies`;
+      }
+
+      // Render top 8 skills grid
+      const skillContainer = document.getElementById('skills-frequency-container');
+      skillContainer.innerHTML = sortedSkills.slice(0, 8).map(([skill, count]) => `
+        <div style="background-color: var(--slate-50); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 0.85rem;">
+          <div style="display: flex; justify-content: space-between; font-weight: 700; font-size: 0.9rem; margin-bottom: 0.35rem;">
+            <span>${skill}</span>
+            <span style="color: var(--blue-600);">${count} jobs</span>
+          </div>
+          <div class="progress-container" style="height: 6px;">
+            <div class="progress-bar progress-blue" style="width: ${(count / jobs.length) * 100}%;"></div>
+          </div>
+        </div>
+      `).join('');
+
+      renderAdminTable(jobs);
+    }
+
+    function renderAdminTable(jobs) {
+      const tbody = document.getElementById('admin-jobs-tbody');
+      if (jobs.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="6" style="padding: 2rem; text-align: center; color: var(--slate-500);">No jobs found matching criteria.</td></tr>';
+        return;
+      }
+
+      let html = '';
+      jobs.forEach(j => {
+        html += `
+          <tr style="border-bottom: 1px solid var(--slate-100);">
+            <td style="padding: 0.85rem 1.25rem;">
+              <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--slate-400);">${j.id}</span>
+              <div style="font-weight: 600; color: var(--navy-900);">${j.title}</div>
+            </td>
+            <td style="padding: 0.85rem; color: var(--slate-700);">${j.company}</td>
+            <td style="padding: 0.85rem;">
+              <span class="job-badge-tag">${j.category}</span>
+            </td>
+            <td style="padding: 0.85rem; color: var(--slate-600); font-size: 0.82rem;">
+              ${j.location} (${j.workMode})
+            </td>
+            <td style="padding: 0.85rem; color: var(--slate-600); font-size: 0.82rem;">
+              ${j.experienceLevel}
+            </td>
+            <td style="padding: 0.85rem 1.25rem; text-align: right;">
+              <div style="display: flex; gap: 0.4rem; justify-content: flex-end;">
+                <button class="btn btn-outline btn-sm" onclick="openEditJobModal('${j.id}')">Edit</button>
+                <button class="btn btn-danger btn-sm" onclick="handleDeleteJob('${j.id}')">Delete</button>
+              </div>
+            </td>
+          </tr>
+        `;
+      });
+
+      tbody.innerHTML = html;
+    }
+
+    function filterAdminJobs() {
+      const q = document.getElementById('admin-search-input').value.toLowerCase().trim();
+      if (!q) {
+        renderAdminTable(adminJobs);
+        return;
+      }
+      const filtered = adminJobs.filter(j => 
+        j.title.toLowerCase().includes(q) ||
+        j.company.toLowerCase().includes(q) ||
+        j.category.toLowerCase().includes(q) ||
+        j.id.toLowerCase().includes(q)
+      );
+      renderAdminTable(filtered);
+    }
+
+    function openAddJobModal() {
+      document.getElementById('job-modal-title').textContent = 'Create Demonstration Vacancy';
+      document.getElementById('edit-job-id').value = '';
+      document.getElementById('form-job-title').value = '';
+      document.getElementById('form-job-comp').value = '';
+      document.getElementById('form-job-cat').value = 'AI / Machine Learning';
+      document.getElementById('form-job-mode').value = 'Hybrid';
+      document.getElementById('form-job-loc').value = 'Bangalore, India';
+      document.getElementById('form-job-salary').value = '₹7,50,000 - ₹11,00,000 / year';
+      document.getElementById('form-job-exp').value = 0;
+      document.getElementById('form-job-skills').value = '';
+      document.getElementById('form-job-desc').value = '';
+
+      CareerApp.openModal('job-modal');
+    }
+
+    function openEditJobModal(jobId) {
+      const job = adminJobs.find(j => j.id === jobId);
+      if (!job) return;
+
+      document.getElementById('job-modal-title').textContent = `Edit Vacancy (${job.id})`;
+      document.getElementById('edit-job-id').value = job.id;
+      document.getElementById('form-job-title').value = job.title;
+      document.getElementById('form-job-comp').value = job.company;
+      document.getElementById('form-job-cat').value = job.category;
+      document.getElementById('form-job-mode').value = job.workMode;
+      document.getElementById('form-job-loc').value = job.location;
+      document.getElementById('form-job-salary').value = job.salaryRange;
+      document.getElementById('form-job-exp').value = job.minExperienceYears || 0;
+      document.getElementById('form-job-skills').value = (job.requiredSkills || []).join(', ');
+      document.getElementById('form-job-desc').value = job.description;
+
+      CareerApp.openModal('job-modal');
+    }
+
+    async function saveJobFromModal() {
+      const id = document.getElementById('edit-job-id').value;
+      const title = document.getElementById('form-job-title').value.trim();
+      const comp = document.getElementById('form-job-comp').value.trim();
+      const cat = document.getElementById('form-job-cat').value;
+      const mode = document.getElementById('form-job-mode').value;
+      const loc = document.getElementById('form-job-loc').value.trim();
+      const salary = document.getElementById('form-job-salary').value.trim();
+      const exp = parseFloat(document.getElementById('form-job-exp').value || 0);
+      const skillsRaw = document.getElementById('form-job-skills').value;
+      const desc = document.getElementById('form-job-desc').value.trim();
+
+      if (!title || !comp || !skillsRaw) {
+        alert('Please complete all required fields.');
+        return;
+      }
+
+      const skillsList = CareerRecommender.normalizeSkillList(skillsRaw);
+
+      const jobPayload = {
+        title: title,
+        company: comp,
+        category: cat,
+        workMode: mode,
+        location: loc,
+        employmentType: 'Full-time',
+        experienceLevel: exp === 0 ? 'Entry-level (0-1 yrs)' : (exp <= 2 ? 'Junior (1-2 yrs)' : 'Associate (2-3 yrs)'),
+        minExperienceYears: exp,
+        minEducation: 'B.Tech / B.E in CS/IT/AI',
+        salaryRange: salary,
+        minSalaryAnnualINR: 700000,
+        requiredSkills: skillsList,
+        preferredSkills: ['Git', 'FastAPI'],
+        description: desc,
+        responsibilities: [
+          `Develop components using ${skillsList.slice(0, 2).join(' and ')}.`,
+          'Write modular clean code and unit tests.'
+        ]
+      };
+
+      const modalSaveBtn = document.querySelector('button[onclick="saveJobFromModal()"]');
+      modalSaveBtn.disabled = true;
+      modalSaveBtn.textContent = 'Saving to Firestore...';
+
+      try {
+        if (id) {
+          await CareerDB.updateJob(id, jobPayload);
+          CareerApp.showToast(`Updated listing ${id}`, 'success');
+        } else {
+          await CareerDB.createJob(jobPayload);
+          CareerApp.showToast('Created new vacancy listing in Cloud Firestore', 'success');
+        }
+
+        CareerApp.closeModal('job-modal');
+        adminJobs = await CareerDB.getJobs();
+        renderAdminDashboard(adminJobs);
+      } catch (err) {
+        console.error(err);
+        alert(`Cloud Firestore Authorization Failure:\n${err.message}\n\nOperation was rejected by Firestore security rules.`);
+      } finally {
+        modalSaveBtn.disabled = false;
+        modalSaveBtn.textContent = 'Save Vacancy';
+      }
+    }
+
+    async function handleDeleteJob(jobId) {
+      if (confirm(`Retire and delete listing ${jobId}? This action will permanently delete the record from Cloud Firestore.`)) {
+        try {
+          await CareerDB.deleteJob(jobId);
+          CareerApp.showToast(`Deleted ${jobId} from Cloud Firestore`, 'info');
+          adminJobs = await CareerDB.getJobs();
+          renderAdminDashboard(adminJobs);
+        } catch (err) {
+          console.error(err);
+          alert(`Could not delete vacancy: ${err.message}`);
+        }
+      }
+    }
+  </script>
+</body>
+</html>

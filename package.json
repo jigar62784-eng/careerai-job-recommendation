@@ -1,0 +1,26 @@
+{
+  "name": "careerai",
+  "version": "1.0.0",
+  "description": "AI-Based Job Opportunity Recommendation System (B.Tech AI PBL)",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve . -p 8000",
+    "serve": "python -m http.server 8000",
+    "test": "node js/test-core.js",
+    "test:firebase": "node js/test-firebase-flow.js",
+    "test:integrity": "node js/validate-integrity.js"
+  },
+  "keywords": [
+    "ai",
+    "job-recommendations",
+    "pbl",
+    "content-based",
+    "tf-idf",
+    "cosine-similarity",
+    "bfs",
+    "dfs",
+    "a-star"
+  ],
+  "author": "CareerAI Team",
+  "license": "MIT"
+}

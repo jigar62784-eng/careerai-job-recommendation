@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About & AI PBL Architecture — CareerAI</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <div id="demo-mode-banner"></div>
+  <header id="main-navbar"></header>
+
+  <main class="main-content">
+    <div class="container" style="max-width: 900px;">
+      
+      <!-- Header -->
+      <div style="margin-bottom: 2.5rem; text-align: center;">
+        <div style="display: inline-flex; align-items: center; gap: 0.5rem; background-color: var(--blue-50); color: var(--blue-600); padding: 0.25rem 0.75rem; border-radius: var(--radius-full); font-size: 0.8rem; font-weight: 600; margin-bottom: 0.75rem;">
+          🎓 Academic PBL Project Documentation
+        </div>
+        <h1 style="font-size: 2.5rem; margin-bottom: 0.75rem;">CareerAI System Architecture & Algorithms</h1>
+        <p style="font-size: 1rem; color: var(--slate-600); max-width: 720px; margin: 0 auto;">
+          Comprehensive documentation of mathematical models, vectorization schemes, and graph search heuristics powering the CareerAI platform.
+        </p>
+      </div>
+
+      <!-- Section 1: Project Purpose -->
+      <div class="card" style="margin-bottom: 2rem;">
+        <div class="card-header">
+          <h3>1. Project Purpose & Scope</h3>
+        </div>
+        <div class="card-body" style="font-size: 0.95rem; line-height: 1.8; color: var(--navy-800);">
+          <p style="margin-bottom: 1rem;">
+            <strong>CareerAI</strong> is developed as a B.Tech Artificial Intelligence Project-Based Learning (PBL) project. Modern university graduates and engineering students frequently encounter fragmented recruitment platforms where recommendation systems operate as opaque "black boxes" or simply rely on keyword matching without analyzing competency gaps.
+          </p>
+          <p>
+            CareerAI addresses this challenge by combining <strong>Content-Based Text Mining</strong> with <strong>Multi-Criteria Weighted Scoring</strong> and classical <strong>Artificial Intelligence Search Algorithms (BFS, DFS, A*)</strong> to deliver transparent, mathematically explainable recommendations and personalized learning trajectories.
+          </p>
+        </div>
+      </div>
+
+      <!-- Section 2: Content-Based Filtering & TF-IDF -->
+      <div class="card" style="margin-bottom: 2rem;" id="tfidf">
+        <div class="card-header">
+          <h3>2. Content-Based TF-IDF & Cosine Similarity</h3>
+        </div>
+        <div class="card-body" style="font-size: 0.95rem; line-height: 1.8; color: var(--navy-800);">
+          <p style="margin-bottom: 1rem;">
+            To capture semantic nuance between a student's portfolio (projects, certifications, bio, and skills) and complex job descriptions, CareerAI employs Term Frequency-Inverse Document Frequency (TF-IDF) vectorization:
+          </p>
+
+          <div style="background-color: var(--slate-100); border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 1.25rem; font-family: var(--font-mono); font-size: 0.85rem;">
+            <strong>Term Frequency:</strong> TF(t, d) = count(t, d) / total_terms(d)<br>
+            <strong>Inverse Document Frequency:</strong> IDF(t) = ln(1 + (N / (1 + DF(t))))<br>
+            <strong>TF-IDF Weight:</strong> w(t, d) = TF(t, d) &times; IDF(t)<br>
+            <strong>Cosine Similarity:</strong> Cosine(P, J) = (P &middot; J) / (||P|| &times; ||J||)
+          </div>
+
+          <p>
+            The resulting cosine similarity represents the angular orientation between the candidate vector <code>P</code> and the job posting vector <code>J</code> in high-dimensional term space, eliminating biases arising from text length disparity.
+          </p>
+        </div>
+      </div>
+
+      <!-- Section 3: Multi-Criteria Scoring -->
+      <div class="card" style="margin-bottom: 2rem;">
+        <div class="card-header">
+          <h3>3. Multi-Criteria Weighted Scoring Formulation</h3>
+        </div>
+        <div class="card-body" style="font-size: 0.95rem; line-height: 1.8; color: var(--navy-800);">
+          <p style="margin-bottom: 1rem;">
+            Rather than relying exclusively on text similarity, CareerAI computes a composite score across five distinct dimensions:
+          </p>
+          <ul style="padding-left: 1.5rem; margin-bottom: 1.25rem;">
+            <li><strong>Technical Skills (50% default):</strong> Canonical skill overlap combined with TF-IDF cosine weight.</li>
+            <li><strong>Academic Qualification (15% default):</strong> Hierarchical degree level comparison (Ph.D &gt; M.Tech &gt; B.Tech &gt; BCA/B.Sc).</li>
+            <li><strong>Experience Level (15% default):</strong> Years of practical internship/work against job minimum requirements.</li>
+            <li><strong>Role Relevance (10% default):</strong> Target job titles mapped against vacancy title tokens.</li>
+            <li><strong>Preferences (10% default):</strong> Intersection of remote/hybrid work modes and geographic locations.</li>
+          </ul>
+
+          <div style="background-color: var(--blue-50); border: 1px solid var(--blue-100); border-radius: var(--radius-md); padding: 1rem; font-size: 0.88rem;">
+            <strong>Mathematical Normalization:</strong> Scores are strictly computed from active user fields and job attributes and normalized into a transparent [0, 100]% compatibility index. Scores are never framed as "hiring probability".
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 4: Graph Search Algorithms -->
+      <div class="card" style="margin-bottom: 2rem;">
+        <div class="card-header">
+          <h3>4. AI PBL Search Algorithms (BFS, DFS, A*)</h3>
+        </div>
+        <div class="card-body" style="font-size: 0.95rem; line-height: 1.8; color: var(--navy-800);">
+          <p style="margin-bottom: 1rem;">
+            The CareerAI Algorithm Lab models skill prerequisites as a directed acyclic competency graph where nodes represent skills/roles and edges represent transition effort:
+          </p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+            <div style="border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem;">
+              <h4 style="font-size: 1rem; margin-bottom: 0.35rem; color: var(--navy-900);">BFS (Breadth-First Search)</h4>
+              <p style="font-size: 0.82rem; color: var(--slate-600);">
+                Identifies the shortest prerequisite path (minimum number of intermediate certifications or skills) assuming equal-cost transition edges.
+              </p>
+            </div>
+            <div style="border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem;">
+              <h4 style="font-size: 1rem; margin-bottom: 0.35rem; color: var(--navy-900);">A* Heuristic Search</h4>
+              <p style="font-size: 0.82rem; color: var(--slate-600);">
+                Minimizes cumulative learning effort <code>f(n) = g(n) + h(n)</code>. The heuristic <code>h(n)</code> is the scaled Euclidean distance in competency space, strictly satisfying admissibility <code>h(n) &le; h*(n)</code>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 5: Academic Integrity -->
+      <div class="card" style="margin-bottom: 3rem;">
+        <div class="card-header">
+          <h3>5. Academic Integrity & Dataset Transparency</h3>
+        </div>
+        <div class="card-body" style="font-size: 0.92rem; line-height: 1.8; color: var(--navy-800);">
+          <p style="margin-bottom: 1rem;">
+            All 52 job listings provided in the initial dataset are <strong>synthetic benchmark records</strong> generated specifically to validate recommendation ranking accuracy, skill overlap mathematics, and constraint solver performance.
+          </p>
+          <p>
+            The system is designed with modular data abstraction interfaces (<code>db.js</code>), allowing university placement cells or corporate recruiters to seamlessly replace the synthetic corpus with verified live postings via Firestore or local JSON feeds.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer id="main-footer"></footer>
+
+  <!-- Firebase SDK v10.8.0 (Compat libraries for pure vanilla JS) -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
+  <script src="js/firebase-config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/recommender.js"></script>
+  <script src="js/algorithms.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      CareerApp.initPage('about');
+    });
+  </script>
+</body>
+</html>

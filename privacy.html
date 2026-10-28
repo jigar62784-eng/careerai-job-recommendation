@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy & Student Data Protection — CareerAI</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <div id="demo-mode-banner"></div>
+  <header id="main-navbar"></header>
+
+  <main class="main-content">
+    <div class="container" style="max-width: 860px;">
+      
+      <div style="margin-bottom: 2rem;">
+        <h1 style="font-size: 2.25rem; margin-bottom: 0.35rem;">Privacy Policy & Data Security</h1>
+        <p style="font-size: 0.92rem; color: var(--slate-600);">
+          Transparent information regarding how CareerAI processes academic credentials, portfolio skills, and application tracking records.
+        </p>
+      </div>
+
+      <div class="card" style="margin-bottom: 2rem;">
+        <div class="card-body" style="font-size: 0.95rem; line-height: 1.8; color: var(--navy-800);">
+          
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">1. In-Browser Demo Mode Architecture</h3>
+          <p style="margin-bottom: 1.25rem;">
+            When operating in <strong>Demo Mode</strong>, CareerAI runs entirely on the client side using standard HTML5, CSS3, and vanilla JavaScript. All profile information, saved job bookmarks, and application tracking entries are stored exclusively within your browser's sandboxed <code>localStorage</code>. No telemetry, student credentials, or resume details are transmitted to external servers.
+          </p>
+
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">2. Cloud Firestore & Production Security</h3>
+          <p style="margin-bottom: 1.25rem;">
+            When connected to Google Cloud Firestore, data access is strictly governed by declarative <code>firestore.rules</code>:
+          </p>
+          <ul style="padding-left: 1.5rem; margin-bottom: 1.25rem;">
+            <li><strong>Student Profiles:</strong> Only accessible and modifiable by the owning authenticated account (matched via <code>request.auth.uid == userId</code>).</li>
+            <li><strong>Application Tracker:</strong> Scoped strictly to the applicant; other students cannot view your submitted records.</li>
+            <li><strong>Admin Privilege:</strong> Only verified administrator accounts can create, update, or retire vacancy listings.</li>
+          </ul>
+
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">3. Zero Commercial Tracking</h3>
+          <p style="margin-bottom: 1.25rem;">
+            CareerAI is an academic AI Project-Based Learning system. We do not use commercial trackers, cookie networks, third-party analytics scripts, or ad networks.
+          </p>
+
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">4. Resetting Your Data</h3>
+          <p>
+            You can erase all locally stored candidate data at any time by clicking the <strong>"Reset Sample Data"</strong> button located in the top navigation banner, or by clearing your browser cache.
+          </p>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer id="main-footer"></footer>
+
+  <!-- Firebase SDK v10.8.0 (Compat libraries for pure vanilla JS) -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
+  <script src="js/firebase-config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/recommender.js"></script>
+  <script src="js/algorithms.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      CareerApp.initPage('privacy');
+    });
+  </script>
+</body>
+</html>

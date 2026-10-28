@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard — CareerAI</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <div id="demo-mode-banner"></div>
+  <header id="main-navbar"></header>
+
+  <main class="main-content">
+    <div class="container">
+      
+      <!-- Student Profile Header Banner -->
+      <div class="card" style="margin-bottom: 2rem; background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-800) 100%); color: #ffffff; border: none;">
+        <div class="card-body" style="padding: 2rem;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1.5rem;">
+            <div style="display: flex; gap: 1.25rem; align-items: center;">
+              <div class="user-avatar-circle" style="width: 4rem; height: 4rem; font-size: 1.75rem; background: linear-gradient(135deg, var(--blue-600), var(--cyan-600));" id="dash-avatar">
+                A
+              </div>
+              <div>
+                <h1 style="color: #ffffff; font-size: 1.75rem; margin-bottom: 0.25rem;" id="dash-student-name">
+                  Aarav Sharma
+                </h1>
+                <p style="color: var(--blue-100); font-size: 0.92rem; margin-bottom: 0.35rem;" id="dash-student-degree">
+                  B.Tech in Artificial Intelligence & Data Science (Class of 2026)
+                </p>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; font-size: 0.8rem; color: var(--slate-300);">
+                  <span id="dash-student-institution">📍 Bangalore, India</span>
+                  <span>•</span>
+                  <span id="dash-student-exp">💼 0.5 Yrs Experience</span>
+                  <span>•</span>
+                  <span id="dash-student-mode">🌐 Hybrid / Remote Preferred</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 0.75rem; align-items: center;">
+              <a href="profile.html" class="btn btn-outline btn-sm" style="color: #ffffff; border-color: rgba(255,255,255,0.3);">
+                ✏️ Edit Skills & Profile
+              </a>
+              <a href="recommendations.html" class="btn btn-primary btn-sm">
+                ⚙️ Tune Scoring Weights
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Metrics Grid -->
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-icon-box metric-icon-emerald">🎯</div>
+          <div class="metric-data">
+            <div class="metric-label">Top Job Match</div>
+            <div class="metric-value" id="metric-top-match">--</div>
+            <div class="metric-sub" id="metric-top-job-name">Computing recommendations...</div>
+          </div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-icon-box metric-icon-blue">🛠️</div>
+          <div class="metric-data">
+            <div class="metric-label">Profile Skills Count</div>
+            <div class="metric-value" id="metric-skills-count">0</div>
+            <div class="metric-sub">Normalized technical competencies</div>
+          </div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-icon-box metric-icon-amber">📄</div>
+          <div class="metric-data">
+            <div class="metric-label">Active Applications</div>
+            <div class="metric-value" id="metric-apps-count">0</div>
+            <div class="metric-sub"><a href="applications.html">View status pipeline &rarr;</a></div>
+          </div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-icon-box metric-icon-cyan">🔖</div>
+          <div class="metric-data">
+            <div class="metric-label">Saved Jobs</div>
+            <div class="metric-value" id="metric-saved-count">0</div>
+            <div class="metric-sub"><a href="saved-jobs.html">View bookmarked jobs &rarr;</a></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Layout: Recommendations & Pipeline -->
+      <div style="display: grid; grid-template-columns: 2fr 1.15fr; gap: 2rem; margin-bottom: 2.5rem;" id="dash-main-grid">
+        
+        <!-- Left: Top AI Recommendations -->
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+            <div>
+              <h2 style="font-size: 1.35rem;">Top AI-Matched Job Opportunities</h2>
+              <p style="font-size: 0.85rem; color: var(--slate-500);">Ranked dynamically via Content-Based TF-IDF and Multi-Criteria Scoring</p>
+            </div>
+            <a href="recommendations.html" style="font-size: 0.88rem; font-weight: 600;">View All Ranked &rarr;</a>
+          </div>
+
+          <div id="top-jobs-container" style="display: flex; flex-direction: column; gap: 1rem;">
+            <div style="padding: 2rem; text-align: center; color: var(--slate-500);">Loading AI recommendations...</div>
+          </div>
+        </div>
+
+        <!-- Right: Current Applications & Skill Gap Quick Access -->
+        <div>
+          <!-- Applications Card -->
+          <div class="card" style="margin-bottom: 1.5rem;">
+            <div class="card-header">
+              <h3 style="font-size: 1.1rem;">Application Pipeline</h3>
+              <a href="applications.html" style="font-size: 0.82rem; font-weight: 600;">Manage &rarr;</a>
+            </div>
+            <div class="card-body" style="padding: 1rem;" id="dash-apps-container">
+              <div style="font-size: 0.88rem; color: var(--slate-500); text-align: center; padding: 1.5rem 0;">No active applications found.</div>
+            </div>
+          </div>
+
+          <!-- Quick Learning Path / Algorithm Lab Banner -->
+          <div class="card" style="background-color: var(--blue-50); border-color: var(--blue-100);">
+            <div class="card-body">
+              <div style="font-size: 0.8rem; font-weight: 700; color: var(--blue-700); text-transform: uppercase; margin-bottom: 0.35rem;">
+                ⚡ AI PBL Algorithms
+              </div>
+              <h4 style="margin-bottom: 0.5rem; font-size: 1.05rem;">Career & Skill Pathfinding Lab</h4>
+              <p style="font-size: 0.84rem; color: var(--slate-600); margin-bottom: 1rem;">
+                Test BFS, DFS, and A* Search on real prerequisite graphs to bridge missing skills for target roles.
+              </p>
+              <div style="display: flex; gap: 0.5rem;">
+                <a href="algorithm-lab.html" class="btn btn-primary btn-sm" style="flex: 1;">Launch Lab</a>
+                <a href="skill-gap.html" class="btn btn-outline btn-sm" style="flex: 1;">Skill Gap</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Match Breakdown Modal -->
+  <div id="match-breakdown-modal" class="modal-backdrop">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div>
+          <h3 id="modal-job-title" style="font-size: 1.25rem;">AI Compatibility Breakdown</h3>
+          <p id="modal-company-name" style="font-size: 0.85rem; color: var(--slate-500);"></p>
+        </div>
+        <button class="modal-close-btn" onclick="CareerApp.closeModal('match-breakdown-modal')">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-breakdown-content">
+        <!-- Rendered dynamically -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary btn-sm" onclick="CareerApp.closeModal('match-breakdown-modal')">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <footer id="main-footer"></footer>
+
+  <!-- Firebase SDK v10.8.0 (Compat libraries for pure vanilla JS) -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
+  <script src="js/firebase-config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/recommender.js"></script>
+  <script src="js/algorithms.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    let currentStudentProfile = null;
+    let cachedJobs = [];
+    let savedJobIds = [];
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      // Require student login
+      const user = CareerAuth.getCurrentUser();
+      if (!user) {
+        window.location.href = 'login.html?redirect=dashboard.html';
+        return;
+      }
+
+      CareerApp.initPage('dashboard');
+
+      // Load user profile
+      currentStudentProfile = await CareerDB.getUserProfile(user.uid);
+      savedJobIds = await CareerDB.getSavedJobIds(user.uid);
+      const applications = await CareerDB.getApplications(user.uid);
+      cachedJobs = await CareerDB.getJobs();
+
+      // Render profile summary
+      renderProfileHeader(currentStudentProfile, user);
+
+      // Render metrics
+      renderMetrics(currentStudentProfile, applications, savedJobIds);
+
+      // Run Recommendation Engine
+      renderTopRecommendations(currentStudentProfile, cachedJobs);
+
+      // Render mini applications list
+      renderMiniApplications(applications);
+    });
+
+    function renderProfileHeader(profile, user) {
+      document.getElementById('dash-student-name').textContent = profile.fullName || user.displayName || 'Student Candidate';
+      document.getElementById('dash-avatar').textContent = (profile.fullName || user.displayName || 'S').charAt(0).toUpperCase();
+      document.getElementById('dash-student-degree').textContent = `${profile.degree || 'B.Tech AI Candidate'} • Class of ${profile.graduationYear || 2026}`;
+      document.getElementById('dash-student-institution').textContent = `📍 ${profile.preferredLocation || 'Bangalore, India'}`;
+      document.getElementById('dash-student-exp').textContent = `💼 ${profile.experienceYears || 0} Yrs Experience`;
+      document.getElementById('dash-student-mode').textContent = `🌐 ${Array.isArray(profile.workMode) ? profile.workMode.join(' / ') : (profile.workMode || 'Remote')}`;
+    }
+
+    function renderMetrics(profile, applications, saved) {
+      document.getElementById('metric-skills-count').textContent = (profile.skills || []).length;
+      document.getElementById('metric-apps-count').textContent = applications.length;
+      document.getElementById('metric-saved-count').textContent = saved.length;
+    }
+
+    function renderTopRecommendations(profile, jobs) {
+      const container = document.getElementById('top-jobs-container');
+      if (!jobs || jobs.length === 0) {
+        container.innerHTML = '<div style="padding: 2rem; text-align: center; color: var(--slate-500);">No jobs found in database.</div>';
+        return;
+      }
+
+      const ranked = CareerRecommender.rankJobsForProfile(profile, jobs);
+      if (ranked.length > 0) {
+        document.getElementById('metric-top-match').textContent = `${ranked[0].match.overallScore}%`;
+        document.getElementById('metric-top-job-name').textContent = `${ranked[0].job.title} (${ranked[0].job.company})`;
+      }
+
+      const topFour = ranked.slice(0, 4);
+      let html = '';
+
+      topFour.forEach(item => {
+        const j = item.job;
+        const m = item.match;
+        const isSaved = savedJobIds.includes(j.id);
+        const scoreClass = m.overallScore >= 80 ? 'match-high' : (m.overallScore >= 60 ? 'match-mid' : 'match-low');
+
+        html += `
+          <div class="job-card">
+            <div class="job-card-top">
+              <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                <div class="job-company-avatar">${j.company.charAt(0)}</div>
+                <div class="job-title-group">
+                  <a href="job-details.html?id=${j.id}">
+                    <h3 style="color: var(--navy-900);">${j.title}</h3>
+                  </a>
+                  <div style="font-size: 0.88rem; font-weight: 600; color: var(--slate-600);">${j.company}</div>
+                  <div class="job-meta-row">
+                    <span class="job-meta-item">📍 ${j.location}</span>
+                    <span class="job-badge-tag">${j.workMode}</span>
+                    <span class="job-badge-tag">${j.employmentType}</span>
+                    <span class="job-meta-item">💰 ${j.salaryRange}</span>
+                  </div>
+                </div>
+              </div>
+
+              <div style="text-align: right; flex-shrink: 0;">
+                <span class="match-score-badge ${scoreClass}">
+                  ${m.overallScore}% Match
+                </span>
+              </div>
+            </div>
+
+            <!-- Matched Skills Preview -->
+            <div style="margin-top: 0.5rem;">
+              <div style="font-size: 0.78rem; font-weight: 600; color: var(--slate-500); margin-bottom: 0.35rem;">
+                Skills Fit:
+              </div>
+              <div class="job-skills-container">
+                ${m.breakdown.skills.matchedSkills.slice(0, 4).map(s => `
+                  <span class="skill-pill skill-pill-matched">✓ ${s}</span>
+                `).join('')}
+                ${m.breakdown.skills.missingSkills.slice(0, 2).map(s => `
+                  <span class="skill-pill skill-pill-missing">+ ${s} (Missing)</span>
+                `).join('')}
+                ${(m.breakdown.skills.matchedSkills.length + m.breakdown.skills.missingSkills.length > 6) ? `
+                  <span class="skill-pill">+${(m.breakdown.skills.matchedSkills.length + m.breakdown.skills.missingSkills.length - 6)} more</span>
+                ` : ''}
+              </div>
+            </div>
+
+            <!-- Card Actions -->
+            <div class="job-card-footer">
+              <button class="btn btn-outline btn-sm" onclick="showBreakdownModal('${j.id}')">
+                📊 Explain AI Score
+              </button>
+              <div style="display: flex; gap: 0.5rem;">
+                <button class="btn ${isSaved ? 'btn-secondary' : 'btn-outline'} btn-sm" onclick="toggleSave('${j.id}')" id="save-btn-${j.id}">
+                  ${isSaved ? '★ Saved' : '☆ Save'}
+                </button>
+                <a href="job-details.html?id=${j.id}" class="btn btn-primary btn-sm">
+                  View & Track &rarr;
+                </a>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+    }
+
+    function renderMiniApplications(apps) {
+      const container = document.getElementById('dash-apps-container');
+      if (!apps || apps.length === 0) {
+        container.innerHTML = '<div style="font-size: 0.88rem; color: var(--slate-500); text-align: center; padding: 1.5rem 0;">No active applications recorded yet. Browse jobs to apply!</div>';
+        return;
+      }
+
+      let html = '<div style="display: flex; flex-direction: column; gap: 0.75rem;">';
+      apps.slice(0, 4).forEach(app => {
+        let badgeColor = 'var(--blue-500)';
+        if (app.status === 'Interviewing') badgeColor = 'var(--emerald-600)';
+        if (app.status === 'Offered') badgeColor = 'var(--cyan-600)';
+        if (app.status === 'Rejected') badgeColor = 'var(--rose-600)';
+
+        html += `
+          <div style="padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <div style="font-weight: 600; font-size: 0.88rem; color: var(--navy-900);">${app.jobTitle}</div>
+              <div style="font-size: 0.78rem; color: var(--slate-500);">${app.company} • Applied ${app.appliedDate}</div>
+            </div>
+            <span style="font-size: 0.75rem; font-weight: 700; color: ${badgeColor}; background: var(--slate-100); padding: 0.2rem 0.5rem; border-radius: var(--radius-sm);">
+              ${app.status}
+            </span>
+          </div>
+        `;
+      });
+      html += '</div>';
+      container.innerHTML = html;
+    }
+
+    async function toggleSave(jobId) {
+      const user = CareerAuth.getCurrentUser();
+      if (!user) {
+        window.location.href = 'login.html';
+        return;
+      }
+      try {
+        const res = await CareerDB.toggleSaveJob(user.uid, jobId);
+        savedJobIds = await CareerDB.getSavedJobIds(user.uid);
+        document.getElementById('metric-saved-count').textContent = savedJobIds.length;
+
+        const btn = document.getElementById(`save-btn-${jobId}`);
+        if (btn) {
+          btn.className = res.saved ? 'btn btn-secondary btn-sm' : 'btn btn-outline btn-sm';
+          btn.textContent = res.saved ? '★ Saved' : '☆ Save';
+        }
+        CareerApp.showToast(res.saved ? 'Job bookmarked in Cloud Firestore!' : 'Job removed from bookmarks.', 'info');
+      } catch (err) {
+        console.error(err);
+        CareerApp.showToast(`Bookmark error: ${err.message}`, 'error');
+      }
+    }
+
+    async function showBreakdownModal(jobId) {
+      const job = cachedJobs.find(j => j.id === jobId);
+      if (!job) return;
+
+      const ranked = CareerRecommender.rankJobsForProfile(currentStudentProfile, [job]);
+      const match = ranked[0].match;
+
+      document.getElementById('modal-job-title').textContent = `${job.title} — Match Breakdown`;
+      document.getElementById('modal-company-name').textContent = `${job.company} • ${job.location} (${job.workMode})`;
+
+      const b = match.breakdown;
+      const content = document.getElementById('modal-breakdown-content');
+
+      content.innerHTML = `
+        <div style="background-color: var(--blue-50); border: 1px solid var(--blue-100); border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: space-between;">
+          <div>
+            <div style="font-size: 0.8rem; font-weight: 700; color: var(--blue-700); text-transform: uppercase;">
+              Overall Composite Score
+            </div>
+            <div style="font-size: 2rem; font-weight: 800; color: var(--navy-900);">
+              ${match.overallScore}%
+            </div>
+            <div style="font-size: 0.84rem; color: var(--slate-600); margin-top: 0.25rem;">
+              ${match.summaryExplanation}
+            </div>
+          </div>
+        </div>
+
+        <h4 style="font-size: 0.95rem; margin-bottom: 0.75rem; color: var(--navy-800);">Criteria Contribution Breakdown:</h4>
+
+        <div style="display: flex; flex-direction: column; gap: 0.85rem; margin-bottom: 1.5rem;">
+          <div>
+            <div class="breakdown-row" style="padding-bottom: 0.25rem;">
+              <span><strong>Technical Skills (${b.skills.weight}% weight):</strong></span>
+              <span style="font-weight: 700;">${b.skills.score}% fit &rarr; +${b.skills.contribution}%</span>
+            </div>
+            <div class="progress-container">
+              <div class="progress-bar progress-blue" style="width: ${b.skills.score}%"></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="breakdown-row" style="padding-bottom: 0.25rem;">
+              <span><strong>Academic Qualification (${b.education.weight}% weight):</strong></span>
+              <span style="font-weight: 700;">${b.education.score}% fit &rarr; +${b.education.contribution}%</span>
+            </div>
+            <div class="progress-container">
+              <div class="progress-bar progress-emerald" style="width: ${b.education.score}%"></div>
+            </div>
+            <div style="font-size: 0.78rem; color: var(--slate-500); margin-top: 0.2rem;">
+              Candidate: ${b.education.userEdu} | Requires: ${b.education.reqEdu}
+            </div>
+          </div>
+
+          <div>
+            <div class="breakdown-row" style="padding-bottom: 0.25rem;">
+              <span><strong>Experience Level (${b.experience.weight}% weight):</strong></span>
+              <span style="font-weight: 700;">${b.experience.score}% fit &rarr; +${b.experience.contribution}%</span>
+            </div>
+            <div class="progress-container">
+              <div class="progress-bar progress-amber" style="width: ${b.experience.score}%"></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="breakdown-row" style="padding-bottom: 0.25rem;">
+              <span><strong>Role Relevance (${b.role.weight}% weight):</strong></span>
+              <span style="font-weight: 700;">${b.role.score}% fit &rarr; +${b.role.contribution}%</span>
+            </div>
+            <div class="progress-container">
+              <div class="progress-bar progress-blue" style="width: ${b.role.score}%"></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="breakdown-row" style="padding-bottom: 0.25rem;">
+              <span><strong>Preferences & Location (${b.preferences.weight}% weight):</strong></span>
+              <span style="font-weight: 700;">${b.preferences.score}% fit &rarr; +${b.preferences.contribution}%</span>
+            </div>
+            <div class="progress-container">
+              <div class="progress-bar progress-emerald" style="width: ${b.preferences.score}%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background-color: var(--slate-50); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem;">
+          <div style="font-size: 0.84rem; font-weight: 700; color: var(--navy-800); margin-bottom: 0.5rem;">
+            Skill Comparison Details:
+          </div>
+          <div style="margin-bottom: 0.5rem;">
+            <span style="font-size: 0.78rem; color: var(--emerald-600); font-weight: 600;">Matched Skills:</span>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.25rem;">
+              ${b.skills.matchedSkills.length > 0 ? b.skills.matchedSkills.map(s => `<span class="skill-pill skill-pill-matched">✓ ${s}</span>`).join('') : '<span style="font-size: 0.8rem; color: var(--slate-400);">None directly overlapping</span>'}
+            </div>
+          </div>
+          <div>
+            <span style="font-size: 0.78rem; color: var(--rose-600); font-weight: 600;">Missing Skills:</span>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.25rem;">
+              ${b.skills.missingSkills.length > 0 ? b.skills.missingSkills.map(s => `<span class="skill-pill skill-pill-missing">+ ${s}</span>`).join('') : '<span style="font-size: 0.8rem; color: var(--emerald-600);">None missing! Full coverage.</span>'}
+            </div>
+          </div>
+        </div>
+      `;
+
+      CareerApp.openModal('match-breakdown-modal');
+    }
+  </script>
+</body>
+</html>

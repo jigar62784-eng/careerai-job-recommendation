@@ -1,0 +1,2535 @@
+[
+  {
+    "id": "JOB-001",
+    "title": "Junior AI Engineer",
+    "company": "NeuralCraft Labs",
+    "category": "AI / Machine Learning",
+    "location": "Bangalore, India",
+    "workMode": "Hybrid",
+    "employmentType": "Full-time",
+    "experienceLevel": "Entry-level (0-1 yrs)",
+    "minExperienceYears": 0,
+    "minEducation": "B.Tech / B.E in CS/AI/Data Science",
+    "salaryRange": "₹7,50,000 - ₹11,00,000 / year",
+    "minSalaryAnnualINR": 750000,
+    "requiredSkills": [
+      "Python",
+      "PyTorch",
+      "Machine Learning",
+      "Git",
+      "NumPy",
+      "Data Structures"
+    ],
+    "preferredSkills": [
+      "FastAPI",
+      "Docker",
+      "HuggingFace",
+      "Linux"
+    ],
+    "description": "Join our cognitive systems team building predictive machine learning pipelines and transformer models for conversational interfaces. You will assist in dataset preprocessing, model evaluation, and deployment of lightweight neural networks.",
+    "responsibilities": [
+      "Implement and fine-tune computer vision and natural language models using PyTorch.",
+      "Preprocess large tabular and unstructured datasets with NumPy and Pandas.",
+      "Collaborate with backend engineers to expose model inference via REST APIs.",
+      "Write reproducible unit tests and benchmark inference latencies."
+    ],
+    "qualifications": [
+      "B.Tech / B.E in CS/AI/Data Science or equivalent qualification.",
+      "Demonstrated proficiency in Python, PyTorch.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-04",
+    "applicationUrl": "#apply-JOB-001",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-002",
+    "title": "Graduate Machine Learning Engineer",
+    "company": "CognitivePulse Analytics",
+    "category": "AI / Machine Learning",
+    "location": "Hyderabad, India",
+    "workMode": "Remote",
+    "employmentType": "Full-time",
+    "experienceLevel": "Entry-level (0-1 yrs)",
+    "minExperienceYears": 0,
+    "minEducation": "B.Tech / B.E in CS/IT/AI",
+    "salaryRange": "₹8,00,000 - ₹12,00,000 / year",
+    "minSalaryAnnualINR": 800000,
+    "requiredSkills": [
+      "Python",
+      "Scikit-Learn",
+      "TensorFlow",
+      "Pandas",
+      "Linear Algebra",
+      "SQL"
+    ],
+    "preferredSkills": [
+      "MLflow",
+      "AWS",
+      "Docker",
+      "Flask"
+    ],
+    "description": "Looking for fresh graduates with a passion for statistical learning and algorithm optimization. You will work on real-world recommendation systems, feature engineering, and model validation pipelines.",
+    "responsibilities": [
+      "Design cross-validation strategies and monitor predictive drift.",
+      "Extract features from transactional datasets using SQL and Pandas.",
+      "Implement supervised and unsupervised classification/clustering algorithms.",
+      "Contribute to internal ML evaluation tooling and documentation."
+    ],
+    "qualifications": [
+      "B.Tech / B.E in CS/IT/AI or equivalent qualification.",
+      "Demonstrated proficiency in Python, Scikit-Learn.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-21",
+    "applicationUrl": "#apply-JOB-002",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-003",
+    "title": "Generative AI Developer Intern",
+    "company": "Synthetix AI",
+    "category": "AI / Machine Learning",
+    "location": "Pune, India",
+    "workMode": "Remote",
+    "employmentType": "Internship",
+    "experienceLevel": "Entry-level (0-1 yrs)",
+    "minExperienceYears": 0,
+    "minEducation": "B.Tech / B.E in CS/AI (Final/Pre-final year)",
+    "salaryRange": "₹30,000 - ₹45,000 / month (₹3.6L - ₹5.4L annualized)",
+    "minSalaryAnnualINR": 360000,
+    "requiredSkills": [
+      "Python",
+      "Prompt Engineering",
+      "LangChain",
+      "Vector Databases",
+      "Git"
+    ],
+    "preferredSkills": [
+      "OpenAI API",
+      "ChromaDB",
+      "FastAPI",
+      "React"
+    ],
+    "description": "Exciting internship opportunity for students eager to build next-generation LLM applications, RAG (Retrieval-Augmented Generation) pipelines, and intelligent search agents.",
+    "responsibilities": [
+      "Construct RAG workflows using LangChain and open-source embedding models.",
+      "Benchmark retrieval accuracy and reranking strategies across document corpora.",
+      "Build proof-of-concept AI agents with tool-calling capabilities.",
+      "Participate in weekly research paper review sessions."
+    ],
+    "qualifications": [
+      "B.Tech / B.E in CS/AI (Final/Pre-final year) or equivalent qualification.",
+      "Demonstrated proficiency in Python, Prompt Engineering.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-24",
+    "applicationUrl": "#apply-JOB-003",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-004",
+    "title": "Computer Vision Research Associate",
+    "company": "VividVision Systems",
+    "category": "AI / Machine Learning",
+    "location": "Bangalore, India",
+    "workMode": "On-site",
+    "employmentType": "Full-time",
+    "experienceLevel": "Junior (1-2 yrs)",
+    "minExperienceYears": 1,
+    "minEducation": "B.Tech / M.Tech in CS/EE/AI",
+    "salaryRange": "₹9,00,000 - ₹14,00,000 / year",
+    "minSalaryAnnualINR": 900000,
+    "requiredSkills": [
+      "Python",
+      "OpenCV",
+      "PyTorch",
+      "Deep Learning",
+      "Convolutional Neural Networks",
+      "C++"
+    ],
+    "preferredSkills": [
+      "YOLO",
+      "TensorRT",
+      "Edge AI",
+      "CUDA"
+    ],
+    "description": "Develop automated defect inspection and object detection algorithms running on edge devices and industrial cameras.",
+    "responsibilities": [
+      "Train and prune object detection models (YOLO / Faster-RCNN).",
+      "Optimize inference runtimes using TensorRT and ONNX runtime.",
+      "Process image augmentations and synthetic data pipelines.",
+      "Document experimental metrics in research logs."
+    ],
+    "qualifications": [
+      "B.Tech / M.Tech in CS/EE/AI or equivalent qualification.",
+      "Demonstrated proficiency in Python, OpenCV.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-01",
+    "applicationUrl": "#apply-JOB-004",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-005",
+    "title": "NLP Engineer - Conversational AI",
+    "company": "LinguaBot Technologies",
+    "category": "AI / Machine Learning",
+    "location": "Remote - India",
+    "workMode": "Remote",
+    "employmentType": "Full-time",
+    "experienceLevel": "Junior (1-2 yrs)",
+    "minExperienceYears": 1,
+    "minEducation": "B.Tech / M.Tech in CS/AI",
+    "salaryRange": "₹8,50,000 - ₹13,00,000 / year",
+    "minSalaryAnnualINR": 850000,
+    "requiredSkills": [
+      "Python",
+      "Transformers",
+      "NLP",
+      "PyTorch",
+      "Tokenization",
+      "Spacy"
+    ],
+    "preferredSkills": [
+      "BERT",
+      "HuggingFace",
+      "Docker",
+      "FastAPI"
+    ],
+    "description": "Help us enhance multi-lingual customer interaction bots using transformer embeddings, intent classification, and entity extraction models.",
+    "responsibilities": [
+      "Fine-tune pre-trained BERT/RoBERTa models on domain-specific dialog datasets.",
+      "Develop entity recognition algorithms and custom tokenizers.",
+      "Evaluate model hallucination and fairness metrics.",
+      "Work alongside product managers to translate clinical/financial intents."
+    ],
+    "qualifications": [
+      "B.Tech / M.Tech in CS/AI or equivalent qualification.",
+      "Demonstrated proficiency in Python, Transformers.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-16",
+    "applicationUrl": "#apply-JOB-005",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-006",
+    "title": "Associate Data Scientist",
+    "company": "QuantEdge Solutions",
+    "category": "Data Science",
+    "location": "Mumbai, India",
+    "workMode": "Hybrid",
+    "employmentType": "Full-time",
+    "experienceLevel": "Entry-level (0-1 yrs)",
+    "minExperienceYears": 0,
+    "minEducation": "B.Tech / B.Sc / M.Sc in Statistics/CS/Math",
+    "salaryRange": "₹7,00,000 - ₹10,50,000 / year",
+    "minSalaryAnnualINR": 700000,
+    "requiredSkills": [
+      "Python",
+      "SQL",
+      "Pandas",
+      "Statistical Modeling",
+      "Matplotlib",
+      "Scikit-Learn"
+    ],
+    "preferredSkills": [
+      "Tableau",
+      "PowerBI",
+      "Seaborn",
+      "A/B Testing"
+    ],
+    "description": "Transform transactional retail data into predictive churn models, lifetime value estimates, and actionable merchandising insights.",
+    "responsibilities": [
+      "Perform exploratory data analysis and hypothesis testing on sales data.",
+      "Build regression and survival analysis models for customer retention.",
+      "Create executive dashboards in Tableau and Matplotlib.",
+      "Present data-driven recommendations to commercial stakeholders."
+    ],
+    "qualifications": [
+      "B.Tech / B.Sc / M.Sc in Statistics/CS/Math or equivalent qualification.",
+      "Demonstrated proficiency in Python, SQL.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-17",
+    "applicationUrl": "#apply-JOB-006",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-007",
+    "title": "Junior Business Intelligence Analyst",
+    "company": "MetroMetrics Consulting",
+    "category": "Data Science",
+    "location": "Gurgaon, India",
+    "workMode": "Hybrid",
+    "employmentType": "Full-time",
+    "experienceLevel": "Entry-level (0-1 yrs)",
+    "minExperienceYears": 0,
+    "minEducation": "B.Tech / BCA / BBA / B.Sc",
+    "salaryRange": "₹5,50,000 - ₹8,00,000 / year",
+    "minSalaryAnnualINR": 550000,
+    "requiredSkills": [
+      "SQL",
+      "PowerBI",
+      "Excel",
+      "Data Analysis",
+      "Data Visualization"
+    ],
+    "preferredSkills": [
+      "Python",
+      "DAX",
+      "Tableau",
+      "ETL"
+    ],
+    "description": "Design interactive KPI dashboards, validate financial reporting data marts, and automate routine performance reports.",
+    "responsibilities": [
+      "Write complex SQL queries, window functions, and CTEs to extract data.",
+      "Develop standardized PowerBI reporting templates for corporate clients.",
+      "Automate recurring weekly data feeds using Python and Excel macros.",
+      "Conduct data hygiene checks and resolve discrepancies."
+    ],
+    "qualifications": [
+      "B.Tech / BCA / BBA / B.Sc or equivalent qualification.",
+      "Demonstrated proficiency in SQL, PowerBI.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-17",
+    "applicationUrl": "#apply-JOB-007",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-008",
+    "title": "Big Data Engineer Trainee",
+    "company": "CloudStream Datatech",
+    "category": "Data Science",
+    "location": "Chennai, India",
+    "workMode": "On-site",
+    "employmentType": "Full-time",
+    "experienceLevel": "Entry-level (0-1 yrs)",
+    "minExperienceYears": 0,
+    "minEducation": "B.Tech / B.E in CS/IT",
+    "salaryRange": "₹6,50,000 - ₹9,50,000 / year",
+    "minSalaryAnnualINR": 650000,
+    "requiredSkills": [
+      "Python",
+      "SQL",
+      "Java",
+      "Data Structures",
+      "Linux",
+      "Database Design"
+    ],
+    "preferredSkills": [
+      "Apache Spark",
+      "Kafka",
+      "Hadoop",
+      "AWS S3"
+    ],
+    "description": "Start your journey in big data engineering by learning distributed batch pipelines, schema design, and message streaming architectures.",
+    "responsibilities": [
+      "Implement ingest scripts for structured and semi-structured IoT feeds.",
+      "Assist in writing Spark transformations and data lake partition schemes.",
+      "Monitor pipeline execution health and alert on pipeline failures.",
+      "Participate in schema migration and data governance tasks."
+    ],
+    "qualifications": [
+      "B.Tech / B.E in CS/IT or equivalent qualification.",
+      "Demonstrated proficiency in Python, SQL.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-20",
+    "applicationUrl": "#apply-JOB-008",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-009",
+    "title": "Junior Frontend Developer (React)",
+    "company": "PixelCraft Studio",
+    "category": "Frontend",
+    "location": "Bangalore, India",
+    "workMode": "Remote",
+    "employmentType": "Full-time",
+    "experienceLevel": "Entry-level (0-1 yrs)",
+    "minExperienceYears": 0,
+    "minEducation": "B.Tech / BCA / B.Sc in CS/IT",
+    "salaryRange": "₹6,00,000 - ₹9,00,000 / year",
+    "minSalaryAnnualINR": 600000,
+    "requiredSkills": [
+      "JavaScript",
+      "HTML5",
+      "CSS3",
+      "React",
+      "Git",
+      "Responsive Design"
+    ],
+    "preferredSkills": [
+      "TypeScript",
+      "Redux",
+      "RESTful APIs",
+      "Figma"
+    ],
+    "description": "Craft responsive web interfaces and user-friendly dashboards for our SaaS collaboration platform. You will translate designer mockups into pixel-perfect modular code.",
+    "responsibilities": [
+      "Develop reusable UI components using modern React and semantic HTML5.",
+      "Optimize web performance, Core Web Vitals, and cross-browser rendering.",
+      "Integrate RESTful backend endpoints with robust error handling.",
+      "Write unit tests with Jest and React Testing Library."
+    ],
+    "qualifications": [
+      "B.Tech / BCA / B.Sc in CS/IT or equivalent qualification.",
+      "Demonstrated proficiency in JavaScript, HTML5.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-01",
+    "applicationUrl": "#apply-JOB-009",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-010",
+    "title": "Web UI/UX Developer",
+    "company": "Elevate Digital Labs",
+    "category": "Frontend",
+    "location": "Pune, India",
+    "workMode": "Hybrid",
+    "employmentType": "Full-time",
+    "experienceLevel": "Junior (1-2 yrs)",
+    "minExperienceYears": 1,
+    "minEducation": "B.Tech / B.Des / BCA",
+    "salaryRange": "₹6,50,000 - ₹10,000,00 / year",
+    "minSalaryAnnualINR": 650000,
+    "requiredSkills": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Figma",
+      "UI/UX Design",
+      "Responsive Design"
+    ],
+    "preferredSkills": [
+      "React",
+      "Sass",
+      "Web Accessibility (a11y)",
+      "Animation CSS"
+    ],
+    "description": "Bridge the gap between design vision and technical execution by creating micro-interactions, responsive prototypes, and accessible component design systems.",
+    "responsibilities": [
+      "Build design system components conforming to WCAG 2.1 AA accessibility standards.",
+      "Translate high-fidelity Figma prototypes into clean CSS/JS code.",
+      "Conduct usability tests and iterate based on user engagement metrics.",
+      "Maintain design token libraries and style guides."
+    ],
+    "qualifications": [
+      "B.Tech / B.Des / BCA or equivalent qualification.",
+      "Demonstrated proficiency in HTML5, CSS3.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-21",
+    "applicationUrl": "#apply-JOB-010",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-011",
+    "title": "Frontend Engineer - Vanilla JS & Core Web",
+    "company": "LightSpeed Web Systems",
+    "category": "Frontend",
+    "location": "Hyderabad, India",
+    "workMode": "On-site",
+    "employmentType": "Full-time",
+    "experienceLevel": "Entry-level (0-1 yrs)",
+    "minExperienceYears": 0,
+    "minEducation": "B.Tech / B.E in CS/IT",
+    "salaryRange": "₹5,80,000 - ₹8,50,000 / year",
+    "minSalaryAnnualINR": 580000,
+    "requiredSkills": [
+      "JavaScript",
+      "DOM Manipulation",
+      "HTML5",
+      "CSS3",
+      "Git",
+      "RESTful APIs"
+    ],
+    "preferredSkills": [
+      "Webpack",
+      "Browser DevTools",
+      "TypeScript",
+      "PWA"
+    ],
+    "description": "Focus on extreme frontend performance, zero-dependency lightweight scripts, and native browser APIs for high-throughput consumer web apps.",
+    "responsibilities": [
+      "Build lightweight single-page workflows using native ES6+ JavaScript.",
+      "Diagnose and optimize memory leaks and browser reflow bottlenecks.",
+      "Write cross-browser polyfills and custom UI web components.",
+      "Collaborate with backend engineers to define JSON response contracts."
+    ],
+    "qualifications": [
+      "B.Tech / B.E in CS/IT or equivalent qualification.",
+      "Demonstrated proficiency in JavaScript, DOM Manipulation.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-03",
+    "applicationUrl": "#apply-JOB-011",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-012",
+    "title": "Junior Python Backend Developer",
+    "company": "FinScale Systems",
+    "category": "Backend",
+    "location": "Bangalore, India",
+    "workMode": "Hybrid",
+    "employmentType": "Full-time",
+    "experienceLevel": "Entry-level (0-1 yrs)",
+    "minExperienceYears": 0,
+    "minEducation": "B.Tech / B.E in CS/IT",
+    "salaryRange": "₹6,50,000 - ₹10,000,00 / year",
+    "minSalaryAnnualINR": 650000,
+    "requiredSkills": [
+      "Python",
+      "FastAPI",
+      "SQL",
+      "Git",
+      "RESTful APIs",
+      "Data Structures"
+    ],
+    "preferredSkills": [
+      "PostgreSQL",
+      "Docker",
+      "Redis",
+      "Celery"
+    ],
+    "description": "Develop high-throughput RESTful services, transactional banking integrations, and asynchronous task queues using FastAPI and PostgreSQL.",
+    "responsibilities": [
+      "Implement secure RESTful APIs with Pydantic validation and JWT authentication.",
+      "Optimize PostgreSQL database schemas, indexing, and transactional integrity.",
+      "Build asynchronous background workers using Celery and Redis.",
+      "Write comprehensive API documentation using Swagger / OpenAPI specs."
+    ],
+    "qualifications": [
+      "B.Tech / B.E in CS/IT or equivalent qualification.",
+      "Demonstrated proficiency in Python, FastAPI.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-01",
+    "applicationUrl": "#apply-JOB-012",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-013",
+    "title": "Junior Node.js / Express Developer",
+    "company": "Hyperion Cloud Solutions",
+    "category": "Backend",
+    "location": "Remote - India",
+    "workMode": "Remote",
+    "employmentType": "Full-time",
+    "experienceLevel": "Entry-level (0-1 yrs)",
+    "minExperienceYears": 0,
+    "minEducation": "B.Tech / BCA / MCA in CS",
+    "salaryRange": "₹6,00,000 - ₹9,50,000 / year",
+    "minSalaryAnnualINR": 600000,
+    "requiredSkills": [
+      "JavaScript",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "RESTful APIs",
+      "Git"
+    ],
+    "preferredSkills": [
+      "TypeScript",
+      "Mongoose",
+      "Docker",
+      "Jest"
+    ],
+    "description": "Build event-driven microservices for an e-commerce marketplace platform. Work with document stores, authentication flows, and payment gateway webhooks.",
+    "responsibilities": [
+      "Construct scalable Express.js controllers and middleware pipelines.",
+      "Model document schemas and aggregation pipelines in MongoDB.",
+      "Implement webhook listeners and rate-limiting security safeguards.",
+      "Execute automated integration tests using Supertest and Jest."
+    ],
+    "qualifications": [
+      "B.Tech / BCA / MCA in CS or equivalent qualification.",
+      "Demonstrated proficiency in JavaScript, Node.js.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-07",
+    "applicationUrl": "#apply-JOB-013",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-014",
+    "title": "Java Spring Boot Associate Developer",
+    "company": "Enterprise Horizon Tech",
+    "category": "Backend",
+    "location": "Chennai, India",
+    "workMode": "On-site",
+    "employmentType": "Full-time",
+    "experienceLevel": "Entry-level (0-1 yrs)",
+    "minExperienceYears": 0,
+    "minEducation": "B.Tech / B.E in CS/IT/ECE",
+    "salaryRange": "₹6,20,000 - ₹9,20,000 / year",
+    "minSalaryAnnualINR": 620000,
+    "requiredSkills": [
+      "Java",
+      "Spring Boot",
+      "SQL",
+      "OOP",
+      "Data Structures",
+      "Git"
+    ],
+    "preferredSkills": [
+      "Hibernate",
+      "MySQL",
+      "Maven",
+      "JUnit"
+    ],
+    "description": "Develop resilient backend enterprise services using Spring Boot, Hibernate ORM, and relational database systems.",
+    "responsibilities": [
+      "Develop REST endpoints adhering to microservice architecture guidelines.",
+      "Write JPA entity mappings and optimized query methods.",
+      "Implement unit and integration tests using JUnit and Mockito.",
+      "Collaborate in daily Agile scrums and peer code reviews."
+    ],
+    "qualifications": [
+      "B.Tech / B.E in CS/IT/ECE or equivalent qualification.",
+      "Demonstrated proficiency in Java, Spring Boot.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-22",
+    "applicationUrl": "#apply-JOB-014",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-015",
+    "title": "Full Stack Developer (MERN)",
+    "company": "StackForge Innovations",
+    "category": "Full Stack",
+    "location": "Bangalore, India",
+    "workMode": "Hybrid",
+    "employmentType": "Full-time",
+    "experienceLevel": "Junior (1-2 yrs)",
+    "minExperienceYears": 1,
+    "minEducation": "B.Tech / B.E / BCA in CS",
+    "salaryRange": "₹8,00,000 - ₹12,50,000 / year",
+    "minSalaryAnnualINR": 800000,
+    "requiredSkills": [
+      "JavaScript",
+      "React",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Git"
+    ],
+    "preferredSkills": [
+      "TypeScript",
+      "Redux",
+      "Docker",
+      "Tailwind CSS"
+    ],
+    "description": "Take end-to-end ownership of web features from React UI component design through Express middleware down to MongoDB aggregation logic.",
+    "responsibilities": [
+      "Architect and maintain end-to-end full stack web applications.",
+      "Design clean RESTful and WebSocket contracts for live updates.",
+      "Manage state with Redux Toolkit and optimize frontend bundle sizes.",
+      "Deploy staging environments on cloud instances."
+    ],
+    "qualifications": [
+      "B.Tech / B.E / BCA in CS or equivalent qualification.",
+      "Demonstrated proficiency in JavaScript, React.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-06",
+    "applicationUrl": "#apply-JOB-015",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-016",
+    "title": "Graduate Full Stack Software Engineer",
+    "company": "Apex NextGen Tech",
+    "category": "Full Stack",
+    "location": "Hyderabad, India",
+    "workMode": "Remote",
+    "employmentType": "Full-time",
+    "experienceLevel": "Entry-level (0-1 yrs)",
+    "minExperienceYears": 0,
+    "minEducation": "B.Tech / B.E in CS/IT",
+    "salaryRange": "₹7,00,000 - ₹10,00,000 / year",
+    "minSalaryAnnualINR": 700000,
+    "requiredSkills": [
+      "Python",
+      "JavaScript",
+      "HTML5",
+      "CSS3",
+      "SQL",
+      "Git"
+    ],
+    "preferredSkills": [
+      "Django",
+      "React",
+      "PostgreSQL",
+      "Docker"
+    ],
+    "description": "Comprehensive engineering role for versatile graduates eager to work across frontend and backend technologies with mentorship from senior architects.",
+    "responsibilities": [
+      "Deliver responsive web modules using standard HTML/CSS/JS and Python.",
+      "Write database migrations and CRUD operations.",
+      "Implement client-side and server-side form validations.",
+      "Participate in bug triage and security vulnerability patching."
+    ],
+    "qualifications": [
+      "B.Tech / B.E in CS/IT or equivalent qualification.",
+      "Demonstrated proficiency in Python, JavaScript.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-11",
+    "applicationUrl": "#apply-JOB-016",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-017",
+    "title": "Junior DevOps Engineer",
+    "company": "CloudNative Orbit",
+    "category": "Cloud & DevOps",
+    "location": "Bangalore, India",
+    "workMode": "Remote",
+    "employmentType": "Full-time",
+    "experienceLevel": "Entry-level (0-1 yrs)",
+    "minExperienceYears": 0,
+    "minEducation": "B.Tech in CS/IT/ECE",
+    "salaryRange": "₹7,20,000 - ₹11,50,000 / year",
+    "minSalaryAnnualINR": 720000,
+    "requiredSkills": [
+      "Linux",
+      "Bash",
+      "Docker",
+      "Git",
+      "Networking",
+      "Python"
+    ],
+    "preferredSkills": [
+      "Kubernetes",
+      "AWS",
+      "CI/CD Pipelines",
+      "Terraform"
+    ],
+    "description": "Automate deployment workflows, maintain continuous integration pipelines, and support containerized staging environments.",
+    "responsibilities": [
+      "Containerize microservices using Docker multi-stage builds.",
+      "Maintain GitHub Actions workflows for automated build and test runs.",
+      "Monitor server telemetry, disk usage, and resource bottlenecks.",
+      "Write bash and python automation scripts for routine ops tasks."
+    ],
+    "qualifications": [
+      "B.Tech in CS/IT/ECE or equivalent qualification.",
+      "Demonstrated proficiency in Linux, Bash.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-23",
+    "applicationUrl": "#apply-JOB-017",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-018",
+    "title": "Cloud Operations Associate",
+    "company": "Stratus Core Systems",
+    "category": "Cloud & DevOps",
+    "location": "Pune, India",
+    "workMode": "Hybrid",
+    "employmentType": "Full-time",
+    "experienceLevel": "Entry-level (0-1 yrs)",
+    "minExperienceYears": 0,
+    "minEducation": "B.Tech / B.Sc in CS/IT",
+    "salaryRange": "₹6,00,000 - ₹8,80,000 / year",
+    "minSalaryAnnualINR": 600000,
+    "requiredSkills": [
+      "AWS / Cloud Fundamentals",
+      "Linux",
+      "Networking",
+      "Git",
+      "Bash"
+    ],
+    "preferredSkills": [
+      "CloudWatch",
+      "Python",
+      "Docker",
+      "Terraform"
+    ],
+    "description": "Support AWS infrastructure provisioning, IAM security permissions, and operational uptime for mission-critical client services.",
+    "responsibilities": [
+      "Configure EC2 instances, S3 buckets, and VPC security groups.",
+      "Troubleshoot network connectivity and DNS routing issues.",
+      "Implement automated cloud backup schedules and health alarms.",
+      "Audit cloud costs and identify idle provisioned resources."
+    ],
+    "qualifications": [
+      "B.Tech / B.Sc in CS/IT or equivalent qualification.",
+      "Demonstrated proficiency in AWS / Cloud Fundamentals, Linux.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-24",
+    "applicationUrl": "#apply-JOB-018",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-019",
+    "title": "Junior Flutter Mobile Developer",
+    "company": "AppNova Studios",
+    "category": "Mobile App Dev",
+    "location": "Bangalore, India",
+    "workMode": "Hybrid",
+    "employmentType": "Full-time",
+    "experienceLevel": "Entry-level (0-1 yrs)",
+    "minExperienceYears": 0,
+    "minEducation": "B.Tech / BCA in CS",
+    "salaryRange": "₹6,00,000 - ₹9,00,000 / year",
+    "minSalaryAnnualINR": 600000,
+    "requiredSkills": [
+      "Dart",
+      "Flutter",
+      "Mobile Development",
+      "Git",
+      "RESTful APIs",
+      "OOP"
+    ],
+    "preferredSkills": [
+      "Firebase",
+      "Bloc State Management",
+      "Android Studio",
+      "iOS"
+    ],
+    "description": "Build high-performance, cross-platform Android and iOS mobile applications using Flutter and clean architecture patterns.",
+    "responsibilities": [
+      "Develop smooth, 60fps mobile interfaces with Flutter widgets.",
+      "Connect mobile screens to backend REST APIs and offline caches.",
+      "Implement push notifications and deep linking schemes.",
+      "Publish internal beta builds via TestFlight and Firebase App Distribution."
+    ],
+    "qualifications": [
+      "B.Tech / BCA in CS or equivalent qualification.",
+      "Demonstrated proficiency in Dart, Flutter.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-22",
+    "applicationUrl": "#apply-JOB-019",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-020",
+    "title": "Junior Android Developer (Kotlin)",
+    "company": "Dextra Mobile Labs",
+    "category": "Mobile App Dev",
+    "location": "Delhi NCR, India",
+    "workMode": "On-site",
+    "employmentType": "Full-time",
+    "experienceLevel": "Junior (1-2 yrs)",
+    "minExperienceYears": 1,
+    "minEducation": "B.Tech / B.E in CS/IT",
+    "salaryRange": "₹6,80,000 - ₹10,20,000 / year",
+    "minSalaryAnnualINR": 680000,
+    "requiredSkills": [
+      "Kotlin",
+      "Android SDK",
+      "Java",
+      "Git",
+      "RESTful APIs",
+      "OOP"
+    ],
+    "preferredSkills": [
+      "Jetpack Compose",
+      "Coroutines",
+      "Room DB",
+      "MVVM"
+    ],
+    "description": "Create native Android applications leveraging modern Jetpack libraries, Kotlin Coroutines, and MVVM architectural patterns.",
+    "responsibilities": [
+      "Implement native Android layouts using Jetpack Compose and XML.",
+      "Manage background asynchronous queries with Coroutines and Flow.",
+      "Persist offline app data in local SQLite/Room databases.",
+      "Perform unit and UI automated tests on emulator devices."
+    ],
+    "qualifications": [
+      "B.Tech / B.E in CS/IT or equivalent qualification.",
+      "Demonstrated proficiency in Kotlin, Android SDK.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-18",
+    "applicationUrl": "#apply-JOB-020",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-021",
+    "title": "Junior Cybersecurity Analyst",
+    "company": "CyberShield Defense",
+    "category": "Cybersecurity",
+    "location": "Hyderabad, India",
+    "workMode": "Hybrid",
+    "employmentType": "Full-time",
+    "experienceLevel": "Entry-level (0-1 yrs)",
+    "minExperienceYears": 0,
+    "minEducation": "B.Tech in CS/IT/Cybersecurity",
+    "salaryRange": "₹6,50,000 - ₹9,80,000 / year",
+    "minSalaryAnnualINR": 650000,
+    "requiredSkills": [
+      "Networking",
+      "Linux",
+      "Cybersecurity Basics",
+      "Python",
+      "Vulnerability Assessment"
+    ],
+    "preferredSkills": [
+      "Wireshark",
+      "Nmap",
+      "OWASP",
+      "SIEM"
+    ],
+    "description": "Assist in security operations center monitoring, threat vulnerability analysis, and incident response triage.",
+    "responsibilities": [
+      "Monitor network traffic logs and alert on anomalous behavior.",
+      "Perform vulnerability scanning using automated tools and manual review.",
+      "Assist in evaluating web applications against OWASP Top 10 vulnerabilities.",
+      "Document incident reports and recommend mitigation steps."
+    ],
+    "qualifications": [
+      "B.Tech in CS/IT/Cybersecurity or equivalent qualification.",
+      "Demonstrated proficiency in Networking, Linux.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-17",
+    "applicationUrl": "#apply-JOB-021",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-022",
+    "title": "Associate QA Automation Engineer",
+    "company": "TestMatrix Quality Systems",
+    "category": "Quality Assurance",
+    "location": "Pune, India",
+    "workMode": "Remote",
+    "employmentType": "Full-time",
+    "experienceLevel": "Entry-level (0-1 yrs)",
+    "minExperienceYears": 0,
+    "minEducation": "B.Tech / BCA / B.Sc in CS",
+    "salaryRange": "₹5,20,000 - ₹7,80,000 / year",
+    "minSalaryAnnualINR": 520000,
+    "requiredSkills": [
+      "Python",
+      "Selenium",
+      "Software Testing",
+      "Git",
+      "SQL"
+    ],
+    "preferredSkills": [
+      "Postman",
+      "PyTest",
+      "CI/CD Pipelines",
+      "Jira"
+    ],
+    "description": "Automate functional regression test suites and validate API contract compliance across web applications.",
+    "responsibilities": [
+      "Author automated end-to-end test scripts using Selenium and PyTest.",
+      "Execute API regression runs via Postman and automated test collections.",
+      "Report reproducible bugs with detailed stack traces in Jira.",
+      "Integrate automated test runs into daily continuous delivery pipelines."
+    ],
+    "qualifications": [
+      "B.Tech / BCA / B.Sc in CS or equivalent qualification.",
+      "Demonstrated proficiency in Python, Selenium.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-08",
+    "applicationUrl": "#apply-JOB-022",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-023",
+    "title": "AI Prompt Engineer & Data Curator",
+    "company": "CognitiveEdge Systems",
+    "category": "AI / Machine Learning",
+    "location": "Bangalore, India",
+    "workMode": "Remote",
+    "employmentType": "Full-time",
+    "experienceLevel": "Entry-level (0-1 yrs)",
+    "minExperienceYears": 0,
+    "minEducation": "B.Tech / B.E in CS/IT/AI",
+    "salaryRange": "₹550,000 - ₹850,000 / year",
+    "minSalaryAnnualINR": 550000,
+    "requiredSkills": [
+      "Prompt Engineering",
+      "Python",
+      "NLP",
+      "Text Tokenization"
+    ],
+    "preferredSkills": [
+      "LangChain",
+      "Git",
+      "Content Evaluation"
+    ],
+    "description": "Looking for a motivated AI Prompt Engineer & Data Curator to contribute to high-impact projects at CognitiveEdge Systems. You will collaborate closely with cross-functional product and engineering teams to build robust solutions.",
+    "responsibilities": [
+      "Deliver key components and modules aligned with AI / Machine Learning best practices.",
+      "Work with Prompt Engineering, Python, NLP to solve production scale challenges.",
+      "Write clean, modular code with accompanying unit tests and documentation.",
+      "Participate in sprint planning, code reviews, and design discussions."
+    ],
+    "qualifications": [
+      "B.Tech / B.E in CS/IT/AI or equivalent qualification.",
+      "Demonstrated proficiency in Prompt Engineering, Python.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-05",
+    "applicationUrl": "#apply-JOB-023",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-024",
+    "title": "Machine Learning Operations (MLOps) Trainee",
+    "company": "Vanguard AI Labs",
+    "category": "AI / Machine Learning",
+    "location": "Hyderabad, India",
+    "workMode": "Hybrid",
+    "employmentType": "Full-time",
+    "experienceLevel": "Entry-level (0-1 yrs)",
+    "minExperienceYears": 0,
+    "minEducation": "B.Tech / B.E in CS/IT/AI",
+    "salaryRange": "₹700,000 - ₹1,100,000 / year",
+    "minSalaryAnnualINR": 700000,
+    "requiredSkills": [
+      "Python",
+      "Docker",
+      "Machine Learning",
+      "Git",
+      "Linux"
+    ],
+    "preferredSkills": [
+      "MLflow",
+      "Kubernetes",
+      "AWS",
+      "CI/CD Pipelines"
+    ],
+    "description": "Looking for a motivated Machine Learning Operations (MLOps) Trainee to contribute to high-impact projects at Vanguard AI Labs. You will collaborate closely with cross-functional product and engineering teams to build robust solutions.",
+    "responsibilities": [
+      "Deliver key components and modules aligned with AI / Machine Learning best practices.",
+      "Work with Python, Docker, Machine Learning to solve production scale challenges.",
+      "Write clean, modular code with accompanying unit tests and documentation.",
+      "Participate in sprint planning, code reviews, and design discussions."
+    ],
+    "qualifications": [
+      "B.Tech / B.E in CS/IT/AI or equivalent qualification.",
+      "Demonstrated proficiency in Python, Docker.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-24",
+    "applicationUrl": "#apply-JOB-024",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-025",
+    "title": "Deep Learning Vision Engineer",
+    "company": "InfiniData Dynamics",
+    "category": "AI / Machine Learning",
+    "location": "Pune, India",
+    "workMode": "On-site",
+    "employmentType": "Full-time",
+    "experienceLevel": "Junior (1-2 yrs)",
+    "minExperienceYears": 1,
+    "minEducation": "B.Tech / B.E in CS/IT/AI",
+    "salaryRange": "₹850,000 - ₹1,350,000 / year",
+    "minSalaryAnnualINR": 850000,
+    "requiredSkills": [
+      "PyTorch",
+      "Deep Learning",
+      "Convolutional Neural Networks",
+      "Python"
+    ],
+    "preferredSkills": [
+      "OpenCV",
+      "CUDA",
+      "FastAPI"
+    ],
+    "description": "Looking for a motivated Deep Learning Vision Engineer to contribute to high-impact projects at InfiniData Dynamics. You will collaborate closely with cross-functional product and engineering teams to build robust solutions.",
+    "responsibilities": [
+      "Deliver key components and modules aligned with AI / Machine Learning best practices.",
+      "Work with PyTorch, Deep Learning, Convolutional Neural Networks to solve production scale challenges.",
+      "Write clean, modular code with accompanying unit tests and documentation.",
+      "Participate in sprint planning, code reviews, and design discussions."
+    ],
+    "qualifications": [
+      "B.Tech / B.E in CS/IT/AI or equivalent qualification.",
+      "Demonstrated proficiency in PyTorch, Deep Learning.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-07",
+    "applicationUrl": "#apply-JOB-025",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-026",
+    "title": "Data Analyst - Growth & Marketing",
+    "company": "BlueWave Digital",
+    "category": "Data Science",
+    "location": "Gurgaon, India",
+    "workMode": "Remote",
+    "employmentType": "Full-time",
+    "experienceLevel": "Entry-level (0-1 yrs)",
+    "minExperienceYears": 0,
+    "minEducation": "B.Tech / BCA / B.Sc in CS/IT",
+    "salaryRange": "₹500,000 - ₹750,000 / year",
+    "minSalaryAnnualINR": 500000,
+    "requiredSkills": [
+      "SQL",
+      "Excel",
+      "Data Analysis",
+      "Data Visualization",
+      "Python"
+    ],
+    "preferredSkills": [
+      "Google Analytics",
+      "PowerBI",
+      "A/B Testing"
+    ],
+    "description": "Looking for a motivated Data Analyst - Growth & Marketing to contribute to high-impact projects at BlueWave Digital. You will collaborate closely with cross-functional product and engineering teams to build robust solutions.",
+    "responsibilities": [
+      "Deliver key components and modules aligned with Data Science best practices.",
+      "Work with SQL, Excel, Data Analysis to solve production scale challenges.",
+      "Write clean, modular code with accompanying unit tests and documentation.",
+      "Participate in sprint planning, code reviews, and design discussions."
+    ],
+    "qualifications": [
+      "B.Tech / BCA / B.Sc in CS/IT or equivalent qualification.",
+      "Demonstrated proficiency in SQL, Excel.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-18",
+    "applicationUrl": "#apply-JOB-026",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-027",
+    "title": "Junior Data Engineer (ETL/ELT)",
+    "company": "Zephyr Cloud Tech",
+    "category": "Data Science",
+    "location": "Bangalore, India",
+    "workMode": "Hybrid",
+    "employmentType": "Full-time",
+    "experienceLevel": "Junior (1-2 yrs)",
+    "minExperienceYears": 1,
+    "minEducation": "B.Tech / BCA / B.Sc in CS/IT",
+    "salaryRange": "₹720,000 - ₹1,120,000 / year",
+    "minSalaryAnnualINR": 720000,
+    "requiredSkills": [
+      "Python",
+      "SQL",
+      "Database Design",
+      "Linux"
+    ],
+    "preferredSkills": [
+      "Apache Spark",
+      "Airflow",
+      "PostgreSQL",
+      "AWS S3"
+    ],
+    "description": "Looking for a motivated Junior Data Engineer (ETL/ELT) to contribute to high-impact projects at Zephyr Cloud Tech. You will collaborate closely with cross-functional product and engineering teams to build robust solutions.",
+    "responsibilities": [
+      "Deliver key components and modules aligned with Data Science best practices.",
+      "Work with Python, SQL, Database Design to solve production scale challenges.",
+      "Write clean, modular code with accompanying unit tests and documentation.",
+      "Participate in sprint planning, code reviews, and design discussions."
+    ],
+    "qualifications": [
+      "B.Tech / BCA / B.Sc in CS/IT or equivalent qualification.",
+      "Demonstrated proficiency in Python, SQL.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-02",
+    "applicationUrl": "#apply-JOB-027",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-028",
+    "title": "Quantitative Research Analyst Intern",
+    "company": "OmniLogic Software",
+    "category": "Data Science",
+    "location": "Mumbai, India",
+    "workMode": "On-site",
+    "employmentType": "Internship",
+    "experienceLevel": "Internship",
+    "minExperienceYears": 0,
+    "minEducation": "B.Tech / BCA / B.Sc in CS/IT",
+    "salaryRange": "₹360,000 - ₹480,000 / year",
+    "minSalaryAnnualINR": 360000,
+    "requiredSkills": [
+      "Python",
+      "Linear Algebra",
+      "Statistical Modeling",
+      "Pandas"
+    ],
+    "preferredSkills": [
+      "NumPy",
+      "Time Series Analysis",
+      "Matplotlib"
+    ],
+    "description": "Looking for a motivated Quantitative Research Analyst Intern to contribute to high-impact projects at OmniLogic Software. You will collaborate closely with cross-functional product and engineering teams to build robust solutions.",
+    "responsibilities": [
+      "Deliver key components and modules aligned with Data Science best practices.",
+      "Work with Python, Linear Algebra, Statistical Modeling to solve production scale challenges.",
+      "Write clean, modular code with accompanying unit tests and documentation.",
+      "Participate in sprint planning, code reviews, and design discussions."
+    ],
+    "qualifications": [
+      "B.Tech / BCA / B.Sc in CS/IT or equivalent qualification.",
+      "Demonstrated proficiency in Python, Linear Algebra.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-04",
+    "applicationUrl": "#apply-JOB-028",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-029",
+    "title": "React.js Frontend Specialist",
+    "company": "Aura Intelligence",
+    "category": "Frontend",
+    "location": "Remote - India",
+    "workMode": "Remote",
+    "employmentType": "Full-time",
+    "experienceLevel": "Junior (1-2 yrs)",
+    "minExperienceYears": 1,
+    "minEducation": "B.Tech / BCA / B.Sc in CS/IT",
+    "salaryRange": "₹750,000 - ₹1,100,000 / year",
+    "minSalaryAnnualINR": 750000,
+    "requiredSkills": [
+      "React",
+      "JavaScript",
+      "HTML5",
+      "CSS3",
+      "TypeScript"
+    ],
+    "preferredSkills": [
+      "Next.js",
+      "Redux",
+      "RESTful APIs",
+      "Jest"
+    ],
+    "description": "Looking for a motivated React.js Frontend Specialist to contribute to high-impact projects at Aura Intelligence. You will collaborate closely with cross-functional product and engineering teams to build robust solutions.",
+    "responsibilities": [
+      "Deliver key components and modules aligned with Frontend best practices.",
+      "Work with React, JavaScript, HTML5 to solve production scale challenges.",
+      "Write clean, modular code with accompanying unit tests and documentation.",
+      "Participate in sprint planning, code reviews, and design discussions."
+    ],
+    "qualifications": [
+      "B.Tech / BCA / B.Sc in CS/IT or equivalent qualification.",
+      "Demonstrated proficiency in React, JavaScript.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-02",
+    "applicationUrl": "#apply-JOB-029",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-030",
+    "title": "Angular Web Application Developer",
+    "company": "PrismTech Global",
+    "category": "Frontend",
+    "location": "Chennai, India",
+    "workMode": "Hybrid",
+    "employmentType": "Full-time",
+    "experienceLevel": "Junior (1-2 yrs)",
+    "minExperienceYears": 1,
+    "minEducation": "B.Tech / BCA / B.Sc in CS/IT",
+    "salaryRange": "₹680,000 - ₹1,000,000 / year",
+    "minSalaryAnnualINR": 680000,
+    "requiredSkills": [
+      "JavaScript",
+      "TypeScript",
+      "HTML5",
+      "CSS3",
+      "Git"
+    ],
+    "preferredSkills": [
+      "Angular",
+      "RxJS",
+      "RESTful APIs",
+      "Sass"
+    ],
+    "description": "Looking for a motivated Angular Web Application Developer to contribute to high-impact projects at PrismTech Global. You will collaborate closely with cross-functional product and engineering teams to build robust solutions.",
+    "responsibilities": [
+      "Deliver key components and modules aligned with Frontend best practices.",
+      "Work with JavaScript, TypeScript, HTML5 to solve production scale challenges.",
+      "Write clean, modular code with accompanying unit tests and documentation.",
+      "Participate in sprint planning, code reviews, and design discussions."
+    ],
+    "qualifications": [
+      "B.Tech / BCA / B.Sc in CS/IT or equivalent qualification.",
+      "Demonstrated proficiency in JavaScript, TypeScript.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-07",
+    "applicationUrl": "#apply-JOB-030",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-031",
+    "title": "Junior UI Software Engineer",
+    "company": "Syntropic AI",
+    "category": "Frontend",
+    "location": "Kolkata, India",
+    "workMode": "On-site",
+    "employmentType": "Full-time",
+    "experienceLevel": "Entry-level (0-1 yrs)",
+    "minExperienceYears": 0,
+    "minEducation": "B.Tech / BCA / B.Sc in CS/IT",
+    "salaryRange": "₹580,000 - ₹840,000 / year",
+    "minSalaryAnnualINR": 580000,
+    "requiredSkills": [
+      "JavaScript",
+      "HTML5",
+      "CSS3",
+      "DOM Manipulation",
+      "Git"
+    ],
+    "preferredSkills": [
+      "Responsive Design",
+      "Figma",
+      "CSS Animations"
+    ],
+    "description": "Looking for a motivated Junior UI Software Engineer to contribute to high-impact projects at Syntropic AI. You will collaborate closely with cross-functional product and engineering teams to build robust solutions.",
+    "responsibilities": [
+      "Deliver key components and modules aligned with Frontend best practices.",
+      "Work with JavaScript, HTML5, CSS3 to solve production scale challenges.",
+      "Write clean, modular code with accompanying unit tests and documentation.",
+      "Participate in sprint planning, code reviews, and design discussions."
+    ],
+    "qualifications": [
+      "B.Tech / BCA / B.Sc in CS/IT or equivalent qualification.",
+      "Demonstrated proficiency in JavaScript, HTML5.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-11",
+    "applicationUrl": "#apply-JOB-031",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-032",
+    "title": "Python Django Backend Engineer",
+    "company": "TrueNorth Analytics",
+    "category": "Backend",
+    "location": "Bangalore, India",
+    "workMode": "Remote",
+    "employmentType": "Full-time",
+    "experienceLevel": "Junior (1-2 yrs)",
+    "minExperienceYears": 1,
+    "minEducation": "B.Tech / BCA / B.Sc in CS/IT",
+    "salaryRange": "₹700,000 - ₹1,050,000 / year",
+    "minSalaryAnnualINR": 700000,
+    "requiredSkills": [
+      "Python",
+      "SQL",
+      "RESTful APIs",
+      "Git",
+      "Database Design"
+    ],
+    "preferredSkills": [
+      "Django",
+      "PostgreSQL",
+      "Docker",
+      "Redis"
+    ],
+    "description": "Looking for a motivated Python Django Backend Engineer to contribute to high-impact projects at TrueNorth Analytics. You will collaborate closely with cross-functional product and engineering teams to build robust solutions.",
+    "responsibilities": [
+      "Deliver key components and modules aligned with Backend best practices.",
+      "Work with Python, SQL, RESTful APIs to solve production scale challenges.",
+      "Write clean, modular code with accompanying unit tests and documentation.",
+      "Participate in sprint planning, code reviews, and design discussions."
+    ],
+    "qualifications": [
+      "B.Tech / BCA / B.Sc in CS/IT or equivalent qualification.",
+      "Demonstrated proficiency in Python, SQL.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-17",
+    "applicationUrl": "#apply-JOB-032",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-033",
+    "title": "Golang Cloud Backend Trainee",
+    "company": "AcroByte Solutions",
+    "category": "Backend",
+    "location": "Hyderabad, India",
+    "workMode": "Hybrid",
+    "employmentType": "Full-time",
+    "experienceLevel": "Entry-level (0-1 yrs)",
+    "minExperienceYears": 0,
+    "minEducation": "B.Tech / BCA / B.Sc in CS/IT",
+    "salaryRange": "₹750,000 - ₹1,150,000 / year",
+    "minSalaryAnnualINR": 750000,
+    "requiredSkills": [
+      "Data Structures",
+      "OOP",
+      "Networking",
+      "Git",
+      "Linux"
+    ],
+    "preferredSkills": [
+      "Go",
+      "Docker",
+      "gRPC",
+      "PostgreSQL"
+    ],
+    "description": "Looking for a motivated Golang Cloud Backend Trainee to contribute to high-impact projects at AcroByte Solutions. You will collaborate closely with cross-functional product and engineering teams to build robust solutions.",
+    "responsibilities": [
+      "Deliver key components and modules aligned with Backend best practices.",
+      "Work with Data Structures, OOP, Networking to solve production scale challenges.",
+      "Write clean, modular code with accompanying unit tests and documentation.",
+      "Participate in sprint planning, code reviews, and design discussions."
+    ],
+    "qualifications": [
+      "B.Tech / BCA / B.Sc in CS/IT or equivalent qualification.",
+      "Demonstrated proficiency in Data Structures, OOP.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-10",
+    "applicationUrl": "#apply-JOB-033",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-034",
+    "title": "C++ Systems Software Trainee",
+    "company": "Kinetix Cyber Systems",
+    "category": "Backend",
+    "location": "Bangalore, India",
+    "workMode": "On-site",
+    "employmentType": "Full-time",
+    "experienceLevel": "Entry-level (0-1 yrs)",
+    "minExperienceYears": 0,
+    "minEducation": "B.Tech / BCA / B.Sc in CS/IT",
+    "salaryRange": "₹650,000 - ₹1,000,000 / year",
+    "minSalaryAnnualINR": 650000,
+    "requiredSkills": [
+      "C++",
+      "Data Structures",
+      "Algorithms",
+      "OOP",
+      "Linux"
+    ],
+    "preferredSkills": [
+      "Multi-threading",
+      "Git",
+      "Memory Management"
+    ],
+    "description": "Looking for a motivated C++ Systems Software Trainee to contribute to high-impact projects at Kinetix Cyber Systems. You will collaborate closely with cross-functional product and engineering teams to build robust solutions.",
+    "responsibilities": [
+      "Deliver key components and modules aligned with Backend best practices.",
+      "Work with C++, Data Structures, Algorithms to solve production scale challenges.",
+      "Write clean, modular code with accompanying unit tests and documentation.",
+      "Participate in sprint planning, code reviews, and design discussions."
+    ],
+    "qualifications": [
+      "B.Tech / BCA / B.Sc in CS/IT or equivalent qualification.",
+      "Demonstrated proficiency in C++, Data Structures.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-06",
+    "applicationUrl": "#apply-JOB-034",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-035",
+    "title": "Full Stack Web Developer (Python + Vue)",
+    "company": "PulseWeb Technologies",
+    "category": "Full Stack",
+    "location": "Pune, India",
+    "workMode": "Hybrid",
+    "employmentType": "Full-time",
+    "experienceLevel": "Junior (1-2 yrs)",
+    "minExperienceYears": 1,
+    "minEducation": "B.Tech / BCA / B.Sc in CS/IT",
+    "salaryRange": "₹780,000 - ₹1,180,000 / year",
+    "minSalaryAnnualINR": 780000,
+    "requiredSkills": [
+      "Python",
+      "JavaScript",
+      "HTML5",
+      "CSS3",
+      "SQL"
+    ],
+    "preferredSkills": [
+      "FastAPI",
+      "Vue.js",
+      "Docker",
+      "Git"
+    ],
+    "description": "Looking for a motivated Full Stack Web Developer (Python + Vue) to contribute to high-impact projects at PulseWeb Technologies. You will collaborate closely with cross-functional product and engineering teams to build robust solutions.",
+    "responsibilities": [
+      "Deliver key components and modules aligned with Full Stack best practices.",
+      "Work with Python, JavaScript, HTML5 to solve production scale challenges.",
+      "Write clean, modular code with accompanying unit tests and documentation.",
+      "Participate in sprint planning, code reviews, and design discussions."
+    ],
+    "qualifications": [
+      "B.Tech / BCA / B.Sc in CS/IT or equivalent qualification.",
+      "Demonstrated proficiency in Python, JavaScript.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-16",
+    "applicationUrl": "#apply-JOB-035",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-036",
+    "title": "Full Stack JavaScript Associate",
+    "company": "InnoSphere Labs",
+    "category": "Full Stack",
+    "location": "Remote - Global",
+    "workMode": "Remote",
+    "employmentType": "Full-time",
+    "experienceLevel": "Entry-level (0-1 yrs)",
+    "minExperienceYears": 0,
+    "minEducation": "B.Tech / BCA / B.Sc in CS/IT",
+    "salaryRange": "₹650,000 - ₹950,000 / year",
+    "minSalaryAnnualINR": 650000,
+    "requiredSkills": [
+      "JavaScript",
+      "Node.js",
+      "React",
+      "HTML5",
+      "CSS3"
+    ],
+    "preferredSkills": [
+      "Express",
+      "MongoDB",
+      "RESTful APIs",
+      "Git"
+    ],
+    "description": "Looking for a motivated Full Stack JavaScript Associate to contribute to high-impact projects at InnoSphere Labs. You will collaborate closely with cross-functional product and engineering teams to build robust solutions.",
+    "responsibilities": [
+      "Deliver key components and modules aligned with Full Stack best practices.",
+      "Work with JavaScript, Node.js, React to solve production scale challenges.",
+      "Write clean, modular code with accompanying unit tests and documentation.",
+      "Participate in sprint planning, code reviews, and design discussions."
+    ],
+    "qualifications": [
+      "B.Tech / BCA / B.Sc in CS/IT or equivalent qualification.",
+      "Demonstrated proficiency in JavaScript, Node.js.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-09-29",
+    "applicationUrl": "#apply-JOB-036",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-037",
+    "title": "Site Reliability Engineering (SRE) Intern",
+    "company": "DeepMatrix Computing",
+    "category": "Cloud & DevOps",
+    "location": "Bangalore, India",
+    "workMode": "Remote",
+    "employmentType": "Internship",
+    "experienceLevel": "Internship",
+    "minExperienceYears": 0,
+    "minEducation": "B.Tech / B.E in CS/IT/AI",
+    "salaryRange": "₹400,000 - ₹520,000 / year",
+    "minSalaryAnnualINR": 400000,
+    "requiredSkills": [
+      "Linux",
+      "Bash",
+      "Python",
+      "Networking"
+    ],
+    "preferredSkills": [
+      "Docker",
+      "Prometheus",
+      "Git",
+      "Cloud Infrastructure"
+    ],
+    "description": "Looking for a motivated Site Reliability Engineering (SRE) Intern to contribute to high-impact projects at DeepMatrix Computing. You will collaborate closely with cross-functional product and engineering teams to build robust solutions.",
+    "responsibilities": [
+      "Deliver key components and modules aligned with Cloud & DevOps best practices.",
+      "Work with Linux, Bash, Python to solve production scale challenges.",
+      "Write clean, modular code with accompanying unit tests and documentation.",
+      "Participate in sprint planning, code reviews, and design discussions."
+    ],
+    "qualifications": [
+      "B.Tech / B.E in CS/IT/AI or equivalent qualification.",
+      "Demonstrated proficiency in Linux, Bash.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-09-27",
+    "applicationUrl": "#apply-JOB-037",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-038",
+    "title": "Kubernetes & Cloud Infrastructure Associate",
+    "company": "NovaScale Technologies",
+    "category": "Cloud & DevOps",
+    "location": "Hyderabad, India",
+    "workMode": "Hybrid",
+    "employmentType": "Full-time",
+    "experienceLevel": "Junior (1-2 yrs)",
+    "minExperienceYears": 1,
+    "minEducation": "B.Tech / B.E in CS/IT/AI",
+    "salaryRange": "₹820,000 - ₹1,300,000 / year",
+    "minSalaryAnnualINR": 820000,
+    "requiredSkills": [
+      "Docker",
+      "Linux",
+      "Git",
+      "AWS / Cloud Fundamentals"
+    ],
+    "preferredSkills": [
+      "Kubernetes",
+      "Terraform",
+      "Helm",
+      "CI/CD Pipelines"
+    ],
+    "description": "Looking for a motivated Kubernetes & Cloud Infrastructure Associate to contribute to high-impact projects at NovaScale Technologies. You will collaborate closely with cross-functional product and engineering teams to build robust solutions.",
+    "responsibilities": [
+      "Deliver key components and modules aligned with Cloud & DevOps best practices.",
+      "Work with Docker, Linux, Git to solve production scale challenges.",
+      "Write clean, modular code with accompanying unit tests and documentation.",
+      "Participate in sprint planning, code reviews, and design discussions."
+    ],
+    "qualifications": [
+      "B.Tech / B.E in CS/IT/AI or equivalent qualification.",
+      "Demonstrated proficiency in Docker, Linux.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-24",
+    "applicationUrl": "#apply-JOB-038",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-039",
+    "title": "iOS Mobile App Engineer (Swift)",
+    "company": "CognitiveEdge Systems",
+    "category": "Mobile App Dev",
+    "location": "Bangalore, India",
+    "workMode": "On-site",
+    "employmentType": "Full-time",
+    "experienceLevel": "Junior (1-2 yrs)",
+    "minExperienceYears": 1,
+    "minEducation": "B.Tech / BCA / B.Sc in CS/IT",
+    "salaryRange": "₹750,000 - ₹1,150,000 / year",
+    "minSalaryAnnualINR": 750000,
+    "requiredSkills": [
+      "Mobile Development",
+      "Git",
+      "OOP",
+      "RESTful APIs"
+    ],
+    "preferredSkills": [
+      "Swift",
+      "iOS SDK",
+      "SwiftUI",
+      "Xcode"
+    ],
+    "description": "Looking for a motivated iOS Mobile App Engineer (Swift) to contribute to high-impact projects at CognitiveEdge Systems. You will collaborate closely with cross-functional product and engineering teams to build robust solutions.",
+    "responsibilities": [
+      "Deliver key components and modules aligned with Mobile App Dev best practices.",
+      "Work with Mobile Development, Git, OOP to solve production scale challenges.",
+      "Write clean, modular code with accompanying unit tests and documentation.",
+      "Participate in sprint planning, code reviews, and design discussions."
+    ],
+    "qualifications": [
+      "B.Tech / BCA / B.Sc in CS/IT or equivalent qualification.",
+      "Demonstrated proficiency in Mobile Development, Git.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-09-30",
+    "applicationUrl": "#apply-JOB-039",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-040",
+    "title": "Cross-Platform React Native Developer",
+    "company": "Vanguard AI Labs",
+    "category": "Mobile App Dev",
+    "location": "Pune, India",
+    "workMode": "Remote",
+    "employmentType": "Full-time",
+    "experienceLevel": "Entry-level (0-1 yrs)",
+    "minExperienceYears": 0,
+    "minEducation": "B.Tech / BCA / B.Sc in CS/IT",
+    "salaryRange": "₹620,000 - ₹920,000 / year",
+    "minSalaryAnnualINR": 620000,
+    "requiredSkills": [
+      "JavaScript",
+      "React",
+      "Mobile Development",
+      "Git"
+    ],
+    "preferredSkills": [
+      "React Native",
+      "TypeScript",
+      "RESTful APIs"
+    ],
+    "description": "Looking for a motivated Cross-Platform React Native Developer to contribute to high-impact projects at Vanguard AI Labs. You will collaborate closely with cross-functional product and engineering teams to build robust solutions.",
+    "responsibilities": [
+      "Deliver key components and modules aligned with Mobile App Dev best practices.",
+      "Work with JavaScript, React, Mobile Development to solve production scale challenges.",
+      "Write clean, modular code with accompanying unit tests and documentation.",
+      "Participate in sprint planning, code reviews, and design discussions."
+    ],
+    "qualifications": [
+      "B.Tech / BCA / B.Sc in CS/IT or equivalent qualification.",
+      "Demonstrated proficiency in JavaScript, React.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-09-29",
+    "applicationUrl": "#apply-JOB-040",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-041",
+    "title": "SOC Security Analyst (Tier 1)",
+    "company": "InfiniData Dynamics",
+    "category": "Cybersecurity",
+    "location": "Bangalore, India",
+    "workMode": "On-site",
+    "employmentType": "Full-time",
+    "experienceLevel": "Entry-level (0-1 yrs)",
+    "minExperienceYears": 0,
+    "minEducation": "B.Tech / BCA / B.Sc in CS/IT",
+    "salaryRange": "₹600,000 - ₹880,000 / year",
+    "minSalaryAnnualINR": 600000,
+    "requiredSkills": [
+      "Networking",
+      "Linux",
+      "Cybersecurity Basics",
+      "Vulnerability Assessment"
+    ],
+    "preferredSkills": [
+      "SIEM",
+      "Incident Handling",
+      "Wireshark"
+    ],
+    "description": "Looking for a motivated SOC Security Analyst (Tier 1) to contribute to high-impact projects at InfiniData Dynamics. You will collaborate closely with cross-functional product and engineering teams to build robust solutions.",
+    "responsibilities": [
+      "Deliver key components and modules aligned with Cybersecurity best practices.",
+      "Work with Networking, Linux, Cybersecurity Basics to solve production scale challenges.",
+      "Write clean, modular code with accompanying unit tests and documentation.",
+      "Participate in sprint planning, code reviews, and design discussions."
+    ],
+    "qualifications": [
+      "B.Tech / BCA / B.Sc in CS/IT or equivalent qualification.",
+      "Demonstrated proficiency in Networking, Linux.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-19",
+    "applicationUrl": "#apply-JOB-041",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-042",
+    "title": "Application Security Associate",
+    "company": "BlueWave Digital",
+    "category": "Cybersecurity",
+    "location": "Gurgaon, India",
+    "workMode": "Hybrid",
+    "employmentType": "Full-time",
+    "experienceLevel": "Junior (1-2 yrs)",
+    "minExperienceYears": 1,
+    "minEducation": "B.Tech / BCA / B.Sc in CS/IT",
+    "salaryRange": "₹780,000 - ₹1,200,000 / year",
+    "minSalaryAnnualINR": 780000,
+    "requiredSkills": [
+      "Cybersecurity Basics",
+      "Python",
+      "Networking",
+      "Git"
+    ],
+    "preferredSkills": [
+      "OWASP",
+      "Burp Suite",
+      "SAST/DAST",
+      "Linux"
+    ],
+    "description": "Looking for a motivated Application Security Associate to contribute to high-impact projects at BlueWave Digital. You will collaborate closely with cross-functional product and engineering teams to build robust solutions.",
+    "responsibilities": [
+      "Deliver key components and modules aligned with Cybersecurity best practices.",
+      "Work with Cybersecurity Basics, Python, Networking to solve production scale challenges.",
+      "Write clean, modular code with accompanying unit tests and documentation.",
+      "Participate in sprint planning, code reviews, and design discussions."
+    ],
+    "qualifications": [
+      "B.Tech / BCA / B.Sc in CS/IT or equivalent qualification.",
+      "Demonstrated proficiency in Cybersecurity Basics, Python.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-02",
+    "applicationUrl": "#apply-JOB-042",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-043",
+    "title": "Performance & Load Testing Specialist",
+    "company": "Zephyr Cloud Tech",
+    "category": "Quality Assurance",
+    "location": "Chennai, India",
+    "workMode": "Remote",
+    "employmentType": "Full-time",
+    "experienceLevel": "Junior (1-2 yrs)",
+    "minExperienceYears": 1,
+    "minEducation": "B.Tech / BCA / B.Sc in CS/IT",
+    "salaryRange": "₹650,000 - ₹950,000 / year",
+    "minSalaryAnnualINR": 650000,
+    "requiredSkills": [
+      "Software Testing",
+      "Python",
+      "Networking",
+      "Git"
+    ],
+    "preferredSkills": [
+      "JMeter",
+      "Postman",
+      "CI/CD Pipelines"
+    ],
+    "description": "Looking for a motivated Performance & Load Testing Specialist to contribute to high-impact projects at Zephyr Cloud Tech. You will collaborate closely with cross-functional product and engineering teams to build robust solutions.",
+    "responsibilities": [
+      "Deliver key components and modules aligned with Quality Assurance best practices.",
+      "Work with Software Testing, Python, Networking to solve production scale challenges.",
+      "Write clean, modular code with accompanying unit tests and documentation.",
+      "Participate in sprint planning, code reviews, and design discussions."
+    ],
+    "qualifications": [
+      "B.Tech / BCA / B.Sc in CS/IT or equivalent qualification.",
+      "Demonstrated proficiency in Software Testing, Python.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-11",
+    "applicationUrl": "#apply-JOB-043",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-044",
+    "title": "SDET (Software Development Engineer in Test)",
+    "company": "OmniLogic Software",
+    "category": "Quality Assurance",
+    "location": "Bangalore, India",
+    "workMode": "Hybrid",
+    "employmentType": "Full-time",
+    "experienceLevel": "Entry-level (0-1 yrs)",
+    "minExperienceYears": 0,
+    "minEducation": "B.Tech / BCA / B.Sc in CS/IT",
+    "salaryRange": "₹700,000 - ₹1,050,000 / year",
+    "minSalaryAnnualINR": 700000,
+    "requiredSkills": [
+      "Java",
+      "Data Structures",
+      "Software Testing",
+      "Git",
+      "SQL"
+    ],
+    "preferredSkills": [
+      "Selenium",
+      "TestNG",
+      "CI/CD Pipelines",
+      "Docker"
+    ],
+    "description": "Looking for a motivated SDET (Software Development Engineer in Test) to contribute to high-impact projects at OmniLogic Software. You will collaborate closely with cross-functional product and engineering teams to build robust solutions.",
+    "responsibilities": [
+      "Deliver key components and modules aligned with Quality Assurance best practices.",
+      "Work with Java, Data Structures, Software Testing to solve production scale challenges.",
+      "Write clean, modular code with accompanying unit tests and documentation.",
+      "Participate in sprint planning, code reviews, and design discussions."
+    ],
+    "qualifications": [
+      "B.Tech / BCA / B.Sc in CS/IT or equivalent qualification.",
+      "Demonstrated proficiency in Java, Data Structures.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-14",
+    "applicationUrl": "#apply-JOB-044",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-045",
+    "title": "AI Solutions Associate",
+    "company": "Aura Intelligence",
+    "category": "AI / Machine Learning",
+    "location": "Remote - India",
+    "workMode": "Remote",
+    "employmentType": "Full-time",
+    "experienceLevel": "Entry-level (0-1 yrs)",
+    "minExperienceYears": 0,
+    "minEducation": "B.Tech / B.E in CS/IT/AI",
+    "salaryRange": "₹720,000 - ₹1,080,000 / year",
+    "minSalaryAnnualINR": 720000,
+    "requiredSkills": [
+      "Python",
+      "Machine Learning",
+      "Data Structures",
+      "SQL"
+    ],
+    "preferredSkills": [
+      "Scikit-Learn",
+      "FastAPI",
+      "Pandas"
+    ],
+    "description": "Looking for a motivated AI Solutions Associate to contribute to high-impact projects at Aura Intelligence. You will collaborate closely with cross-functional product and engineering teams to build robust solutions.",
+    "responsibilities": [
+      "Deliver key components and modules aligned with AI / Machine Learning best practices.",
+      "Work with Python, Machine Learning, Data Structures to solve production scale challenges.",
+      "Write clean, modular code with accompanying unit tests and documentation.",
+      "Participate in sprint planning, code reviews, and design discussions."
+    ],
+    "qualifications": [
+      "B.Tech / B.E in CS/IT/AI or equivalent qualification.",
+      "Demonstrated proficiency in Python, Machine Learning.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-16",
+    "applicationUrl": "#apply-JOB-045",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-046",
+    "title": "Applied NLP Researcher",
+    "company": "PrismTech Global",
+    "category": "AI / Machine Learning",
+    "location": "Bangalore, India",
+    "workMode": "Hybrid",
+    "employmentType": "Full-time",
+    "experienceLevel": "Junior (1-2 yrs)",
+    "minExperienceYears": 1,
+    "minEducation": "B.Tech / B.E in CS/IT/AI",
+    "salaryRange": "₹900,000 - ₹1,450,000 / year",
+    "minSalaryAnnualINR": 900000,
+    "requiredSkills": [
+      "Python",
+      "NLP",
+      "Transformers",
+      "Deep Learning"
+    ],
+    "preferredSkills": [
+      "PyTorch",
+      "HuggingFace",
+      "BERT"
+    ],
+    "description": "Looking for a motivated Applied NLP Researcher to contribute to high-impact projects at PrismTech Global. You will collaborate closely with cross-functional product and engineering teams to build robust solutions.",
+    "responsibilities": [
+      "Deliver key components and modules aligned with AI / Machine Learning best practices.",
+      "Work with Python, NLP, Transformers to solve production scale challenges.",
+      "Write clean, modular code with accompanying unit tests and documentation.",
+      "Participate in sprint planning, code reviews, and design discussions."
+    ],
+    "qualifications": [
+      "B.Tech / B.E in CS/IT/AI or equivalent qualification.",
+      "Demonstrated proficiency in Python, NLP.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-20",
+    "applicationUrl": "#apply-JOB-046",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-047",
+    "title": "Healthcare Data Analyst",
+    "company": "Syntropic AI",
+    "category": "Data Science",
+    "location": "Hyderabad, India",
+    "workMode": "On-site",
+    "employmentType": "Full-time",
+    "experienceLevel": "Entry-level (0-1 yrs)",
+    "minExperienceYears": 0,
+    "minEducation": "B.Tech / BCA / B.Sc in CS/IT",
+    "salaryRange": "₹580,000 - ₹840,000 / year",
+    "minSalaryAnnualINR": 580000,
+    "requiredSkills": [
+      "SQL",
+      "Python",
+      "Data Analysis",
+      "Excel"
+    ],
+    "preferredSkills": [
+      "Pandas",
+      "Healthcare Informatics",
+      "PowerBI"
+    ],
+    "description": "Looking for a motivated Healthcare Data Analyst to contribute to high-impact projects at Syntropic AI. You will collaborate closely with cross-functional product and engineering teams to build robust solutions.",
+    "responsibilities": [
+      "Deliver key components and modules aligned with Data Science best practices.",
+      "Work with SQL, Python, Data Analysis to solve production scale challenges.",
+      "Write clean, modular code with accompanying unit tests and documentation.",
+      "Participate in sprint planning, code reviews, and design discussions."
+    ],
+    "qualifications": [
+      "B.Tech / BCA / B.Sc in CS/IT or equivalent qualification.",
+      "Demonstrated proficiency in SQL, Python.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-18",
+    "applicationUrl": "#apply-JOB-047",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-048",
+    "title": "Financial Quantitative Analyst Trainee",
+    "company": "TrueNorth Analytics",
+    "category": "Data Science",
+    "location": "Mumbai, India",
+    "workMode": "Hybrid",
+    "employmentType": "Full-time",
+    "experienceLevel": "Entry-level (0-1 yrs)",
+    "minExperienceYears": 0,
+    "minEducation": "B.Tech / BCA / B.Sc in CS/IT",
+    "salaryRange": "₹800,000 - ₹1,200,000 / year",
+    "minSalaryAnnualINR": 800000,
+    "requiredSkills": [
+      "Linear Algebra",
+      "Statistical Modeling",
+      "Python",
+      "SQL"
+    ],
+    "preferredSkills": [
+      "Pandas",
+      "NumPy",
+      "Time Series Analysis"
+    ],
+    "description": "Looking for a motivated Financial Quantitative Analyst Trainee to contribute to high-impact projects at TrueNorth Analytics. You will collaborate closely with cross-functional product and engineering teams to build robust solutions.",
+    "responsibilities": [
+      "Deliver key components and modules aligned with Data Science best practices.",
+      "Work with Linear Algebra, Statistical Modeling, Python to solve production scale challenges.",
+      "Write clean, modular code with accompanying unit tests and documentation.",
+      "Participate in sprint planning, code reviews, and design discussions."
+    ],
+    "qualifications": [
+      "B.Tech / BCA / B.Sc in CS/IT or equivalent qualification.",
+      "Demonstrated proficiency in Linear Algebra, Statistical Modeling.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-09-30",
+    "applicationUrl": "#apply-JOB-048",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-049",
+    "title": "Frontend Design Systems Engineer",
+    "company": "AcroByte Solutions",
+    "category": "Frontend",
+    "location": "Bangalore, India",
+    "workMode": "Remote",
+    "employmentType": "Full-time",
+    "experienceLevel": "Junior (1-2 yrs)",
+    "minExperienceYears": 1,
+    "minEducation": "B.Tech / BCA / B.Sc in CS/IT",
+    "salaryRange": "₹780,000 - ₹1,140,000 / year",
+    "minSalaryAnnualINR": 780000,
+    "requiredSkills": [
+      "JavaScript",
+      "HTML5",
+      "CSS3",
+      "React"
+    ],
+    "preferredSkills": [
+      "Storybook",
+      "Figma",
+      "TypeScript",
+      "Web Accessibility (a11y)"
+    ],
+    "description": "Looking for a motivated Frontend Design Systems Engineer to contribute to high-impact projects at AcroByte Solutions. You will collaborate closely with cross-functional product and engineering teams to build robust solutions.",
+    "responsibilities": [
+      "Deliver key components and modules aligned with Frontend best practices.",
+      "Work with JavaScript, HTML5, CSS3 to solve production scale challenges.",
+      "Write clean, modular code with accompanying unit tests and documentation.",
+      "Participate in sprint planning, code reviews, and design discussions."
+    ],
+    "qualifications": [
+      "B.Tech / BCA / B.Sc in CS/IT or equivalent qualification.",
+      "Demonstrated proficiency in JavaScript, HTML5.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-14",
+    "applicationUrl": "#apply-JOB-049",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-050",
+    "title": "Micro-Frontend Architect Trainee",
+    "company": "Kinetix Cyber Systems",
+    "category": "Frontend",
+    "location": "Pune, India",
+    "workMode": "Hybrid",
+    "employmentType": "Full-time",
+    "experienceLevel": "Junior (1-2 yrs)",
+    "minExperienceYears": 1,
+    "minEducation": "B.Tech / BCA / B.Sc in CS/IT",
+    "salaryRange": "₹800,000 - ₹1,200,000 / year",
+    "minSalaryAnnualINR": 800000,
+    "requiredSkills": [
+      "JavaScript",
+      "React",
+      "HTML5",
+      "CSS3",
+      "Git"
+    ],
+    "preferredSkills": [
+      "Webpack",
+      "Module Federation",
+      "TypeScript"
+    ],
+    "description": "Looking for a motivated Micro-Frontend Architect Trainee to contribute to high-impact projects at Kinetix Cyber Systems. You will collaborate closely with cross-functional product and engineering teams to build robust solutions.",
+    "responsibilities": [
+      "Deliver key components and modules aligned with Frontend best practices.",
+      "Work with JavaScript, React, HTML5 to solve production scale challenges.",
+      "Write clean, modular code with accompanying unit tests and documentation.",
+      "Participate in sprint planning, code reviews, and design discussions."
+    ],
+    "qualifications": [
+      "B.Tech / BCA / B.Sc in CS/IT or equivalent qualification.",
+      "Demonstrated proficiency in JavaScript, React.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-21",
+    "applicationUrl": "#apply-JOB-050",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-051",
+    "title": "Microservices Backend Developer",
+    "company": "PulseWeb Technologies",
+    "category": "Backend",
+    "location": "Hyderabad, India",
+    "workMode": "Remote",
+    "employmentType": "Full-time",
+    "experienceLevel": "Junior (1-2 yrs)",
+    "minExperienceYears": 1,
+    "minEducation": "B.Tech / BCA / B.Sc in CS/IT",
+    "salaryRange": "₹760,000 - ₹1,150,000 / year",
+    "minSalaryAnnualINR": 760000,
+    "requiredSkills": [
+      "Node.js",
+      "Express",
+      "SQL",
+      "Git",
+      "RESTful APIs"
+    ],
+    "preferredSkills": [
+      "Docker",
+      "MongoDB",
+      "RabbitMQ",
+      "TypeScript"
+    ],
+    "description": "Looking for a motivated Microservices Backend Developer to contribute to high-impact projects at PulseWeb Technologies. You will collaborate closely with cross-functional product and engineering teams to build robust solutions.",
+    "responsibilities": [
+      "Deliver key components and modules aligned with Backend best practices.",
+      "Work with Node.js, Express, SQL to solve production scale challenges.",
+      "Write clean, modular code with accompanying unit tests and documentation.",
+      "Participate in sprint planning, code reviews, and design discussions."
+    ],
+    "qualifications": [
+      "B.Tech / BCA / B.Sc in CS/IT or equivalent qualification.",
+      "Demonstrated proficiency in Node.js, Express.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-22",
+    "applicationUrl": "#apply-JOB-051",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  },
+  {
+    "id": "JOB-052",
+    "title": "Cloud Security Operations Trainee",
+    "company": "InnoSphere Labs",
+    "category": "Cybersecurity",
+    "location": "Bangalore, India",
+    "workMode": "On-site",
+    "employmentType": "Full-time",
+    "experienceLevel": "Entry-level (0-1 yrs)",
+    "minExperienceYears": 0,
+    "minEducation": "B.Tech / BCA / B.Sc in CS/IT",
+    "salaryRange": "₹680,000 - ₹980,000 / year",
+    "minSalaryAnnualINR": 680000,
+    "requiredSkills": [
+      "Networking",
+      "Linux",
+      "AWS / Cloud Fundamentals",
+      "Cybersecurity Basics"
+    ],
+    "preferredSkills": [
+      "IAM Policies",
+      "CloudTrail",
+      "Python"
+    ],
+    "description": "Looking for a motivated Cloud Security Operations Trainee to contribute to high-impact projects at InnoSphere Labs. You will collaborate closely with cross-functional product and engineering teams to build robust solutions.",
+    "responsibilities": [
+      "Deliver key components and modules aligned with Cybersecurity best practices.",
+      "Work with Networking, Linux, AWS / Cloud Fundamentals to solve production scale challenges.",
+      "Write clean, modular code with accompanying unit tests and documentation.",
+      "Participate in sprint planning, code reviews, and design discussions."
+    ],
+    "qualifications": [
+      "B.Tech / BCA / B.Sc in CS/IT or equivalent qualification.",
+      "Demonstrated proficiency in Networking, Linux.",
+      "Strong problem-solving, analytical thinking, and collaboration skills."
+    ],
+    "benefits": [
+      "Competitive entry-level remuneration package",
+      "Continuous learning sponsorship & certification allowances",
+      "Health & wellness insurance coverage",
+      "Flexible working hours and ergonomic equipment allowance"
+    ],
+    "postedDate": "2026-10-12",
+    "applicationUrl": "#apply-JOB-052",
+    "isSynthetic": true,
+    "demoNotice": "Demonstration record created for B.Tech AI PBL evaluation. Not a live recruitment vacancy."
+  }
+]

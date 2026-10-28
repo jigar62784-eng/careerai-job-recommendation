@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Application Pipeline Tracker — CareerAI</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <div id="demo-mode-banner"></div>
+  <header id="main-navbar"></header>
+
+  <main class="main-content">
+    <div class="container">
+      
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <h1 style="font-size: 2rem; margin-bottom: 0.35rem;">Job Application Tracker</h1>
+          <p style="font-size: 0.92rem; color: var(--slate-600);">
+            Monitor recruitment stages, technical interview rounds, and offers in one organized dashboard.
+          </p>
+        </div>
+        <div style="display: flex; gap: 0.75rem;">
+          <a href="jobs.html" class="btn btn-outline btn-sm">Find More Jobs</a>
+          <button class="btn btn-primary btn-sm" onclick="openNewAppModal()">
+            + Log New Application
+          </button>
+        </div>
+      </div>
+
+      <!-- Pipeline Stats Bar -->
+      <div class="metrics-grid" style="margin-bottom: 2rem;">
+        <div class="metric-card">
+          <div class="metric-icon-box metric-icon-blue">📬</div>
+          <div class="metric-data">
+            <div class="metric-label">Applied</div>
+            <div class="metric-value" id="stat-applied">0</div>
+          </div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon-box metric-icon-cyan">🔍</div>
+          <div class="metric-data">
+            <div class="metric-label">Screening</div>
+            <div class="metric-value" id="stat-screening">0</div>
+          </div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon-box metric-icon-amber">💼</div>
+          <div class="metric-data">
+            <div class="metric-label">Interviewing</div>
+            <div class="metric-value" id="stat-interviewing">0</div>
+          </div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon-box metric-icon-emerald">🎉</div>
+          <div class="metric-data">
+            <div class="metric-label">Offered</div>
+            <div class="metric-value" id="stat-offered">0</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- View Selector Tabs -->
+      <div class="tabs-nav">
+        <button class="tab-btn active" id="tab-kanban-btn" onclick="switchView('kanban')">📋 Kanban Board View</button>
+        <button class="tab-btn" id="tab-table-btn" onclick="switchView('table')">📑 Detailed Table View</button>
+      </div>
+
+      <!-- Kanban View Container -->
+      <div id="view-kanban" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; align-items: flex-start; margin-bottom: 3rem;">
+        <!-- Column Applied -->
+        <div class="card" style="background-color: var(--slate-100); border-top: 3px solid var(--blue-500);">
+          <div class="card-header" style="padding: 0.85rem 1rem;">
+            <strong style="font-size: 0.9rem;">1. Applied (<span id="count-col-applied">0</span>)</strong>
+          </div>
+          <div class="card-body" style="padding: 0.75rem; display: flex; flex-direction: column; gap: 0.75rem; min-height: 250px;" id="col-applied"></div>
+        </div>
+
+        <!-- Column Screening -->
+        <div class="card" style="background-color: var(--slate-100); border-top: 3px solid var(--cyan-500);">
+          <div class="card-header" style="padding: 0.85rem 1rem;">
+            <strong style="font-size: 0.9rem;">2. Screening (<span id="count-col-screening">0</span>)</strong>
+          </div>
+          <div class="card-body" style="padding: 0.75rem; display: flex; flex-direction: column; gap: 0.75rem; min-height: 250px;" id="col-screening"></div>
+        </div>
+
+        <!-- Column Interviewing -->
+        <div class="card" style="background-color: var(--slate-100); border-top: 3px solid var(--amber-500);">
+          <div class="card-header" style="padding: 0.85rem 1rem;">
+            <strong style="font-size: 0.9rem;">3. Interviewing (<span id="count-col-interviewing">0</span>)</strong>
+          </div>
+          <div class="card-body" style="padding: 0.75rem; display: flex; flex-direction: column; gap: 0.75rem; min-height: 250px;" id="col-interviewing"></div>
+        </div>
+
+        <!-- Column Offered -->
+        <div class="card" style="background-color: var(--slate-100); border-top: 3px solid var(--emerald-500);">
+          <div class="card-header" style="padding: 0.85rem 1rem;">
+            <strong style="font-size: 0.9rem;">4. Offered (<span id="count-col-offered">0</span>)</strong>
+          </div>
+          <div class="card-body" style="padding: 0.75rem; display: flex; flex-direction: column; gap: 0.75rem; min-height: 250px;" id="col-offered"></div>
+        </div>
+
+        <!-- Column Rejected -->
+        <div class="card" style="background-color: var(--slate-100); border-top: 3px solid var(--rose-500);">
+          <div class="card-header" style="padding: 0.85rem 1rem;">
+            <strong style="font-size: 0.9rem;">5. Closed (<span id="count-col-rejected">0</span>)</strong>
+          </div>
+          <div class="card-body" style="padding: 0.75rem; display: flex; flex-direction: column; gap: 0.75rem; min-height: 250px;" id="col-rejected"></div>
+        </div>
+      </div>
+
+      <!-- Table View Container -->
+      <div id="view-table" style="display: none; margin-bottom: 3rem;">
+        <div class="card">
+          <div class="card-body" style="padding: 0; overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.88rem;">
+              <thead style="background-color: var(--slate-50); border-bottom: 1px solid var(--border-color); color: var(--navy-800);">
+                <tr>
+                  <th style="padding: 1rem 1.25rem;">Role & Company</th>
+                  <th style="padding: 1rem;">Location</th>
+                  <th style="padding: 1rem;">Applied Date</th>
+                  <th style="padding: 1rem;">Stage</th>
+                  <th style="padding: 1rem;">Interview Notes</th>
+                  <th style="padding: 1rem 1.25rem; text-align: right;">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="table-apps-body">
+                <!-- Rendered dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Status / Notes Edit Modal -->
+  <div id="edit-app-modal" class="modal-backdrop">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div>
+          <h3>Update Application Stage</h3>
+          <p id="edit-modal-sub" style="font-size: 0.85rem; color: var(--slate-500);"></p>
+        </div>
+        <button class="modal-close-btn" onclick="CareerApp.closeModal('edit-app-modal')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="edit-app-id">
+        <div class="form-group">
+          <label class="form-label">Recruitment Status</label>
+          <select id="edit-status" class="form-control">
+            <option value="Applied">1. Applied</option>
+            <option value="Screening">2. Screening</option>
+            <option value="Interviewing">3. Interviewing</option>
+            <option value="Offered">4. Offered</option>
+            <option value="Rejected">5. Rejected</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Interview & Preparation Notes</label>
+          <textarea id="edit-notes" class="form-control" rows="4" placeholder="Record interview feedback, recruiter contact, coding challenge deadline..."></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-danger btn-sm" onclick="handleDeleteApp()" style="margin-right: auto;">Delete</button>
+        <button class="btn btn-outline btn-sm" onclick="CareerApp.closeModal('edit-app-modal')">Cancel</button>
+        <button class="btn btn-primary btn-sm" onclick="saveAppStatusEdit()">Save Updates</button>
+      </div>
+    </div>
+  </div>
+
+  <footer id="main-footer"></footer>
+
+  <!-- Firebase SDK v10.8.0 (Compat libraries for pure vanilla JS) -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
+  <script src="js/firebase-config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/recommender.js"></script>
+  <script src="js/algorithms.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    let userApplications = [];
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      CareerApp.initPage('applications');
+
+      const user = CareerAuth.getCurrentUser();
+      if (!user) {
+        window.location.href = 'login.html?redirect=applications.html';
+        return;
+      }
+
+      loadAndRenderApplications();
+    });
+
+    async function loadAndRenderApplications() {
+      const user = CareerAuth.getCurrentUser();
+      userApplications = await CareerDB.getApplications(user.uid);
+      updateStats(userApplications);
+      renderKanban(userApplications);
+      renderTable(userApplications);
+    }
+
+    function updateStats(apps) {
+      const counts = { Applied: 0, Screening: 0, Interviewing: 0, Offered: 0, Rejected: 0 };
+      apps.forEach(a => {
+        counts[a.status] = (counts[a.status] || 0) + 1;
+      });
+
+      document.getElementById('stat-applied').textContent = counts['Applied'];
+      document.getElementById('stat-screening').textContent = counts['Screening'];
+      document.getElementById('stat-interviewing').textContent = counts['Interviewing'];
+      document.getElementById('stat-offered').textContent = counts['Offered'];
+
+      document.getElementById('count-col-applied').textContent = counts['Applied'];
+      document.getElementById('count-col-screening').textContent = counts['Screening'];
+      document.getElementById('count-col-interviewing').textContent = counts['Interviewing'];
+      document.getElementById('count-col-offered').textContent = counts['Offered'];
+      document.getElementById('count-col-rejected').textContent = counts['Rejected'];
+    }
+
+    function renderKanban(apps) {
+      const cols = {
+        'Applied': document.getElementById('col-applied'),
+        'Screening': document.getElementById('col-screening'),
+        'Interviewing': document.getElementById('col-interviewing'),
+        'Offered': document.getElementById('col-offered'),
+        'Rejected': document.getElementById('col-rejected')
+      };
+
+      for (const key in cols) {
+        cols[key].innerHTML = '';
+      }
+
+      apps.forEach(app => {
+        const targetCol = cols[app.status] || cols['Applied'];
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.style.cssText = 'box-shadow: var(--shadow-sm); cursor: pointer; padding: 0.85rem; border-color: var(--slate-200);';
+        card.onclick = () => openEditAppModal(app.id);
+
+        card.innerHTML = `
+          <div style="font-weight: 700; font-size: 0.9rem; color: var(--navy-900); margin-bottom: 0.2rem;">
+            ${app.jobTitle}
+          </div>
+          <div style="font-size: 0.82rem; font-weight: 600; color: var(--blue-600); margin-bottom: 0.4rem;">
+            ${app.company}
+          </div>
+          <div style="font-size: 0.75rem; color: var(--slate-500); margin-bottom: 0.4rem;">
+            📅 ${app.appliedDate}
+          </div>
+          ${app.notes ? `
+            <div style="font-size: 0.78rem; color: var(--slate-600); background: var(--slate-50); padding: 0.35rem 0.5rem; border-radius: 4px; border: 1px solid var(--slate-200); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+              ${app.notes}
+            </div>
+          ` : ''}
+        `;
+        targetCol.appendChild(card);
+      });
+    }
+
+    function renderTable(apps) {
+      const tbody = document.getElementById('table-apps-body');
+      if (apps.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="6" style="padding: 2rem; text-align: center; color: var(--slate-500);">No applications recorded.</td></tr>';
+        return;
+      }
+
+      let html = '';
+      apps.forEach(app => {
+        html += `
+          <tr style="border-bottom: 1px solid var(--slate-100);">
+            <td style="padding: 1rem 1.25rem;">
+              <strong style="color: var(--navy-900);">${app.jobTitle}</strong>
+              <div style="color: var(--blue-600); font-size: 0.82rem;">${app.company}</div>
+            </td>
+            <td style="padding: 1rem; color: var(--slate-600);">${app.location || 'Bangalore, India'}</td>
+            <td style="padding: 1rem; color: var(--slate-600);">${app.appliedDate}</td>
+            <td style="padding: 1rem;">
+              <span class="job-badge-tag">${app.status}</span>
+            </td>
+            <td style="padding: 1rem; color: var(--slate-600); max-width: 250px;">
+              ${app.notes || '<span style="color: var(--slate-400);">No notes</span>'}
+            </td>
+            <td style="padding: 1rem 1.25rem; text-align: right;">
+              <button class="btn btn-outline btn-sm" onclick="openEditAppModal('${app.id}')">Edit</button>
+            </td>
+          </tr>
+        `;
+      });
+      tbody.innerHTML = html;
+    }
+
+    function switchView(viewName) {
+      const kanban = document.getElementById('view-kanban');
+      const table = document.getElementById('view-table');
+      const btnK = document.getElementById('tab-kanban-btn');
+      const btnT = document.getElementById('tab-table-btn');
+
+      if (viewName === 'kanban') {
+        kanban.style.display = 'grid';
+        table.style.display = 'none';
+        btnK.classList.add('active');
+        btnT.classList.remove('active');
+      } else {
+        kanban.style.display = 'none';
+        table.style.display = 'block';
+        btnK.classList.remove('active');
+        btnT.classList.add('active');
+      }
+    }
+
+    function openEditAppModal(appId) {
+      const app = userApplications.find(a => a.id === appId);
+      if (!app) return;
+
+      document.getElementById('edit-app-id').value = app.id;
+      document.getElementById('edit-modal-sub').textContent = `${app.jobTitle} at ${app.company}`;
+      document.getElementById('edit-status').value = app.status;
+      document.getElementById('edit-notes').value = app.notes || '';
+
+      CareerApp.openModal('edit-app-modal');
+    }
+
+    async function saveAppStatusEdit() {
+      const user = CareerAuth.getCurrentUser();
+      if (!user) return;
+
+      const saveBtn = document.querySelector('button[onclick="saveAppStatusEdit()"]');
+      saveBtn.disabled = true;
+      saveBtn.textContent = 'Saving to Firestore...';
+
+      const appId = document.getElementById('edit-app-id').value;
+      const newStatus = document.getElementById('edit-status').value;
+      const notes = document.getElementById('edit-notes').value.trim();
+
+      try {
+        await CareerDB.updateApplicationStatus(user.uid, appId, newStatus, notes);
+        CareerApp.closeModal('edit-app-modal');
+        CareerApp.showToast('Application updated in Cloud Firestore!', 'success');
+        loadAndRenderApplications();
+      } catch (err) {
+        console.error(err);
+        alert(`Failed to update application in Cloud Firestore: ${err.message}`);
+      } finally {
+        saveBtn.disabled = false;
+        saveBtn.textContent = 'Save Updates';
+      }
+    }
+
+    async function handleDeleteApp() {
+      if (confirm('Delete this tracked application permanently from Cloud Firestore?')) {
+        const user = CareerAuth.getCurrentUser();
+        const appId = document.getElementById('edit-app-id').value;
+        try {
+          await CareerDB.deleteApplication(user.uid, appId);
+          CareerApp.closeModal('edit-app-modal');
+          CareerApp.showToast('Application removed from Cloud Firestore', 'info');
+          loadAndRenderApplications();
+        } catch (err) {
+          console.error(err);
+          alert(`Failed to delete application: ${err.message}`);
+        }
+      }
+    }
+
+    function openNewAppModal() {
+      window.location.href = 'jobs.html';
+    }
+  </script>
+</body>
+</html>

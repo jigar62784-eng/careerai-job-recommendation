@@ -1,0 +1,438 @@
+{
+  "title": "CareerAI Skill Dependency & Role Transition Graph",
+  "description": "Multi-track prerequisite and career transition graph for AI PBL algorithmic demonstrations (BFS, DFS, A*).",
+  "heuristicDocumentation": "For A* Search, the heuristic h(n) represents the admissible straight-line distance in the competency coordinate space: h(n) = sqrt((x_goal - x_n)^2 + (y_goal - y_n)^2) * scale_factor, ensuring h(n) <= true cost h*(n) to guarantee admissibility.",
+  "nodes": [
+    {
+      "id": "PROG_BASICS",
+      "label": "Programming Basics",
+      "category": "Foundation",
+      "x": 60,
+      "y": 200,
+      "difficulty": 1,
+      "estimatedWeeks": 2
+    },
+    {
+      "id": "MATH_STATS",
+      "label": "Linear Algebra & Statistics",
+      "category": "Foundation",
+      "x": 60,
+      "y": 320,
+      "difficulty": 2,
+      "estimatedWeeks": 4
+    },
+    {
+      "id": "DSA",
+      "label": "Data Structures & Algorithms",
+      "category": "Foundation",
+      "x": 160,
+      "y": 200,
+      "difficulty": 3,
+      "estimatedWeeks": 6
+    },
+    {
+      "id": "GIT_DEV",
+      "label": "Git & Development Tools",
+      "category": "Foundation",
+      "x": 160,
+      "y": 100,
+      "difficulty": 1,
+      "estimatedWeeks": 1
+    },
+    {
+      "id": "SQL_DB",
+      "label": "SQL & Relational Databases",
+      "category": "Foundation",
+      "x": 160,
+      "y": 320,
+      "difficulty": 2,
+      "estimatedWeeks": 3
+    },
+    {
+      "id": "WEB_HTML_CSS",
+      "label": "HTML5 & Modern CSS3",
+      "category": "Web Dev",
+      "x": 260,
+      "y": 80,
+      "difficulty": 1,
+      "estimatedWeeks": 2
+    },
+    {
+      "id": "JS_CORE",
+      "label": "Modern JavaScript (ES6+)",
+      "category": "Web Dev",
+      "x": 360,
+      "y": 80,
+      "difficulty": 2,
+      "estimatedWeeks": 4
+    },
+    {
+      "id": "REACT_FE",
+      "label": "React & Frontend Architecture",
+      "category": "Web Dev",
+      "x": 480,
+      "y": 60,
+      "difficulty": 3,
+      "estimatedWeeks": 5
+    },
+    {
+      "id": "NODE_BACKEND",
+      "label": "Node.js & Express APIs",
+      "category": "Web Dev",
+      "x": 480,
+      "y": 120,
+      "difficulty": 3,
+      "estimatedWeeks": 5
+    },
+    {
+      "id": "ROLE_FRONTEND",
+      "label": "Role: Frontend Engineer",
+      "category": "Target Role",
+      "x": 620,
+      "y": 60,
+      "difficulty": 4,
+      "estimatedWeeks": 0
+    },
+    {
+      "id": "ROLE_FULLSTACK",
+      "label": "Role: Full Stack Developer",
+      "category": "Target Role",
+      "x": 620,
+      "y": 120,
+      "difficulty": 4,
+      "estimatedWeeks": 0
+    },
+    {
+      "id": "PY_CORE",
+      "label": "Python for Data & AI",
+      "category": "Machine Learning",
+      "x": 260,
+      "y": 240,
+      "difficulty": 2,
+      "estimatedWeeks": 3
+    },
+    {
+      "id": "DATA_ANALYSIS",
+      "label": "Data Analysis (Pandas/NumPy)",
+      "category": "Data Science",
+      "x": 360,
+      "y": 280,
+      "difficulty": 2,
+      "estimatedWeeks": 3
+    },
+    {
+      "id": "ML_CORE",
+      "label": "Classical Machine Learning",
+      "category": "Machine Learning",
+      "x": 460,
+      "y": 240,
+      "difficulty": 3,
+      "estimatedWeeks": 6
+    },
+    {
+      "id": "DEEP_LEARNING",
+      "label": "Deep Learning & PyTorch",
+      "category": "Machine Learning",
+      "x": 560,
+      "y": 240,
+      "difficulty": 4,
+      "estimatedWeeks": 7
+    },
+    {
+      "id": "NLP_TRANSFORMERS",
+      "label": "NLP & Transformers",
+      "category": "Machine Learning",
+      "x": 660,
+      "y": 200,
+      "difficulty": 4,
+      "estimatedWeeks": 5
+    },
+    {
+      "id": "CV_VISION",
+      "label": "Computer Vision & OpenCV",
+      "category": "Machine Learning",
+      "x": 660,
+      "y": 280,
+      "difficulty": 4,
+      "estimatedWeeks": 5
+    },
+    {
+      "id": "ROLE_DATA_SCIENTIST",
+      "label": "Role: Data Scientist",
+      "category": "Target Role",
+      "x": 560,
+      "y": 340,
+      "difficulty": 4,
+      "estimatedWeeks": 0
+    },
+    {
+      "id": "ROLE_AI_ENGINEER",
+      "label": "Role: AI / ML Engineer",
+      "category": "Target Role",
+      "x": 780,
+      "y": 240,
+      "difficulty": 5,
+      "estimatedWeeks": 0
+    },
+    {
+      "id": "LINUX_SHELL",
+      "label": "Linux Systems & Bash",
+      "category": "Cloud & DevOps",
+      "x": 260,
+      "y": 420,
+      "difficulty": 2,
+      "estimatedWeeks": 2
+    },
+    {
+      "id": "DOCKER_CONTAINERS",
+      "label": "Docker & Containerization",
+      "category": "Cloud & DevOps",
+      "x": 380,
+      "y": 420,
+      "difficulty": 3,
+      "estimatedWeeks": 3
+    },
+    {
+      "id": "AWS_CLOUD",
+      "label": "AWS Cloud Infrastructure",
+      "category": "Cloud & DevOps",
+      "x": 500,
+      "y": 420,
+      "difficulty": 3,
+      "estimatedWeeks": 5
+    },
+    {
+      "id": "K8S_ORCHESTRATION",
+      "label": "Kubernetes & CI/CD",
+      "category": "Cloud & DevOps",
+      "x": 620,
+      "y": 420,
+      "difficulty": 4,
+      "estimatedWeeks": 6
+    },
+    {
+      "id": "ROLE_DEVOPS",
+      "label": "Role: DevOps Engineer",
+      "category": "Target Role",
+      "x": 740,
+      "y": 420,
+      "difficulty": 4,
+      "estimatedWeeks": 0
+    },
+    {
+      "id": "MLOPS_PIPELINES",
+      "label": "MLOps & Model Serving",
+      "category": "Machine Learning",
+      "x": 680,
+      "y": 340,
+      "difficulty": 4,
+      "estimatedWeeks": 4
+    }
+  ],
+  "edges": [
+    {
+      "from": "PROG_BASICS",
+      "to": "DSA",
+      "weight": 4,
+      "type": "prerequisite"
+    },
+    {
+      "from": "PROG_BASICS",
+      "to": "PY_CORE",
+      "weight": 2,
+      "type": "prerequisite"
+    },
+    {
+      "from": "PROG_BASICS",
+      "to": "JS_CORE",
+      "weight": 3,
+      "type": "prerequisite"
+    },
+    {
+      "from": "MATH_STATS",
+      "to": "DATA_ANALYSIS",
+      "weight": 3,
+      "type": "prerequisite"
+    },
+    {
+      "from": "MATH_STATS",
+      "to": "ML_CORE",
+      "weight": 5,
+      "type": "prerequisite"
+    },
+    {
+      "from": "DSA",
+      "to": "PY_CORE",
+      "weight": 2,
+      "type": "enhancement"
+    },
+    {
+      "from": "GIT_DEV",
+      "to": "WEB_HTML_CSS",
+      "weight": 1,
+      "type": "enhancement"
+    },
+    {
+      "from": "GIT_DEV",
+      "to": "PY_CORE",
+      "weight": 1,
+      "type": "enhancement"
+    },
+    {
+      "from": "SQL_DB",
+      "to": "DATA_ANALYSIS",
+      "weight": 2,
+      "type": "prerequisite"
+    },
+    {
+      "from": "SQL_DB",
+      "to": "NODE_BACKEND",
+      "weight": 2,
+      "type": "prerequisite"
+    },
+    {
+      "from": "WEB_HTML_CSS",
+      "to": "JS_CORE",
+      "weight": 2,
+      "type": "prerequisite"
+    },
+    {
+      "from": "JS_CORE",
+      "to": "REACT_FE",
+      "weight": 3,
+      "type": "prerequisite"
+    },
+    {
+      "from": "JS_CORE",
+      "to": "NODE_BACKEND",
+      "weight": 3,
+      "type": "prerequisite"
+    },
+    {
+      "from": "REACT_FE",
+      "to": "ROLE_FRONTEND",
+      "weight": 3,
+      "type": "qualification"
+    },
+    {
+      "from": "REACT_FE",
+      "to": "ROLE_FULLSTACK",
+      "weight": 4,
+      "type": "qualification"
+    },
+    {
+      "from": "NODE_BACKEND",
+      "to": "ROLE_FULLSTACK",
+      "weight": 3,
+      "type": "qualification"
+    },
+    {
+      "from": "PY_CORE",
+      "to": "DATA_ANALYSIS",
+      "weight": 2,
+      "type": "prerequisite"
+    },
+    {
+      "from": "DATA_ANALYSIS",
+      "to": "ML_CORE",
+      "weight": 3,
+      "type": "prerequisite"
+    },
+    {
+      "from": "DATA_ANALYSIS",
+      "to": "ROLE_DATA_SCIENTIST",
+      "weight": 4,
+      "type": "qualification"
+    },
+    {
+      "from": "ML_CORE",
+      "to": "ROLE_DATA_SCIENTIST",
+      "weight": 3,
+      "type": "qualification"
+    },
+    {
+      "from": "ML_CORE",
+      "to": "DEEP_LEARNING",
+      "weight": 4,
+      "type": "prerequisite"
+    },
+    {
+      "from": "DEEP_LEARNING",
+      "to": "NLP_TRANSFORMERS",
+      "weight": 4,
+      "type": "specialization"
+    },
+    {
+      "from": "DEEP_LEARNING",
+      "to": "CV_VISION",
+      "weight": 4,
+      "type": "specialization"
+    },
+    {
+      "from": "NLP_TRANSFORMERS",
+      "to": "ROLE_AI_ENGINEER",
+      "weight": 3,
+      "type": "qualification"
+    },
+    {
+      "from": "CV_VISION",
+      "to": "ROLE_AI_ENGINEER",
+      "weight": 3,
+      "type": "qualification"
+    },
+    {
+      "from": "DEEP_LEARNING",
+      "to": "ROLE_AI_ENGINEER",
+      "weight": 4,
+      "type": "qualification"
+    },
+    {
+      "from": "LINUX_SHELL",
+      "to": "DOCKER_CONTAINERS",
+      "weight": 2,
+      "type": "prerequisite"
+    },
+    {
+      "from": "DOCKER_CONTAINERS",
+      "to": "AWS_CLOUD",
+      "weight": 3,
+      "type": "prerequisite"
+    },
+    {
+      "from": "AWS_CLOUD",
+      "to": "K8S_ORCHESTRATION",
+      "weight": 4,
+      "type": "prerequisite"
+    },
+    {
+      "from": "K8S_ORCHESTRATION",
+      "to": "ROLE_DEVOPS",
+      "weight": 3,
+      "type": "qualification"
+    },
+    {
+      "from": "DOCKER_CONTAINERS",
+      "to": "MLOPS_PIPELINES",
+      "weight": 3,
+      "type": "prerequisite"
+    },
+    {
+      "from": "ML_CORE",
+      "to": "MLOPS_PIPELINES",
+      "weight": 3,
+      "type": "prerequisite"
+    },
+    {
+      "from": "MLOPS_PIPELINES",
+      "to": "ROLE_AI_ENGINEER",
+      "weight": 3,
+      "type": "qualification"
+    },
+    {
+      "from": "MLOPS_PIPELINES",
+      "to": "ROLE_DEVOPS",
+      "weight": 3,
+      "type": "qualification"
+    }
+  ]
+}

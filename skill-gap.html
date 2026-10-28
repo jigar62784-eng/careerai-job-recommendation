@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skill-Gap Analysis & Learning Roadmap — CareerAI</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <div id="demo-mode-banner"></div>
+  <header id="main-navbar"></header>
+
+  <main class="main-content">
+    <div class="container" style="max-width: 980px;">
+      
+      <!-- Page Header -->
+      <div style="margin-bottom: 2rem;">
+        <h1 style="font-size: 2rem; margin-bottom: 0.35rem;">Skill-Gap Analysis & AI Learning Path</h1>
+        <p style="font-size: 0.92rem; color: var(--slate-600);">
+          Identify exact technical discrepancies between your current portfolio and target industry roles. Powered by Graph Search (BFS & A*).
+        </p>
+      </div>
+
+      <!-- Target Selection Card -->
+      <div class="card" style="margin-bottom: 2rem;">
+        <div class="card-header">
+          <h3>Select Target Career Goal or Vacancy</h3>
+        </div>
+        <div class="card-body">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+            <div>
+              <label class="form-label">Target Role from Career Graph:</label>
+              <select id="select-graph-role" class="form-control" onchange="onTargetRoleChange()">
+                <option value="ROLE_AI_ENGINEER">Role: AI / ML Engineer</option>
+                <option value="ROLE_DATA_SCIENTIST">Role: Data Scientist</option>
+                <option value="ROLE_FULLSTACK">Role: Full Stack Developer</option>
+                <option value="ROLE_FRONTEND">Role: Frontend Engineer</option>
+                <option value="ROLE_DEVOPS">Role: DevOps Engineer</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="form-label">Or Select Specific Synthetic Vacancy:</label>
+              <select id="select-job-target" class="form-control" onchange="onTargetJobChange()">
+                <option value="">-- Choose from 52 Vacancies --</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skill Gap Comparison Overview -->
+      <div class="card" style="margin-bottom: 2rem;">
+        <div class="card-header">
+          <div>
+            <h3 id="gap-target-title">Target: AI / ML Engineer</h3>
+            <p id="gap-target-sub" style="font-size: 0.85rem; color: var(--slate-500);"></p>
+          </div>
+          <div style="text-align: right;">
+            <div style="font-size: 0.78rem; color: var(--slate-500); text-transform: uppercase; font-weight: 700;">Skill Coverage</div>
+            <div id="gap-coverage-percent" style="font-size: 1.75rem; font-weight: 800; color: var(--blue-600);">0%</div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div style="margin-bottom: 1.5rem;">
+            <div class="progress-container" style="height: 10px;">
+              <div id="gap-progress-bar" class="progress-bar progress-blue" style="width: 0%;"></div>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+            <!-- Left: Current Skills Matched -->
+            <div style="background-color: var(--emerald-50); border: 1px solid var(--emerald-100); border-radius: var(--radius-md); padding: 1.25rem;">
+              <div style="font-size: 0.85rem; font-weight: 700; color: var(--emerald-600); margin-bottom: 0.5rem;">
+                ✓ Acquired Technical Skills (<span id="count-acquired">0</span>)
+              </div>
+              <div id="list-acquired-skills" style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
+                <!-- Chips -->
+              </div>
+            </div>
+
+            <!-- Right: Missing Skills Required -->
+            <div style="background-color: var(--rose-50); border: 1px solid var(--rose-100); border-radius: var(--radius-md); padding: 1.25rem;">
+              <div style="font-size: 0.85rem; font-weight: 700; color: var(--rose-600); margin-bottom: 0.5rem;">
+                ⚠️ Missing Skills to Acquire (<span id="count-missing">0</span>)
+              </div>
+              <div id="list-missing-skills" style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
+                <!-- Chips -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Algorithmic Learning Path (Generated via Graph Search A*) -->
+      <div class="card" style="margin-bottom: 3rem;">
+        <div class="card-header">
+          <div>
+            <h3 style="font-size: 1.2rem;">Generated Skill Prerequisite Roadmap</h3>
+            <p style="font-size: 0.85rem; color: var(--slate-500);">
+              Formulated via A* Heuristic Search to determine the lowest-cost learning trajectory.
+            </p>
+          </div>
+          <a href="algorithm-lab.html" class="btn btn-outline btn-sm">
+            ⚡ Open Step Visualizer in Lab
+          </a>
+        </div>
+        <div class="card-body">
+          <div id="roadmap-timeline-container" style="display: flex; flex-direction: column; gap: 1.25rem;">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer id="main-footer"></footer>
+
+  <!-- Firebase SDK v10.8.0 (Compat libraries for pure vanilla JS) -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
+  <script src="js/firebase-config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/recommender.js"></script>
+  <script src="js/algorithms.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    let studentProfile = null;
+    let allJobs = [];
+    let graphData = null;
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      CareerApp.initPage('skill-gap');
+
+      const user = CareerAuth.getCurrentUser();
+      if (!user) {
+        window.location.href = 'login.html?redirect=skill-gap.html';
+        return;
+      }
+
+      studentProfile = await CareerDB.getUserProfile(user.uid);
+      allJobs = await CareerDB.getJobs();
+
+      // Fetch graph data
+      try {
+        const res = await fetch('data/career-graph.json');
+        if (res.ok) graphData = await res.json();
+      } catch (e) {
+        console.warn('Could not load career graph', e);
+      }
+
+      populateJobDropdown();
+      renderGapAnalysis();
+    });
+
+    function populateJobDropdown() {
+      const select = document.getElementById('select-job-target');
+      allJobs.forEach(j => {
+        const opt = document.createElement('option');
+        opt.value = j.id;
+        opt.textContent = `${j.title} (${j.company})`;
+        select.appendChild(opt);
+      });
+    }
+
+    function onTargetRoleChange() {
+      document.getElementById('select-job-target').value = '';
+      renderGapAnalysis();
+    }
+
+    function onTargetJobChange() {
+      const val = document.getElementById('select-job-target').value;
+      if (val) {
+        renderGapAnalysis();
+      }
+    }
+
+    function renderGapAnalysis() {
+      if (!studentProfile) return;
+
+      const userSkills = (studentProfile.skills || []).map(s => CareerRecommender.normalizeSkill(s));
+      const userSkillSet = new Set(userSkills);
+
+      const targetJobId = document.getElementById('select-job-target').value;
+      let targetName = '';
+      let targetReqSkills = [];
+      let startGraphNode = 'PROG_BASICS';
+      let goalGraphNode = 'ROLE_AI_ENGINEER';
+
+      if (targetJobId) {
+        const job = allJobs.find(j => j.id === targetJobId);
+        targetName = `${job.title} at ${job.company}`;
+        targetReqSkills = (job.requiredSkills || []).map(s => CareerRecommender.normalizeSkill(s));
+        
+        // Map to graph goal node
+        if (job.category.includes('AI') || job.category.includes('Machine')) goalGraphNode = 'ROLE_AI_ENGINEER';
+        else if (job.category.includes('Data')) goalGraphNode = 'ROLE_DATA_SCIENTIST';
+        else if (job.category.includes('DevOps') || job.category.includes('Cloud')) goalGraphNode = 'ROLE_DEVOPS';
+        else if (job.category.includes('Frontend')) goalGraphNode = 'ROLE_FRONTEND';
+        else goalGraphNode = 'ROLE_FULLSTACK';
+      } else {
+        const roleVal = document.getElementById('select-graph-role').value;
+        goalGraphNode = roleVal;
+        
+        if (roleVal === 'ROLE_AI_ENGINEER') {
+          targetName = 'AI & Machine Learning Engineer';
+          targetReqSkills = ['Python', 'Linear Algebra', 'Machine Learning', 'Deep Learning', 'PyTorch', 'Data Structures'];
+        } else if (roleVal === 'ROLE_DATA_SCIENTIST') {
+          targetName = 'Data Scientist';
+          targetReqSkills = ['Python', 'SQL', 'Data Analysis', 'Statistical Modeling', 'Machine Learning'];
+        } else if (roleVal === 'ROLE_FULLSTACK') {
+          targetName = 'Full Stack Developer';
+          targetReqSkills = ['JavaScript', 'HTML5', 'CSS3', 'React', 'Node.js', 'SQL', 'Git'];
+        } else if (roleVal === 'ROLE_FRONTEND') {
+          targetName = 'Frontend Engineer';
+          targetReqSkills = ['JavaScript', 'HTML5', 'CSS3', 'React', 'UI/UX Design', 'Git'];
+        } else {
+          targetName = 'DevOps & Cloud Engineer';
+          targetReqSkills = ['Linux', 'Docker', 'AWS / Cloud Fundamentals', 'Kubernetes', 'CI/CD Pipelines', 'Git'];
+        }
+      }
+
+      document.getElementById('gap-target-title').textContent = `Target: ${targetName}`;
+      document.getElementById('gap-target-sub').textContent = `Comparing against candidate profile: ${studentProfile.fullName} (${userSkills.length} skills listed)`;
+
+      const matched = targetReqSkills.filter(s => userSkillSet.has(s));
+      const missing = targetReqSkills.filter(s => !userSkillSet.has(s));
+      const coverage = targetReqSkills.length > 0 ? Math.round((matched.length / targetReqSkills.length) * 100) : 100;
+
+      document.getElementById('gap-coverage-percent').textContent = `${coverage}%`;
+      document.getElementById('gap-progress-bar').style.width = `${coverage}%`;
+      document.getElementById('count-acquired').textContent = matched.length;
+      document.getElementById('count-missing').textContent = missing.length;
+
+      document.getElementById('list-acquired-skills').innerHTML = matched.length > 0
+        ? matched.map(s => `<span class="skill-pill skill-pill-matched">✓ ${s}</span>`).join('')
+        : '<span style="font-size: 0.82rem; color: var(--slate-500);">No skills overlap yet.</span>';
+
+      document.getElementById('list-missing-skills').innerHTML = missing.length > 0
+        ? missing.map(s => `<span class="skill-pill skill-pill-missing">+ ${s}</span>`).join('')
+        : '<span style="font-size: 0.82rem; color: var(--emerald-600); font-weight: 600;">Full coverage! No missing core skills.</span>';
+
+      renderRoadmap(startGraphNode, goalGraphNode);
+    }
+
+    function renderRoadmap(startNode, goalNode) {
+      const container = document.getElementById('roadmap-timeline-container');
+      if (!graphData) {
+        container.innerHTML = '<div style="color: var(--slate-500); padding: 1.5rem;">Loading graph prerequisite data...</div>';
+        return;
+      }
+
+      // Run A*
+      const astarRes = CareerAlgorithms.runAStar(graphData.nodes, graphData.edges, startNode, goalNode);
+      if (!astarRes.success || !astarRes.pathNodes) {
+        container.innerHTML = '<div style="color: var(--slate-500); padding: 1.5rem;">Direct path not found in transition graph.</div>';
+        return;
+      }
+
+      const userSkills = (studentProfile.skills || []).map(s => CareerRecommender.normalizeSkill(s));
+      const userSkillSet = new Set(userSkills);
+
+      let html = '';
+      astarRes.pathNodes.forEach((node, idx) => {
+        const isGoal = idx === astarRes.pathNodes.length - 1;
+        const normLabel = CareerRecommender.normalizeSkill(node.label);
+        const alreadyHas = userSkillSet.has(normLabel);
+
+        html += `
+          <div style="display: flex; gap: 1rem; align-items: flex-start; position: relative;">
+            <div style="width: 2.25rem; height: 2.25rem; border-radius: 50%; background-color: ${isGoal ? 'var(--blue-600)' : (alreadyHas ? 'var(--emerald-500)' : 'var(--navy-800)')}; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; z-index: 2;">
+              ${alreadyHas ? '✓' : idx + 1}
+            </div>
+
+            <div style="flex: 1; background-color: #ffffff; border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem 1.25rem; box-shadow: var(--shadow-sm);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                <h4 style="font-size: 1.05rem; color: var(--navy-900);">${node.label}</h4>
+                <div style="display: flex; gap: 0.5rem; align-items: center;">
+                  <span class="job-badge-tag">${node.category}</span>
+                  ${alreadyHas ? '<span class="skill-pill skill-pill-matched">Mastered</span>' : `<span class="skill-pill" style="color: var(--blue-600);">Est: ${node.estimatedWeeks} wks</span>`}
+                </div>
+              </div>
+              <div style="font-size: 0.82rem; color: var(--slate-600);">
+                Difficulty: ${'★'.repeat(node.difficulty)}${'☆'.repeat(5 - node.difficulty)} • Prerequisite Step #${idx + 1}
+              </div>
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+    }
+  </script>
+</body>
+</html>

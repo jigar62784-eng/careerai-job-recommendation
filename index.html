@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CareerAI — AI-Based Job Opportunity Recommendation System</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Demo Mode Banner -->
+  <div id="demo-mode-banner"></div>
+
+  <!-- Main Navbar -->
+  <header id="main-navbar"></header>
+
+  <!-- Hero Section -->
+  <main class="main-content" style="padding-top: 3.5rem;">
+    <div class="container">
+      <div style="text-align: center; max-width: 860px; margin: 0 auto 3.5rem;">
+        <div style="display: inline-flex; align-items: center; gap: 0.5rem; background-color: var(--blue-50); border: 1px solid var(--blue-100); color: var(--blue-600); padding: 0.35rem 0.85rem; border-radius: var(--radius-full); font-size: 0.82rem; font-weight: 600; margin-bottom: 1.25rem;">
+          <span>🎓 B.Tech Artificial Intelligence PBL Capstone Project</span>
+        </div>
+        <h1 style="font-size: 3rem; margin-bottom: 1.25rem; color: var(--navy-900); line-height: 1.15;">
+          Intelligent Job Recommendations Built on <span style="color: var(--blue-600)">Mathematical Precision</span>
+        </h1>
+        <p style="font-size: 1.15rem; color: var(--slate-600); margin-bottom: 2rem; max-width: 720px; margin-left: auto; margin-right: auto;">
+          Discover curated career opportunities tailored to your technical skills, projects, and education. Powered by dynamic TF-IDF text similarity, multi-criteria weighted scoring, and demonstrable graph search algorithms (BFS, DFS, A*).
+        </p>
+
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2.5rem;">
+          <a href="jobs.html" class="btn btn-primary btn-lg">
+            🔍 Explore 50+ Job Listings
+          </a>
+          <a href="algorithm-lab.html" class="btn btn-secondary btn-lg">
+            ⚡ Open AI Algorithm Lab
+          </a>
+          <button class="btn btn-outline btn-lg" onclick="window.CareerAuth.loginAsDemoStudent(); window.location.href='dashboard.html';">
+            🚀 1-Click Student Demo Login
+          </button>
+        </div>
+
+        <!-- Academic Disclaimer -->
+        <div style="background-color: #ffffff; border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 0.85rem 1.25rem; font-size: 0.82rem; color: var(--slate-500); display: inline-flex; align-items: center; gap: 0.6rem;">
+          <span>ℹ️</span>
+          <span><strong>Notice:</strong> This application demonstrates AI/PBL algorithms with 52 synthetic job records. Vacancies are demonstration models, not verified real openings.</span>
+        </div>
+      </div>
+
+      <!-- Live Interactive Sample Calculation Card -->
+      <div class="card" style="margin-bottom: 4rem; border: 1px solid var(--blue-100); background: linear-gradient(180deg, #ffffff 0%, var(--slate-50) 100%);">
+        <div class="card-header">
+          <div>
+            <h3 style="font-size: 1.2rem;">Live Recommendation Engine Simulation</h3>
+            <p style="font-size: 0.85rem; color: var(--slate-500);">Dynamic evaluation of a B.Tech candidate profile against a real synthetic vacancy</p>
+          </div>
+          <span class="match-score-badge match-high" id="sample-match-badge">86.8% Match Score</span>
+        </div>
+        <div class="card-body">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+            <div>
+              <h4 style="font-size: 0.95rem; margin-bottom: 0.75rem; color: var(--navy-800);">Candidate Profile Inputs:</h4>
+              <ul style="list-style: none; font-size: 0.85rem; color: var(--slate-600); line-height: 1.8;">
+                <li>🎓 <strong>Education:</strong> B.Tech in Artificial Intelligence (2026)</li>
+                <li>💼 <strong>Experience:</strong> 0.5 Years (ML Research Intern)</li>
+                <li>🎯 <strong>Target Role:</strong> Junior AI Engineer</li>
+                <li>📍 <strong>Preference:</strong> Hybrid / Remote (Bangalore)</li>
+                <li>🛠️ <strong>Skills:</strong> Python, PyTorch, Scikit-Learn, Git, NumPy, SQL</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 style="font-size: 0.95rem; margin-bottom: 0.75rem; color: var(--navy-800);">Target Job: Junior AI Engineer (NeuralCraft Labs)</h4>
+              <div class="breakdown-row">
+                <span>Technical Skills (50% weight):</span>
+                <span style="font-weight: 700; color: var(--emerald-600);">74% Match</span>
+              </div>
+              <div class="breakdown-row">
+                <span>Academic Degree (15% weight):</span>
+                <span style="font-weight: 700; color: var(--emerald-600);">100% Match (B.Tech)</span>
+              </div>
+              <div class="breakdown-row">
+                <span>Experience Level (15% weight):</span>
+                <span style="font-weight: 700; color: var(--emerald-600);">100% (Entry-level)</span>
+              </div>
+              <div class="breakdown-row">
+                <span>Role Alignment (10% weight):</span>
+                <span style="font-weight: 700; color: var(--emerald-600);">100% Exact Title</span>
+              </div>
+              <div class="breakdown-row">
+                <span>Location & Mode (10% weight):</span>
+                <span style="font-weight: 700; color: var(--emerald-600);">100% (Hybrid/Bangalore)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Core Features Grid -->
+      <div style="margin-bottom: 4rem;">
+        <h2 style="text-align: center; margin-bottom: 2.5rem; font-size: 2rem;">Core Engineering Modules</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+          <!-- Card 1 -->
+          <div class="card">
+            <div class="card-body">
+              <div class="metric-icon-box metric-icon-blue" style="margin-bottom: 1.25rem;">📊</div>
+              <h3 style="margin-bottom: 0.5rem; font-size: 1.2rem;">TF-IDF & Cosine Similarity</h3>
+              <p style="font-size: 0.88rem; color: var(--slate-600); margin-bottom: 1rem;">
+                Mathematical term-frequency inverse-document-frequency vectorization maps project descriptions and candidate portfolios against job requirements in multi-dimensional space.
+              </p>
+              <a href="about.html#tfidf" style="font-size: 0.85rem; font-weight: 600;">View Mathematical Formulation &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="card">
+            <div class="card-body">
+              <div class="metric-icon-box metric-icon-emerald" style="margin-bottom: 1.25rem;">🔍</div>
+              <h3 style="margin-bottom: 0.5rem; font-size: 1.2rem;">Multi-Criteria Scoring Engine</h3>
+              <p style="font-size: 0.88rem; color: var(--slate-600); margin-bottom: 1rem;">
+                Configurable weighted scoring balances Skills (50%), Education (15%), Experience (15%), Role (10%), and Preferences (10%) with 100% transparent explanations.
+              </p>
+              <a href="recommendations.html" style="font-size: 0.85rem; font-weight: 600;">Tune Weights & Test Recommendations &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="card">
+            <div class="card-body">
+              <div class="metric-icon-box metric-icon-cyan" style="margin-bottom: 1.25rem;">⚡</div>
+              <h3 style="margin-bottom: 0.5rem; font-size: 1.2rem;">Graph Search Lab (BFS, DFS, A*)</h3>
+              <p style="font-size: 0.88rem; color: var(--slate-600); margin-bottom: 1rem;">
+                Interactive demonstration of Breadth-First Search, Depth-First Search, and A* Search with admissible Euclidean distance heuristics on skill prerequisite graphs.
+              </p>
+              <a href="algorithm-lab.html" style="font-size: 0.85rem; font-weight: 600;">Run Step-by-Step Algorithm Lab &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="card">
+            <div class="card-body">
+              <div class="metric-icon-box metric-icon-amber" style="margin-bottom: 1.25rem;">🛡️</div>
+              <h3 style="margin-bottom: 0.5rem; font-size: 1.2rem;">Constraint-Based Job Filtering</h3>
+              <p style="font-size: 0.88rem; color: var(--slate-600); margin-bottom: 1rem;">
+                Forward-checking consistency solver strictly verifies educational degrees, maximum allowed experience, work modes, and salary thresholds without bias.
+              </p>
+              <a href="algorithm-lab.html#csp" style="font-size: 0.85rem; font-weight: 600;">Inspect Constraint Solver &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Fast Action Banner -->
+      <div style="background-color: var(--navy-900); color: #ffffff; border-radius: var(--radius-lg); padding: 3rem 2rem; text-align: center;">
+        <h2 style="color: #ffffff; margin-bottom: 1rem; font-size: 2rem;">Ready to Test CareerAI?</h2>
+        <p style="color: var(--slate-300); max-width: 600px; margin: 0 auto 2rem; font-size: 1rem;">
+          No registration or setup required for testing. Click below to instantly launch the demo student dashboard with pre-calculated AI recommendations.
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <button class="btn btn-primary btn-lg" onclick="window.CareerAuth.loginAsDemoStudent(); window.location.href='dashboard.html';">
+            Student Demo Experience
+          </button>
+          <button class="btn btn-outline btn-lg" style="color: #ffffff; border-color: rgba(255,255,255,0.3);" onclick="window.CareerAuth.loginAsDemoAdmin(); window.location.href='admin.html';">
+            Faculty / Admin Demo
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Main Footer -->
+  <footer id="main-footer"></footer>
+
+  <!-- Firebase SDK v10.8.0 (Compat libraries for pure vanilla JS) -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
+  <!-- Scripts -->
+  <script src="js/firebase-config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/recommender.js"></script>
+  <script src="js/algorithms.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      CareerApp.initPage('home');
+    });
+  </script>
+</body>
+</html>
